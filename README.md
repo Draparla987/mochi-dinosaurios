@@ -2,7 +2,7 @@
 
 Juegos para descubrir los dinosaurios con Mochi, para niños y niñas de 5 a 9 años: reconocer 36 dinosaurios por su nombre y su sombra, memory, qué significa su nombre, qué comían, para qué servían sus cuernos y crestas, lo largos que eran, cuáles no eran dinosaurios (¡las aves sí lo son!) y verdadero o falso, con los mitos de las películas. Cada acierto da un cromo para «Mi dinopedia».
 
-Al conseguir el trofeo de «Cómo eran» se abre el huevo de **Paleontólogos**: excavar fósiles quitando la arena con el dedo, montar esqueletos como un puzzle, leer huellas (quién las dejó, hacia dónde iba, si corría o iba en manada) y el trabajo del paleontólogo, hasta cómo se forma un fósil.
+Al conseguir el trofeo de «Cómo eran» se abre el huevo de **Paleontólogos**: excavar fósiles y juntar pistas para deducir quién vivía allí, leer las capas de la Tierra, montar esqueletos y encontrar la pieza que un museo puso mal, leer huellas (quién las dejó, quién perseguía a quién, quién pasó antes) y calcular la altura de un dinosaurio por su huella. Cada jugador elige su dinosaurio.
 
 Todo se escucha con la voz de Mochi, así que se puede jugar sin leer bien.
 
