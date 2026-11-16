@@ -1054,6 +1054,10 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
 .int-cell{cursor:pointer; -webkit-tap-highlight-color:transparent}
 .int-cell.mala{box-shadow:inset 0 0 0 5px #E8453C; z-index:1; animation:pulse .5s}
 .int-side{display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center; width:100%}
+
+/* modo oscuro: la sección de los huevos con fondo oscuro y texto claro (antes, texto claro sobre arena) */
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .pronto{background:linear-gradient(180deg,color-mix(in srgb,#8A6A34 32%,var(--card)),color-mix(in srgb,#6E5228 30%,var(--card)))} }
+:root[data-theme="dark"] .pronto{background:linear-gradient(180deg,color-mix(in srgb,#8A6A34 32%,var(--card)),color-mix(in srgb,#6E5228 30%,var(--card)))}
 </style>
 </head>
 <body>
@@ -2424,19 +2428,27 @@ function seqBtn(lines){const b=h('button',{class:'say','aria-label':'Escuchar',o
 /* ---------- monta el esqueleto: puzzle (como el de Mochila de 2º) ---------- */
 const PBUILD={1:{g:3,ghost:true,rot:false},2:{g:4,ghost:false,rot:false},3:{g:4,ghost:false,rot:true}};
 const PDECK={1:deck(PESQ[1]),2:deck(PESQ[2]),3:deck(PESQ[3])};
-/* huella de cada pieza: color medio de sus cuatro cuartos (sirve para que dos piezas que se ven iguales, de roca lisa, valgan las dos) */
-function esqSig(img,G){
-  const S=G*16,c=document.createElement('canvas');c.width=c.height=S;const x=c.getContext('2d');x.drawImage(img,0,0,S,S);
+/* cómo se ve cada pieza: una rejilla de 10×10 brillos (sin su brillo medio, para que no cuente la luz de la losa),
+   cuánto dibujo tiene (rough: la roca lisa da 2–5; con hueso, 9 o más) y su brillo medio */
+function esqLook(img,G){
+  const P=40,S=G*P,c=document.createElement('canvas');c.width=c.height=S;const x=c.getContext('2d');x.drawImage(img,0,0,S,S);
   const d=x.getImageData(0,0,S,S).data,out=[];
-  for(let t=0;t<G*G;t++){const tx=(t%G)*16,ty=Math.floor(t/G)*16,s=[];
-    for(const [qx,qy] of [[0,0],[8,0],[0,8],[8,8]]){let r=0,g=0,b=0;
-      for(let yy=0;yy<8;yy++)for(let xx=0;xx<8;xx++){const i=((ty+qy+yy)*S+tx+qx+xx)*4;r+=d[i];g+=d[i+1];b+=d[i+2];}
-      s.push(r/64,g/64,b/64);}
-    out.push(s);}
+  for(let t=0;t<G*G;t++){const tx=(t%G)*P,ty=Math.floor(t/G)*P,g=[];
+    for(let by=0;by<10;by++)for(let bx=0;bx<10;bx++){let s=0;
+      for(let yy=0;yy<4;yy++)for(let xx=0;xx<4;xx++){const i=((ty+by*4+yy)*S+tx+bx*4+xx)*4;s+=.3*d[i]+.59*d[i+1]+.11*d[i+2];}
+      g.push(s/16);}
+    const m=g.reduce((a,b)=>a+b)/g.length,gg=g.map(v=>v-m);
+    out.push({g:gg,m,rough:gg.reduce((a,v)=>a+Math.abs(v),0)/gg.length});}
   return out;
 }
-const esqRot=(s,k)=>{let q=[s.slice(0,3),s.slice(3,6),s.slice(6,9),s.slice(9,12)];for(let i=0;i<((k%4)+4)%4;i++)q=[q[2],q[0],q[3],q[1]];return q.flat();};
-const esqDist=(a,b)=>a.reduce((t,x,i)=>t+Math.abs(x-b[i]),0)/12;
+const lookDist=(a,b)=>a.g.reduce((s,v,i)=>s+Math.abs(v-b.g[i]),0)/a.g.length;
+/* grupos de piezas que se ven iguales (roca lisa): cualquiera de un grupo vale en el hueco de otra del mismo grupo.
+   Se juntan con «unión de conjuntos» para que el puzzle siempre se pueda terminar. */
+function esqGroups(look){
+  const n=look.length,p=[...Array(n).keys()],f=i=>p[i]===i?i:(p[i]=f(p[i]));
+  for(let a=0;a<n;a++)for(let b=a+1;b<n;b++) if(look[a].rough<=6&&look[b].rough<=6&&lookDist(look[a],look[b])<=6) p[f(a)]=f(b);
+  return [...Array(n).keys()].map(f);
+}
 function esqFace(src,G,i,j){return h('span',{class:'pz-face',style:`background-image:url(${src});background-size:${G*100}% ${G*100}%;background-position:${i/(G-1)*100}% ${j/(G-1)*100}%`});}
 
 defGame({id:'esqueleto',subject:'paleo',icon:'🧩',title:'Monta el esqueleto',desc:'Coloca las piezas y descubre de quién es. Nivel 2: 16 piezas · Nivel 3: el museo se ha equivocado, ¡encuentra la pieza que no es!',
@@ -2445,10 +2457,9 @@ defGame({id:'esqueleto',subject:'paleo',icon:'🧩',title:'Monta el esqueleto',d
     const L=run.lvl||1,{g:G,ghost,rot:ROT}=PBUILD[L],N=G*G,d=DK[PDECK[L]()],src=esqImg(d.k);
     const timers=[];const later=(f,ms)=>timers.push(setTimeout(f,ms));
     cleanup=()=>{timers.forEach(clearTimeout);document.querySelectorAll('.pz-drag').forEach(x=>x.remove());};
-    let sig=null,mistakes=0,placedN=0,sel=null,done=false,turnedMsg=0,hints=0;
-    const im=new Image();im.src=src;(im.decode?im.decode():Promise.resolve()).then(()=>{try{sig=esqSig(im,G);}catch(e){sig=null;}}).catch(()=>{});
-    const looks=(t,r)=>sig?esqRot(sig[t],r):null;
-    const same=(t,r,k)=>sig?esqDist(looks(t,r),sig[k])<8:(t===k&&r===0);
+    let grp=null,mistakes=0,placedN=0,sel=null,done=false,turnedMsg=0,hints=0;
+    loadImg(src).then(im=>{try{grp=esqGroups(esqLook(im,G));}catch(e){grp=null;}}).catch(()=>{});
+    const same=(t,r,k)=>r===0&&(t===k||!!(grp&&grp[t]===grp[k]));   // su hueco, o el de otra pieza de roca igual
     const filled=Array(N).fill(false);
     const grid=h('div',{class:'pz-cells',style:`grid-template-columns:repeat(${G},1fr)`});
     const cellEls=Array.from({length:N},(_,k)=>h('button',{class:'pz-cell','aria-label':'Hueco '+(k+1),onclick:()=>{if(sel&&!filled[k])tryPlace(sel,k);}}));
@@ -2457,13 +2468,12 @@ defGame({id:'esqueleto',subject:'paleo',icon:'🧩',title:'Monta el esqueleto',d
     const pieces=shuffle([...Array(N).keys()]).map((t,i)=>{
       const face=esqFace(src,G,t%G,Math.floor(t/G));
       const pc={t,r:0,face,placed:false,el:h('button',{class:'pz-piece','aria-label':'Pieza '+(i+1)},face)};drag(pc);return pc;});
-    if(ROT) later(()=>{pieces.forEach(pc=>{if(Math.random()<.7){const ok=[1,2,3].filter(k=>sig&&esqDist(looks(pc.t,k),sig[pc.t])>=18);if(ok.length){pc.r=pick(ok);pc.face.style.transform=`rotate(${pc.r*90}deg)`;}}});},250);
     const tray=h('div',{class:'pz-tray g'+G,style:`--cols:${G}`},pieces.map(pc=>pc.el));
     const hover=k=>cellEls.forEach((c,j)=>c.classList.toggle('over',j===k&&!filled[j]));
     const dropCell=(pc,gr)=>{const r=grid.getBoundingClientRect(),s=r.width/G;let best=null,bo=0,right=null,ro=0;
       for(let k=0;k<N;k++){if(filled[k])continue;const x=r.left+(k%G)*s,y=r.top+Math.floor(k/G)*s;
         const ov=Math.max(0,Math.min(gr.right,x+s)-Math.max(gr.left,x))*Math.max(0,Math.min(gr.bottom,y+s)-Math.max(gr.top,y))/(s*s);
-        if(ov>bo){bo=ov;best=k;} if((k===pc.t&&pc.r===0||same(pc.t,pc.r,k))&&ov>ro){ro=ov;right=k;}}
+        if(ov>bo){bo=ov;best=k;} if(same(pc.t,pc.r,k)&&ov>ro){ro=ov;right=k;}}
       return right!=null&&ro>=.25?right:bo>=.4?best:null;};
     function select(pc){if(sel)sel.el.classList.remove('sel');sel=pc;if(pc)pc.el.classList.add('sel');board.classList.toggle('picking',!!pc);}
     function tapPiece(pc){
@@ -2492,7 +2502,7 @@ defGame({id:'esqueleto',subject:'paleo',icon:'🧩',title:'Monta el esqueleto',d
     }
     function tryPlace(pc,k){
       if(done||pc.placed||filled[k]) return;
-      if((pc.t===k&&pc.r===0)||same(pc.t,pc.r,k)){
+      if(same(pc.t,pc.r,k)){
         filled[k]=true; pc.placed=true; placedN++; select(null); pc.el.classList.add('gone'); pc.el.disabled=true;
         cellEls[k].classList.add('filled'); cellEls[k].append(esqFace(src,G,k%G,Math.floor(k/G))); sfx.pop(); burst(cellEls[k]);
         ctx.meter(placedN/N,0); if(placedN===N) win(); return;
@@ -2513,7 +2523,8 @@ defGame({id:'esqueleto',subject:'paleo',icon:'🧩',title:'Monta el esqueleto',d
     const say=ROT?PSAY.buildRot:PSAY.build;
     const hintB=h('button',{class:'btn ghost',onclick:()=>{if(done)return;const left=pieces.filter(pc=>!pc.placed);if(!left.length)return;
       const pc=sel&&!sel.placed?sel:pick(left);hints++;sfx.pop();select(pc);pc.el.scrollIntoView({block:'nearest'});
-      cellEls.forEach(c=>c.classList.remove('hint'));cellEls[pc.t].classList.add('hint');later(()=>cellEls[pc.t].classList.remove('hint'),2600);}},'💡 Pista');
+      const k=!filled[pc.t]?pc.t:cellEls.findIndex((c,j)=>!filled[j]&&same(pc.t,0,j));   // un hueco libre donde encaja
+      cellEls.forEach(c=>c.classList.remove('hint'));if(k<0) return;cellEls[k].classList.add('hint');later(()=>cellEls[k].classList.remove('hint'),2600);}},'💡 Pista');
     stage.append(h('div',{class:'pz-wrap build'},h('div',{class:'pz-main'},h('div',{class:'with-say'},h('div',{class:'q-prompt'},ROT?'Gira y coloca las piezas':'Coloca las piezas del esqueleto'),sayBtn(say)),board,hintB),tray));
     instr(say);
   }});
@@ -2535,18 +2546,19 @@ function intruso(stage,run,ctx){
   async function ronda(){
     if(RUN!==run) return;
     const a=DK[INT_DECK()],b=DK[pick(all.filter(k=>INT_GRP[k]!==INT_GRP[a.k]))];   // de un dinosaurio con otra forma de cuerpo
-    let t=5;
-    try{const [ia,ib]=await Promise.all([loadImg(esqImg(a.k)),loadImg(esqImg(b.k))]);const sa=esqSig(ia,G),sb=esqSig(ib,G);
-      const con=s=>{const L=[0,3,6,9].map(i=>(s[i]+s[i+1]+s[i+2])/3);return Math.max(...L)-Math.min(...L);};   // cuánto hueso hay (contraste)
-      let best=-1;for(const k of [1,2,4,5,6,7,8,9,10,11,13,14]){if(con(sb[k])<12) continue;   // la pieza mala tiene que tener huesos
-        const v=esqDist(sa[k],sb[k])+con(sb[k])*.5+(con(sa[k])>12?10:0);if(v>best){best=v;t=k;}}}catch(e){}
+    let t=5,tono=1;
+    try{const [ia,ib]=await Promise.all([loadImg(esqImg(a.k)),loadImg(esqImg(b.k))]);const la=esqLook(ia,G),lb=esqLook(ib,G);
+      let best=-1;for(const k of [1,2,4,5,6,7,8,9,10,11,13,14]){if(lb[k].rough<9) continue;   // la pieza mala tiene que tener huesos
+        const v=lookDist(la[k],lb[k])+(la[k].rough>=9?6:0);if(v>best){best=v;t=k;}}   // la que más cambia el esqueleto
+      const roca=l=>{const p=l.filter(x=>x.rough<=6).map(x=>x.m).sort((x,y)=>x-y);return p.length?p[p.length>>1]:l[0].m;};
+      tono=roca(la)/roca(lb);}catch(e){}   // mismo tono de roca: que la delaten los huesos, no el color
     if(RUN!==run) return;
     let found=false;
     const tiles=Array.from({length:G*G},(_,k)=>{const el=h('button',{class:'pz-cell filled int-cell','aria-label':'Pieza '+(k+1),onclick:()=>{
         if(found) return;
         if(k===t){found=true;el.classList.add('mala');sfx.ok();burst(el);paso2();}
         else{errs++;sfx.ko();el.classList.remove('nope');void el.offsetWidth;el.classList.add('nope');showToast('Esa no',PSAY.intrusoNo);if(DB.sound)speak(PSAY.intrusoNo);}}},
-      esqFace(esqImg(k===t?b.k:a.k),G,k%G,Math.floor(k/G)));return el;});
+      (()=>{const f=esqFace(esqImg(k===t?b.k:a.k),G,k%G,Math.floor(k/G));if(k===t&&Math.abs(tono-1)>.01)f.style.filter=`brightness(${tono.toFixed(3)})`;return f;})());return el;});
     const board=h('div',{class:'pz-board build esq-board int-board',style:'--ar:1'},h('div',{class:'pz-cells',style:`grid-template-columns:repeat(${G},1fr)`},tiles));
     const side=h('div',{class:'int-side'},h('div',{class:'with-say'},h('div',{class:'q-prompt'},'Una pieza es de otro dinosaurio: ¡encuéntrala!'),sayBtn(PSAY.intruso)),
       h('p',{class:'q-note'},`Esqueleto ${r+1} de ${ROUNDS}`));
