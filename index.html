@@ -985,7 +985,7 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
 .dig-opts.wait{visibility:hidden}
 /* Monta el esqueleto */
 .esq-board .pz-cells{background:#C79E68}
-.esq-done{display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center; animation:popin .5s cubic-bezier(.3,1.6,.5,1)}
+.esq-done{display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center; scroll-margin-bottom:24px; animation:popin .5s cubic-bezier(.3,1.6,.5,1)}
 /* Sigue las huellas */
 .huella-big{width:clamp(150px,26vw,220px)}
 .barro{position:relative; width:min(100%,640px); aspect-ratio:16/9; border-radius:24px; overflow:hidden; margin:0 auto;
@@ -1053,11 +1053,20 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
 /* el museo se ha equivocado */
 .int-cell{cursor:pointer; -webkit-tap-highlight-color:transparent}
 .int-cell.mala{box-shadow:inset 0 0 0 5px #E8453C; z-index:1; animation:pulse .5s}
-.int-side{display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center; width:100%}
+.int-side{display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center; width:100%; scroll-margin-bottom:24px}
 
 /* modo oscuro: la sección de los huevos con fondo oscuro y texto claro (antes, texto claro sobre arena) */
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .pronto{background:linear-gradient(180deg,color-mix(in srgb,#8A6A34 32%,var(--card)),color-mix(in srgb,#6E5228 30%,var(--card)))} }
 :root[data-theme="dark"] .pronto{background:linear-gradient(180deg,color-mix(in srgb,#8A6A34 32%,var(--card)),color-mix(in srgb,#6E5228 30%,var(--card)))}
+
+/* Monta el esqueleto, pantalla alta y estrecha (iPad en vertical, ventana del ordenador): tablero y piezas a la vista a la vez */
+@media (max-aspect-ratio:1/1) and (min-width:600px){
+  .pz-wrap.build .pz-board.esq-board.g3{width:min(100%,560px,calc(100vh - 580px))}
+}
+/* … y en una ventana de ordenador baja y ancha: el tablero algo más pequeño para que la pista quepa debajo */
+@media (min-aspect-ratio:1/1) and (max-height:760px){
+  .pz-wrap.build .pz-board.esq-board{width:min(100%,520px,calc(100vh - 315px))}
+}
 </style>
 </head>
 <body>
@@ -2464,7 +2473,7 @@ defGame({id:'esqueleto',subject:'paleo',icon:'🧩',title:'Monta el esqueleto',d
     const grid=h('div',{class:'pz-cells',style:`grid-template-columns:repeat(${G},1fr)`});
     const cellEls=Array.from({length:N},(_,k)=>h('button',{class:'pz-cell','aria-label':'Hueco '+(k+1),onclick:()=>{if(sel&&!filled[k])tryPlace(sel,k);}}));
     grid.append(...cellEls);
-    const board=h('div',{class:'pz-board build esq-board'+(ghost?' ghost':''),style:`--ar:1;--pz:url(${src})`},grid);
+    const board=h('div',{class:`pz-board build esq-board g${G}`+(ghost?' ghost':''),style:`--ar:1;--pz:url(${src})`},grid);
     const pieces=shuffle([...Array(N).keys()]).map((t,i)=>{
       const face=esqFace(src,G,t%G,Math.floor(t/G));
       const pc={t,r:0,face,placed:false,el:h('button',{class:'pz-piece','aria-label':'Pieza '+(i+1)},face)};drag(pc);return pc;});
@@ -2516,7 +2525,9 @@ defGame({id:'esqueleto',subject:'paleo',icon:'🧩',title:'Monta el esqueleto',d
       board.classList.add('solved'); sfx.win(); confetti(); unlockDino(d.k);
       const say=[PSAY.built,esqSay(d),ESQ_PISTA[d.k]];
       const go=h('button',{class:'btn big',style:'--c:var(--paleo)',onclick:()=>{sfx.pop();stopVoice();ctx.finish(st,`Has montado el esqueleto del ${d.n} ${mistakes?`con ${mistakes} ${mistakes===1?'fallo':'fallos'}`:'sin ningún fallo'}.`);}},'¡Seguir! ▶');
-      tray.replaceWith(h('div',{class:'esq-done'},dimg(d,'big'),h('div',{class:'with-say'},h('div',{class:'q-prompt'},`Es el ${d.n}`),seqBtn(say)),go));
+      const hecho=h('div',{class:'esq-done'},dimg(d,'big'),h('div',{class:'with-say'},h('div',{class:'q-prompt'},`Es el ${d.n}`),seqBtn(say)),go);
+      tray.replaceWith(hecho);
+      later(()=>{if(hecho.isConnected) hecho.scrollIntoView({behavior:reduced?'auto':'smooth',block:'nearest'});},450);   // que se vea «¡Seguir!» aunque la pantalla sea alta y estrecha
       if(DB.sound) later(()=>speakSeq(say),600);
     }
     run.data.solve=()=>{pieces.forEach(pc=>{pc.r=0;pc.face.style.transform='';tryPlace(pc,pc.t);});};   // para las pruebas
@@ -2563,6 +2574,7 @@ function intruso(stage,run,ctx){
     const side=h('div',{class:'int-side'},h('div',{class:'with-say'},h('div',{class:'q-prompt'},'Una pieza es de otro dinosaurio: ¡encuéntrala!'),sayBtn(PSAY.intruso)),
       h('p',{class:'q-note'},`Esqueleto ${r+1} de ${ROUNDS}`));
     area.replaceChildren(h('div',{class:'pz-wrap build'},h('div',{class:'pz-main'},board),side));
+    if(scrollY>0) scrollTo({top:0,behavior:reduced?'auto':'smooth'});   // el esqueleto nuevo, a la vista
     instr(PSAY.intruso);
     function paso2(){
       const others=pickN(all.filter(k=>k!==a.k&&k!==b.k),2).map(k=>DK[k]);
@@ -2574,6 +2586,7 @@ function intruso(stage,run,ctx){
         qline('¿Y de quién es el esqueleto?',PSAY.esq2),
         choices(shuffle([a,...others]).map(x=>({value:x.k,label:[dimg(x),vh(x.n)]})),a.k,stub,{cls:'dinos'}));
       if(DB.sound) speakSeq([PSAY.intrusoOk,PSAY.esq2]);
+      later(()=>{if(side.isConnected) side.scrollIntoView({behavior:reduced?'auto':'smooth',block:'nearest'});},300);   // la pregunta sale debajo: que se vea
     }
   }
   ronda();
