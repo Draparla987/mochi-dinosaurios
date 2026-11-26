@@ -16,6 +16,7 @@
 <meta name="apple-mobile-web-app-title" content="Mochi Dinos">
 <style>
 /* tras cada regla con color-mix va su respaldo para navegadores antiguos (mochi-motor/tools/cssfallback.py) */
+[hidden]{display:none!important}
 @font-face{
   font-family: 'Andika';
   font-style: normal;
@@ -133,7 +134,7 @@ body::before{content:""; position:fixed; inset:0; z-index:-1; pointer-events:non
     radial-gradient(60px 34px at 12% 14%,var(--cloud) 98%,transparent),radial-gradient(44px 30px at 16% 11%,var(--cloud) 98%,transparent),
     radial-gradient(80px 40px at 84% 22%,var(--cloud) 98%,transparent),radial-gradient(52px 34px at 89% 18%,var(--cloud) 98%,transparent),
     radial-gradient(70px 36px at 60% 8%,var(--cloud) 98%,transparent),
-    radial-gradient(900px 260px at 50% 112%,transparent 60%,transparent 61%)}}
+    radial-gradient(900px 260px at 50% 112%,var(--verde) 60%,transparent 61%)}}
 input{-webkit-user-select:text; user-select:text}
 button{font:inherit; color:inherit; cursor:pointer; touch-action:manipulation}
 button:focus-visible,input:focus-visible,summary:focus-visible{outline:4px solid var(--azul); outline-offset:3px}
@@ -153,7 +154,7 @@ h1,h2,h3{font-family:var(--f-display); line-height:1.08; margin:0; text-wrap:bal
 .btn{--c:var(--azul); display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:64px; padding:10px 30px; border:0; border-radius:22px;
   background:linear-gradient(180deg,color-mix(in srgb,var(--c) 78%,#fff),var(--c)); color:var(--on-c); font-family:var(--f-display); font-weight:800; font-size:1.4rem;
   text-shadow:0 2px 0 rgba(0,0,0,.15); box-shadow:inset 0 -6px 0 color-mix(in srgb,var(--c) 70%,#000),inset 0 3px 0 rgba(255,255,255,.35),0 8px 18px color-mix(in srgb,var(--c) 35%,transparent); transition:transform .08s}
-@supports not (color:color-mix(in srgb,red 50%,blue)){.btn{background:linear-gradient(180deg,var(--c),var(--c));box-shadow:inset 0 -6px 0 var(--c),inset 0 3px 0 rgba(255,255,255,.35),0 8px 18px transparent}}
+@supports not (color:color-mix(in srgb,red 50%,blue)){.btn{background:linear-gradient(180deg,var(--c),var(--c));box-shadow:inset 0 -6px 0 var(--c),inset 0 3px 0 rgba(255,255,255,.35),0 8px 18px var(--c)}}
 .btn:active{transform:translateY(3px) scale(.98)}
 .btn.ghost{background:var(--card); color:var(--ink); text-shadow:none; box-shadow:inset 0 -5px 0 var(--line),0 6px 14px var(--shadow)}
 .btn.big{min-height:76px; font-size:1.65rem; padding-inline:40px}
@@ -178,7 +179,7 @@ h1,h2,h3{font-family:var(--f-display); line-height:1.08; margin:0; text-wrap:bal
   background:linear-gradient(160deg,color-mix(in srgb,var(--c) 72%,#fff) 0%,var(--c) 62%);
   box-shadow:inset 0 -9px 0 color-mix(in srgb,var(--c) 68%,#000),inset 0 4px 0 rgba(255,255,255,.35),0 14px 26px color-mix(in srgb,var(--c) 35%,transparent);
   display:flex; flex-direction:column; gap:6px; transition:transform .12s}
-@supports not (color:color-mix(in srgb,red 50%,blue)){.subj{background:linear-gradient(160deg,var(--c) 0%,var(--c) 62%);box-shadow:inset 0 -9px 0 var(--c),inset 0 4px 0 rgba(255,255,255,.35),0 14px 26px transparent}}
+@supports not (color:color-mix(in srgb,red 50%,blue)){.subj{background:linear-gradient(160deg,var(--c) 0%,var(--c) 62%);box-shadow:inset 0 -9px 0 var(--c),inset 0 4px 0 rgba(255,255,255,.35),0 14px 26px var(--c)}}
 .subj:active{transform:scale(.97) translateY(3px)}
 .subj-img{position:absolute; right:-8px; top:-30px; width:150px; height:150px; object-fit:contain; filter:drop-shadow(0 8px 6px rgba(0,0,0,.18)); transition:transform .25s}
 .subj:hover .subj-img{transform:rotate(-6deg) scale(1.05)}
@@ -222,7 +223,7 @@ h1,h2,h3{font-family:var(--f-display); line-height:1.08; margin:0; text-wrap:bal
 .families p{max-width:72ch; color:var(--ink-soft)}
 .banner{--c:var(--azul); position:relative; display:flex; align-items:center; gap:16px; min-height:150px; padding:20px 170px 20px 20px; margin:6px 0 24px; border-radius:var(--r); color:var(--on-c);
   background:linear-gradient(160deg,color-mix(in srgb,var(--c) 72%,#fff),var(--c) 65%); box-shadow:inset 0 -9px 0 color-mix(in srgb,var(--c) 68%,#000),0 14px 26px color-mix(in srgb,var(--c) 30%,transparent)}
-@supports not (color:color-mix(in srgb,red 50%,blue)){.banner{background:linear-gradient(160deg,var(--c),var(--c) 65%);box-shadow:inset 0 -9px 0 var(--c),0 14px 26px transparent}}
+@supports not (color:color-mix(in srgb,red 50%,blue)){.banner{background:linear-gradient(160deg,var(--c),var(--c) 65%);box-shadow:inset 0 -9px 0 var(--c),0 14px 26px var(--c)}}
 .banner h1{font-size:clamp(2.2rem,6vw,3.2rem); text-shadow:0 3px 0 rgba(0,0,0,.15)}
 .banner p{margin:2px 0 0; font-size:1.1rem; opacity:.95}
 .banner img{position:absolute; right:6px; bottom:-6px; width:180px; height:180px; object-fit:contain; filter:drop-shadow(0 8px 8px rgba(0,0,0,.2))}
@@ -258,7 +259,7 @@ h1,h2,h3{font-family:var(--f-display); line-height:1.08; margin:0; text-wrap:bal
 .m-star{position:absolute; top:50%; width:36px; height:36px; transform:translate(-50%,-50%); display:grid; place-items:center; border-radius:50%; background:var(--card); color:var(--star-off); font-size:1.4rem; line-height:1;
   box-shadow:0 3px 0 var(--line),0 4px 10px var(--shadow)}
 .m-star.on{background:radial-gradient(circle at 35% 30%,#FFE9A0,var(--star) 70%); color:#fff; text-shadow:0 2px 0 rgba(0,0,0,.18); box-shadow:0 0 0 4px color-mix(in srgb,var(--star) 35%,transparent),0 4px 10px var(--shadow); animation:starpop .7s cubic-bezier(.3,1.6,.5,1)}
-@supports not (color:color-mix(in srgb,red 50%,blue)){.m-star.on{box-shadow:0 0 0 4px transparent,0 4px 10px var(--shadow)}}
+@supports not (color:color-mix(in srgb,red 50%,blue)){.m-star.on{box-shadow:0 0 0 4px var(--star),0 4px 10px var(--shadow)}}
 @keyframes starpop{0%{transform:translate(-50%,-50%) scale(.5)}55%{transform:translate(-50%,-50%) scale(1.45) rotate(18deg)}100%{transform:translate(-50%,-50%) scale(1)}}
 @keyframes shine{to{transform:translateX(100%)}}
 .stage{position:relative; background:var(--card); border-radius:34px; padding:clamp(18px,3.4vw,36px); min-height:380px; display:flex; flex-direction:column; align-items:center; gap:22px;
@@ -308,7 +309,7 @@ h1,h2,h3{font-family:var(--f-display); line-height:1.08; margin:0; text-wrap:bal
 .cell.carry{height:42px; font-size:1.4rem; border:3px dashed color-mix(in srgb,var(--c) 40%,var(--line)); color:var(--ink-soft); background:transparent}
 @supports not (color:color-mix(in srgb,red 50%,blue)){.cell.carry{border:3px dashed var(--line)}}
 .cell.sel{border-style:solid; box-shadow:0 0 0 5px color-mix(in srgb,var(--c) 25%,transparent)}
-@supports not (color:color-mix(in srgb,red 50%,blue)){.cell.sel{box-shadow:0 0 0 5px transparent}}
+@supports not (color:color-mix(in srgb,red 50%,blue)){.cell.sel{box-shadow:0 0 0 5px var(--c)}}
 .cell.bad{border-color:var(--ko); color:var(--ko); background:var(--ko-bg)}
 .cell.good{border-color:var(--ok); color:var(--ok); background:var(--ok-bg)}
 .cell.sign{color:var(--c)}
@@ -336,7 +337,7 @@ h1,h2,h3{font-family:var(--f-display); line-height:1.08; margin:0; text-wrap:bal
 .tiles{display:flex; flex-wrap:wrap; gap:12px; justify-content:center; max-width:660px}
 .tile{min-width:78px; min-height:78px; padding:6px 18px; border-radius:20px; border:0; color:var(--on-c); font-size:2.1rem; font-weight:700; text-shadow:0 2px 0 rgba(0,0,0,.15);
   background:linear-gradient(180deg,color-mix(in srgb,var(--c) 75%,#fff),var(--c)); box-shadow:inset 0 -6px 0 color-mix(in srgb,var(--c) 68%,#000),0 6px 12px color-mix(in srgb,var(--c) 30%,transparent)}
-@supports not (color:color-mix(in srgb,red 50%,blue)){.tile{background:linear-gradient(180deg,var(--c),var(--c));box-shadow:inset 0 -6px 0 var(--c),0 6px 12px transparent}}
+@supports not (color:color-mix(in srgb,red 50%,blue)){.tile{background:linear-gradient(180deg,var(--c),var(--c));box-shadow:inset 0 -6px 0 var(--c),0 6px 12px var(--c)}}
 .tile:active{transform:translateY(3px) scale(.97)}
 .tile.used{visibility:hidden}
 .slots{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; min-height:80px}
@@ -360,7 +361,7 @@ h1,h2,h3{font-family:var(--f-display); line-height:1.08; margin:0; text-wrap:bal
 .qlist li{display:flex; align-items:center; gap:12px; background:var(--paper); border-radius:18px; padding:10px 14px; font-size:1.2rem; font-weight:700; box-shadow:inset 0 -4px 0 var(--line)}
 .listen{width:160px; height:160px; border-radius:50%; border:0; color:#fff; font-size:3.8rem; display:grid; place-items:center; padding:0; background:linear-gradient(180deg,color-mix(in srgb,var(--c) 75%,#fff),var(--c));
   box-shadow:inset 0 -9px 0 color-mix(in srgb,var(--c) 68%,#000),0 14px 26px color-mix(in srgb,var(--c) 35%,transparent)}
-@supports not (color:color-mix(in srgb,red 50%,blue)){.listen{background:linear-gradient(180deg,var(--c),var(--c));box-shadow:inset 0 -9px 0 var(--c),0 14px 26px transparent}}
+@supports not (color:color-mix(in srgb,red 50%,blue)){.listen{background:linear-gradient(180deg,var(--c),var(--c));box-shadow:inset 0 -9px 0 var(--c),0 14px 26px var(--c)}}
 .listen.playing{animation:pulse 1.1s infinite}
 .memory{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; width:100%; max-width:min(560px,calc((100vh - 270px) * 1.33))}
 .card{aspect-ratio:1/1; max-width:100%; border:0; padding:0; background:none; perspective:700px}
@@ -416,6 +417,8 @@ h1,h2,h3{font-family:var(--f-display); line-height:1.08; margin:0; text-wrap:bal
 .form label{font-family:var(--f-display); font-weight:800; font-size:1.3rem}
 .form input{width:100%; min-height:68px; border-radius:20px; border:3px solid var(--line); background:var(--paper); color:var(--ink); font:inherit; font-size:1.7rem; padding:6px 18px}
 .avatars{display:grid; grid-template-columns:repeat(auto-fill,minmax(74px,1fr)); gap:10px}
+.av-sec{grid-column:1/-1; font-family:var(--f-display); font-weight:800; font-size:1.05rem; color:var(--ink-soft); margin-top:8px}
+.av-sec:first-child{margin-top:0}
 .avb{aspect-ratio:1/1; border-radius:22px; border:0; background:var(--paper); font-size:2.3rem; box-shadow:inset 0 -5px 0 var(--line)}
 .avb.on{background:color-mix(in srgb,var(--sun) 55%,var(--card)); box-shadow:inset 0 -5px 0 color-mix(in srgb,var(--sun) 60%,#000),0 0 0 4px var(--sun); animation:bounce .4s}
 @supports not (color:color-mix(in srgb,red 50%,blue)){.avb.on{background:var(--sun);box-shadow:inset 0 -5px 0 var(--sun),0 0 0 4px var(--sun)}}
@@ -599,9 +602,9 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
 .lvbadge.l3{background:#7444E6}
 .lvbadge.big{margin:0; font-size:1.1rem; padding:4px 14px}
 .game.lv2 .stage{box-shadow:inset 0 -8px 0 color-mix(in srgb,#F07A12 30%,var(--line)),0 0 0 4px color-mix(in srgb,#F07A12 35%,transparent),0 18px 40px var(--shadow)}
-@supports not (color:color-mix(in srgb,red 50%,blue)){.game.lv2 .stage{box-shadow:inset 0 -8px 0 var(--line),0 0 0 4px transparent,0 18px 40px var(--shadow)}}
+@supports not (color:color-mix(in srgb,red 50%,blue)){.game.lv2 .stage{box-shadow:inset 0 -8px 0 var(--line),0 0 0 4px #F07A12,0 18px 40px var(--shadow)}}
 .game.lv3 .stage{box-shadow:inset 0 -8px 0 color-mix(in srgb,#8456F0 30%,var(--line)),0 0 0 4px color-mix(in srgb,#8456F0 35%,transparent),0 18px 40px var(--shadow)}
-@supports not (color:color-mix(in srgb,red 50%,blue)){.game.lv3 .stage{box-shadow:inset 0 -8px 0 var(--line),0 0 0 4px transparent,0 18px 40px var(--shadow)}}
+@supports not (color:color-mix(in srgb,red 50%,blue)){.game.lv3 .stage{box-shadow:inset 0 -8px 0 var(--line),0 0 0 4px #8456F0,0 18px 40px var(--shadow)}}
 .btn.lvnext.l2{--c:#F07A12}
 .btn.lvnext.l3{--c:#8456F0}
 .unlock{display:flex; align-items:center; gap:12px; padding:10px 18px; border-radius:20px; background:color-mix(in srgb,var(--star) 20%,var(--card)); box-shadow:0 0 0 3px var(--star); animation:popin .5s cubic-bezier(.3,1.6,.5,1) both}
@@ -764,9 +767,9 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
 .skey{--k:#e33; aspect-ratio:3/4; border:0; border-radius:26px; display:flex; align-items:flex-end; justify-content:center; padding-bottom:16px; color:#fff; font-family:var(--f-display); font-weight:800; font-size:clamp(1.5rem,3.4vw,2.1rem);
   text-shadow:0 2px 0 rgba(0,0,0,.2); background:linear-gradient(180deg,color-mix(in srgb,var(--k) 70%,#fff),var(--k)); box-shadow:inset 0 -10px 0 color-mix(in srgb,var(--k) 68%,#000),0 10px 18px color-mix(in srgb,var(--k) 35%,transparent);
   transition:transform .08s,filter .08s; touch-action:manipulation}
-@supports not (color:color-mix(in srgb,red 50%,blue)){.skey{background:linear-gradient(180deg,var(--k),var(--k));box-shadow:inset 0 -10px 0 var(--k),0 10px 18px transparent}}
+@supports not (color:color-mix(in srgb,red 50%,blue)){.skey{background:linear-gradient(180deg,var(--k),var(--k));box-shadow:inset 0 -10px 0 var(--k),0 10px 18px var(--k)}}
 .skey.on{transform:translateY(5px) scale(.97); filter:brightness(1.25) saturate(1.1); box-shadow:inset 0 -4px 0 color-mix(in srgb,var(--k) 68%,#000),0 0 0 6px color-mix(in srgb,var(--k) 40%,transparent),0 0 34px var(--k)}
-@supports not (color:color-mix(in srgb,red 50%,blue)){.skey.on{box-shadow:inset 0 -4px 0 var(--k),0 0 0 6px transparent,0 0 34px var(--k)}}
+@supports not (color:color-mix(in srgb,red 50%,blue)){.skey.on{box-shadow:inset 0 -4px 0 var(--k),0 0 0 6px var(--k),0 0 34px var(--k)}}
 .tag.go{background:var(--ok); color:#fff; animation:bounce .5s}
 .tag.good{background:var(--ok-bg); color:var(--ok)}
 @media (max-width:600px){ .simon{gap:8px} .skey{border-radius:18px} }
@@ -852,6 +855,8 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
   .pz-side .with-say{width:100%; justify-content:center}
   .pz-ref{width:110px}
 }
+.emo-alt{display:inline-block;width:1.1em;height:1.1em;vertical-align:-.2em;max-width:none}
+.emo-dot{display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.1em;background-image:linear-gradient(rgba(255,255,255,.42),rgba(255,255,255,0) 50%,rgba(0,0,0,.14));box-shadow:inset 0 0 0 .035em rgba(0,0,0,.18)}
 :root{--conoce:var(--verde); --como:var(--naranja); --cuando:var(--morado); --paleo:var(--turquesa); --cuentos:var(--rosa)}
 :root{--sky1:#CDEFC4; --sky2:#F3FBEF}
 .vh{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
@@ -880,14 +885,14 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
 .dtiles .tile-name{font-size:.9rem; line-height:1.1}
 .dslots .slot{width:110px; height:110px; padding:4px; font-size:1rem}
 .dslots .slot .dino{width:100%; height:100%; object-fit:contain}
-@media (max-width:600px){ .dtiles .tile{width:46%; min-height:120px} .dslots .slot{width:76px; height:76px} }
-.size-area{width:100%; max-width:620px}
+@media (max-width:600px){ .dtiles .tile{width:46%; min-height:120px} .dslots .slot{width:68px; height:68px} }
+.size-area{width:100%; max-width:620px; scroll-margin-bottom:170px}
 .bars{display:grid; gap:10px; width:100%; margin-top:6px}
 .bar-row{display:grid; grid-template-columns:56px 1fr auto; align-items:center; gap:10px}
 .bar-img{width:56px; height:56px; object-fit:contain}
 .bar-emo{font-size:2.2rem; text-align:center}
-.bar{height:22px; border-radius:11px; background:var(--paper); box-shadow:inset 0 2px 0 var(--line); overflow:hidden}
-.bar i{display:block; height:100%; border-radius:11px; background:var(--c); animation:grow .8s ease-out both}
+.bars .bar{flex:none; height:22px; border-radius:11px; background:var(--paper); box-shadow:inset 0 2px 0 var(--line); overflow:hidden}
+.bars .bar i{display:block; height:100%; min-width:0; border-radius:11px; background:var(--c); transition:none; animation:grow .8s ease-out both}
 @keyframes grow{from{width:0}}
 .album-h{width:100%; margin:14px 0 4px; font-family:var(--f-display); font-size:1.3rem}
 .album .ani-img{width:72px; height:72px; object-fit:contain}
@@ -929,9 +934,14 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
   .valle-fondo{object-position:40% 70%}
   .vdino,.vmochi{--k:.74}
   .vmochi{--x:14; --hh:62}
+  .vdino{z-index:1}   
   .vdino.vuela{--x:76!important}   
   .valle-bubble{position:relative; left:auto; top:auto; max-width:none; margin-top:16px; flex-wrap:nowrap}
   .valle-bubble::before{left:40px; top:-14px; bottom:auto; border:14px solid transparent; border-bottom-color:var(--card); border-top:0}
+}
+@media (min-width:761px) and (max-width:900px){
+  .valle-bubble{position:relative; left:auto; top:auto; max-width:none; margin-top:16px; flex-wrap:nowrap}
+  .valle-bubble::before{left:60px; top:-14px; bottom:auto; border:14px solid transparent; border-bottom-color:var(--card); border-top:0}
 }
 .dsecs.subjects{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr)); gap:24px; padding-top:18px}
 .dsec{--c:var(--verde); position:relative; display:flex; flex-direction:column; border-radius:30px; background:var(--card);
@@ -983,7 +993,12 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
 .dig-opts.wait{visibility:hidden}
 .esq-board .pz-cells{background:#C79E68}
 .esq-done{display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center; scroll-margin-bottom:24px; animation:popin .5s cubic-bezier(.3,1.6,.5,1)}
-.huella-big{width:clamp(150px,26vw,220px)}
+.huella-big,.dino.big.huella-big{width:clamp(150px,26vw,220px)}
+.dig-brush.espera{visibility:hidden}
+.int-ok{display:flex; align-items:center; gap:14px; text-align:left; animation:popin .35s}
+.int-ok img{width:84px; height:84px; object-fit:contain; flex:none}
+.int-ok strong{display:block; font-family:var(--f-display); font-size:1.5rem; line-height:1.1; color:var(--ok)}
+.int-ok span{font-size:1.05rem}
 .barro{position:relative; width:min(100%,640px); aspect-ratio:16/9; border-radius:24px; overflow:hidden; margin:0 auto;
   background:radial-gradient(ellipse at 25% 30%,#EBD3A6,transparent 60%),radial-gradient(ellipse at 78% 72%,#D2AE77,transparent 55%),#E0C08D;
   box-shadow:inset 0 4px 14px rgba(90,60,20,.25),0 8px 0 color-mix(in srgb,#9A6E3A 50%,var(--line))}
@@ -1010,14 +1025,16 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
 .egg.ck-1 .ck1,.egg.ck-2 .ck1,.egg.ck-2 .ck2,.egg.ck-3 path{opacity:.85}
 .egg.lista{animation:quiere 1.6s ease-in-out infinite}
 .egg.lista .egg-pic::before{content:""; position:absolute; inset:-8%; border-radius:50%; background:radial-gradient(circle,rgba(255,226,120,.75),transparent 65%); animation:brilla 1.6s ease-in-out infinite}
-.egg.lista .egg-tag{color:var(--paleo)}
+.egg.lista .egg-tag{color:#086A7A}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .egg.lista .egg-tag{color:#F2C46B} }
+:root[data-theme="dark"] .egg.lista .egg-tag{color:#F2C46B}
 @keyframes quiere{0%,55%,100%{transform:rotate(0)} 62%{transform:rotate(-8deg)} 70%{transform:rotate(7deg)} 78%{transform:rotate(-5deg)} 86%{transform:rotate(3deg)}}
 @keyframes brilla{50%{opacity:.35; transform:scale(.9)}}
 .egg.abriendo{animation:none; pointer-events:none}
 .egg.abriendo .egg-pic::before{display:none}
 .egg .egg-top{clip-path:polygon(0 0,100% 0,100% 52%,89% 46%,78% 55%,66% 46%,54% 55%,42% 46%,30% 55%,18% 46%,0 52%); animation:cascara 1s .35s cubic-bezier(.3,.6,.4,1) both}
 .egg .egg-bot{clip-path:polygon(0 52%,18% 46%,30% 55%,42% 46%,54% 55%,66% 46%,78% 55%,89% 46%,100% 52%,100% 100%,0 100%)}
-.egg .egg-sale{inset:-20% -25% 10%; width:150%; height:auto; z-index:1; animation:sale .9s .45s cubic-bezier(.3,1.6,.5,1) both}
+.egg .egg-pic .egg-sale{inset:-20% -25% 10%; width:150%; max-width:none; height:auto; z-index:1; animation:sale .9s .45s cubic-bezier(.3,1.6,.5,1) both}
 @keyframes cascara{to{transform:translate(-30%,-95%) rotate(-38deg); opacity:0}}
 @keyframes sale{from{transform:translateY(45%) scale(.2); opacity:0} to{transform:translateY(-12%) scale(1)}}
 .dsec.nueva{animation:popin .6s cubic-bezier(.3,1.6,.5,1) both; box-shadow:0 0 0 5px color-mix(in srgb,var(--c) 55%,transparent),0 14px 28px var(--shadow)}
@@ -1059,10 +1076,11 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
 }
 .cd-img{object-fit:contain; pointer-events:none}
 .pasos.linea{grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+@media (min-width:600px) and (max-width:900px){ .pasos.linea{grid-template-columns:repeat(2,minmax(0,1fr))} }
 .paso.tarjeta{align-items:center}
 .paso.tarjeta .paso-e,.linea-hecha .paso-e{width:62px; height:62px; flex:none; display:grid; place-items:center}
 .paso.tarjeta .paso-e img,.linea-hecha .paso-e img{width:100%; height:100%; object-fit:contain}
-.tarjeta-t{display:flex; flex-direction:column; gap:3px}
+.tarjeta-t{display:flex; flex-direction:column; gap:3px; min-width:0}
 .tarjeta-t small{font-weight:600; font-size:.86em; line-height:1.3; opacity:.85}
 .linea-hecha li{padding:6px 12px}
 .paso.tarjeta.sel{outline:4px solid var(--sun); outline-offset:2px}
@@ -1074,7 +1092,7 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
 @supports not (color:color-mix(in srgb,red 50%,blue)){.rtiempo-slots{background:linear-gradient(90deg,var(--card),var(--card))}}
 .rtiempo-slot{display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:6px; min-height:120px; padding:8px 4px; border:2px dashed color-mix(in srgb,var(--ink) 30%,transparent);
   border-radius:16px; background:color-mix(in srgb,var(--card) 70%,transparent); color:var(--ink); font:inherit; cursor:pointer}
-@supports not (color:color-mix(in srgb,red 50%,blue)){.rtiempo-slot{border:2px dashed transparent;background:var(--card)}}
+@supports not (color:color-mix(in srgb,red 50%,blue)){.rtiempo-slot{border:2px dashed var(--ink);background:var(--card)}}
 .rtiempo-cosas{display:flex; flex-wrap:wrap; justify-content:center; gap:2px}
 .rtiempo-cosas img{width:54px; height:54px; object-fit:contain; animation:popin .3s}
 .rtiempo-l{font-weight:800; font-size:.8em; line-height:1.2; text-align:center}
@@ -1089,7 +1107,7 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
 .era-bg{position:absolute; inset:0; background-size:cover; background-position:center; opacity:.35; z-index:-1}
 .era-n{font-weight:800; font-size:1.1em; padding:2px 10px; border-radius:12px; background:color-mix(in srgb,var(--card) 80%,transparent)}
 @supports not (color:color-mix(in srgb,red 50%,blue)){.era-n{background:var(--card)}}
-.era-mini{display:flex; justify-content:center; gap:2px}
+.era-mini{display:flex; justify-content:center; gap:2px; width:100%}
 .era-mini img{width:46px; height:46px; object-fit:contain}
 .era-r{font-weight:700; font-size:.82em; line-height:1.25; padding:4px 6px; border-radius:10px; background:color-mix(in srgb,var(--card) 82%,transparent)}
 @supports not (color:color-mix(in srgb,red 50%,blue)){.era-r{background:var(--card)}}
@@ -1100,10 +1118,13 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
 .pareja{display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-bottom:6px}
 .pareja-uno{display:flex; flex-direction:column; align-items:center; gap:4px; width:min(44%,240px)}
 .pareja-uno .cd-img{width:100%; aspect-ratio:1; max-height:200px}
-.paisaje{position:relative; width:min(100%,900px); aspect-ratio:3/2; margin:6px auto 0; border-radius:22px; background-size:cover; background-position:center; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.paisaje{position:relative; width:min(100%,900px,max(420px,calc((100vh - 250px)*1.5))); aspect-ratio:3/2; margin:6px auto 0; border-radius:22px; background-size:cover; background-position:center; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,.18)}
 .paisaje-cosa{position:absolute; transform:translate(-50%,-100%); padding:0; border:0; background:none; cursor:pointer; -webkit-tap-highlight-color:transparent}
 .paisaje-cosa img{width:100%; height:auto; display:block; filter:drop-shadow(0 6px 5px rgba(0,0,0,.28)); pointer-events:none}
-.paisaje-cosa.bien{animation:pulse .5s}
+.paisaje-cosa.nope{animation:cosaNo .4s}
+.paisaje-cosa.bien{animation:cosaSi .5s}
+@keyframes cosaNo{0%,100%{transform:translate(-50%,-100%)} 20%{transform:translate(calc(-50% - 8px),-100%)} 40%{transform:translate(calc(-50% + 8px),-100%)} 60%{transform:translate(calc(-50% - 5px),-100%)} 80%{transform:translate(calc(-50% + 5px),-100%)}}
+@keyframes cosaSi{0%,100%{transform:translate(-50%,-100%)} 50%{transform:translate(-50%,-100%) scale(1.07)}}
 .paisaje-cosa.bien::after{content:"✓"; position:absolute; right:4%; top:2%; width:34px; height:34px; display:grid; place-items:center; border-radius:50%; background:#E8453C; color:#fff; font-weight:900; font-size:22px}
 .colado-porque{margin-top:12px}
 .mapa-caja{width:min(100%,960px); margin:8px auto 0}
@@ -1111,7 +1132,7 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
 .mapa .mar{fill:color-mix(in srgb,#8FC8E6 70%,var(--card))}
 @supports not (color:color-mix(in srgb,red 50%,blue)){.mapa .mar{fill:#8FC8E6}}
 .mapa .tierra{stroke:color-mix(in srgb,#3A2A1A 35%,transparent); stroke-width:.6; cursor:pointer; transition:filter .2s}
-@supports not (color:color-mix(in srgb,red 50%,blue)){.mapa .tierra{stroke:transparent}}
+@supports not (color:color-mix(in srgb,red 50%,blue)){.mapa .tierra{stroke:#3A2A1A}}
 .c-na{fill:#E8956F}
 .c-sa{fill:#F2C97E}
 .c-eu{fill:#8FC79F}
@@ -1127,21 +1148,25 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
 .mapa.mundo .c-an.bien{fill:var(--c)}
 .mapa .rotulo{font:800 26px/1 inherit; font-family:inherit; fill:#1E2A3A; paint-order:stroke; stroke:#fff; stroke-width:5px}
 .mapa .marca circle{fill:#E8453C; stroke:#fff; stroke-width:3}
-.mapa .marca image{animation:popin .4s}
+.mapa .marca image{animation:aparece .4s}
+@keyframes aparece{from{opacity:0}}
+.mapa .an-zona{fill:transparent; cursor:pointer}
 .mapa.espana .prov{fill:color-mix(in srgb,#E9E1CF 85%,var(--card)); stroke:#A89878; stroke-width:.8}
 @supports not (color:color-mix(in srgb,red 50%,blue)){.mapa.espana .prov{fill:#E9E1CF}}
 .mapa.espana .prov.fosil{fill:#E7B85A; stroke:#6E4A1E; stroke-width:1.2; cursor:pointer}
 .mapa.espana .prov.fosil.bien{fill:var(--c)}
+.mapa.espana .prov.fosil.nope{fill:#E8453C}
 .mapa.espana .prov-n{font-size:15px; pointer-events:none}
 .pistas-lista{margin:6px 0 0; padding-left:22px; font-weight:700; line-height:1.4}
 .pistas-say{justify-content:center; margin:2px 0 8px}
 .mapa.pangea{width:min(100%,760px); margin:8px auto 0}
 .mapa.pangea .hueco{fill:rgba(255,255,255,.18); stroke:#3A4A5A; stroke-width:1.2; stroke-dasharray:4 3; cursor:pointer}
-.mapa.pangea .puesto{stroke:#3A2A1A; stroke-width:.7; animation:popin .35s}
+.mapa.pangea .puesto{stroke:#3A2A1A; stroke-width:.7; animation:aparece .35s}
 .mapa.pangea.hecha{animation:pulse .6s}
 .pangea-piezas{display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:8px; width:min(100%,860px); margin:10px auto 0}
-.pangea-pieza{display:flex; flex-direction:column; align-items:center; gap:4px; padding:8px; border:0; border-radius:16px; background:var(--card); color:var(--ink); font:inherit; font-weight:700; box-shadow:0 3px 8px rgba(0,0,0,.12); cursor:pointer}
+.pangea-pieza{display:flex; flex-direction:column; align-items:center; gap:4px; padding:8px 3px; border:0; border-radius:16px; background:var(--card); color:var(--ink); font:inherit; font-weight:700; box-shadow:0 3px 8px rgba(0,0,0,.12); cursor:pointer}
 .pangea-pieza .pieza-svg{width:90px; height:70px}
+.pangea-pieza span{font-size:.9em; line-height:1.15}
 .pangea-pieza .pieza-svg path{stroke:#3A2A1A; stroke-width:1}
 .pangea-pieza.sel{outline:4px solid var(--sun); outline-offset:2px; transform:scale(1.04)}
 .pangea-pieza.shake{animation:shake .4s}
@@ -1168,7 +1193,7 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
 .mapa.pangea .hueco .relleno{fill:rgba(255,255,255,.28)}
 .mapa.pangea .hueco{cursor:pointer}
 .mapa.pangea .puesto .borde{stroke:#3A2A1A; stroke-width:1.6; stroke-dasharray:none}
-.mapa.pangea .puesto{animation:popin .35s}
+.mapa.pangea .puesto{animation:aparece .35s}
 .c-na .relleno{fill:#E8956F}
 .c-sa .relleno{fill:#F2C97E}
 .c-eu .relleno{fill:#8FC79F}
@@ -1182,7 +1207,7 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
 .mapa.mundo .marca image{width:84px; height:84px}
 .mapa-caja{width:min(100%,960px,calc((100vh - 300px) * 1.74))}
 .mapa-caja .mapa.espana{width:min(100%,calc((100vh - 300px) * 1.33)); margin:0 auto}
-.era-mini img{width:58px; height:58px}
+.era-mini img{width:58px; height:auto; aspect-ratio:1; flex:0 1 58px; min-width:0}
 .era-r{font-size:.74em}
 .viaje-bocadillo p{font-size:1.2em; margin:0}
 .paso.tarjeta .paso-e,.linea-hecha .paso-e{width:78px; height:78px}
@@ -1214,9 +1239,9 @@ html{touch-action:manipulation; -webkit-text-size-adjust:100%}
 .esp-mini .mini-tierra{fill:#C9B48C; stroke:none}
 .esp-mini .mini-zona{fill:rgba(232,69,60,.18); stroke:#E8453C; stroke-width:12}
 .mapa-cabeza .dino{width:112px; height:112px}
-.mapa-caja{width:min(100%,960px,calc((100vh - 410px) * 1.74))}
-.mapa-caja .mapa.espana{width:min(100%,calc((100vh - 410px) * 1.31))}
-.mapa.pangea{width:min(100%,760px,calc((100vh - 400px) * 1.38))}
+.mapa-caja{width:min(100%,960px,max(300px,calc((100vh - 410px) * 1.74)))}
+.mapa-caja .mapa.espana{width:min(100%,max(300px,calc((100vh - 410px) * 1.31)))}
+.mapa.pangea{width:min(100%,760px,max(300px,calc((100vh - 400px) * 1.38)))}
 @media (max-width:599px){
   .mapa-caja{width:100%}
   .mapa-caja .mapa.espana,.mapa.pangea{width:100%}
@@ -1245,6 +1270,8 @@ const APP={
     edit:'Puedes cambiar tu nombre o elegir otro dinosaurio.'},
   /* cada jugador elige un dinosaurio (img/av-*.png); los jugadores que ya tenían un animal lo conservan hasta que lo cambien */
   avWord:'dinosaurio',
+  /* repuestos de emojis para aparatos antiguos que cambian los del motor (motor/3-emoji.html): aquí 🧊 es un glaciar */
+  emoAlt:{'🧊':'❄️'},
   avatars:['tiranosaurio','triceratops','estegosaurio','braquiosaurio','velocirraptor','anquilosaurio','espinosaurio','parasaurolofo','paquicefalosaurio',
     'diplodoco','dilofosaurio','iguanodonte','carnotauro','protoceratops','oviraptor','concavenator','terizinosaurio','gallimimo'].map(k=>[k,k]),
   subimg:{},
@@ -1297,7 +1324,7 @@ const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
 const pick=arr=>arr[Math.floor(Math.random()*arr.length)];
 function shuffle(arr){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 const pickN=(arr,n)=>shuffle(arr).slice(0,n);
-function deck(arr){let pool=[];return ()=>{if(!pool.length)pool=shuffle(arr);return pool.pop();};}
+function deck(arr){let pool=[],last;return ()=>{if(!pool.length){pool=shuffle(arr);if(pool.length>1&&pool[pool.length-1]===last)pool.unshift(pool.pop());}return last=pool.pop();};}   // al rebarajar no repite lo último que salió
 const cap=s=>s[0].toUpperCase()+s.slice(1);
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const IMG={wave:'img/mochi-wave.png',happy:'img/mochi-happy.png',think:'img/mochi-think.png',read:'img/mochi-read.png'};
@@ -1314,11 +1341,12 @@ const AVATARS_ANIMALES=[['🦍','gorila'],['🦊','zorro'],['🦁','león'],['�
   ['🦓','cebra'],['🐵','mono'],['🐻','oso'],['🦈','tiburón'],['🐊','cocodrilo'],['🦜','loro'],['🦔','erizo'],['🐴','caballo'],
   ['🐸','rana'],['🐙','pulpo'],['🦄','unicornio'],['🐢','tortuga'],['🐝','abeja'],['🐬','delfín'],['🦖','dinosaurio'],['🐱','gato'],
   ['🐶','perro'],['🐰','conejo'],['🦉','búho'],['🐨','koala'],['🦋','mariposa'],['🐞','mariquita'],['🐳','ballena'],['🐆','lince']];
-/* una app puede traer sus propios personajes (APP.avatars: [clave, nombre] → img/av-nombre.png) y su palabra (APP.avWord: «dinosaurio»);
+/* una app puede traer sus propios personajes (APP.avatars: [clave, nombre, grupo opcional] → img/av-nombre.png, con el nombre sin tildes,
+   en minúsculas y con guiones; los que comparten grupo salen juntos bajo su título) y su palabra (APP.avWord: «dinosaurio»);
    los jugadores antiguos con un animal se siguen viendo bien */
 const AVATARS=APP.avatars||AVATARS_ANIMALES, AVW=APP.avWord||'animal';
 const AVN=Object.fromEntries([...AVATARS_ANIMALES,...AVATARS]);
-const avEl=k=>AVN[k]?h('img',{src:'img/av-'+AVN[k].normalize('NFD').replace(/[\u0300-\u036f]/g,'')+'.png',alt:AVN[k],draggable:'false'}):h('span',null,k||'🦊');
+const avEl=k=>AVN[k]?h('img',{src:'img/av-'+AVN[k].normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\s+/g,'-')+'.png',alt:AVN[k],draggable:'false'}):h('span',null,k||'🦊');
 
 let DB={players:[],cur:null,sound:true,opt:{}};
 try{const s=JSON.parse(localStorage.getItem(KEY)||'null'); if(s&&Array.isArray(s.players)) DB=Object.assign(DB,s);}catch(e){}
@@ -1354,7 +1382,7 @@ function earnTrophy(sid,l=1){const p=me(),sp=tProg(sid,l); if(!p||!sp.max||sp.go
 const VOICE_MANIFEST={"files":["voz/dino-ui.mp4","voz/dino-l1.mp4","voz/dino-l2.mp4","voz/dino-l3.mp4","voz/dino-juegos.mp4","voz/dino-vf.mp4","voz/dino-portada.mp4","voz/dino-ptera.mp4","voz/dino-paleo-ui.mp4","voz/dino-jugador.mp4","voz/dino-nivel.mp4","voz/dino-cuando-ui.mp4","voz/dino-cuando-extra.mp4","voz/dino-cuentos-ui.mp4","voz/dino-paleo-a.mp4","voz/dino-paleo-b.mp4","voz/dino-cuando-a.mp4","voz/dino-cuando-b.mp4","voz/dino-cuando-c.mp4","voz/dino-cuentos-a.mp4","voz/dino-cuentos-b.mp4","voz/dino-cuentos-c.mp4","voz/dino-cuentos-d.mp4","voz/dino-paleo-c.mp4","voz/dino-cuando-d.mp4","voz/dino-cuentos-e.mp4","voz/comun.mp4"],"map":{"¡Hola! ¿Qué descubrimos hoy? Elige una sección.":[0,0.3,3.8],"Conoce a los dinos":[0,4.4,1.34],"Cómo eran":[0,6.04,0.94],"¿Quién es?":[0,7.28,0.72],"La sombra":[0,8.3,0.9],"Memory de dinos":[0,9.5,1.28],"¿Qué significa su nombre?":[0,11.08,1.44],"Mi dinopedia":[0,12.82,1.1],"¿Qué come?":[0,14.22,0.72],"¿Para qué sirve?":[0,15.24,1.02],"¿Grande o pequeño?":[0,16.56,1.28],"¿Es un dinosaurio?":[0,18.14,1.12],"¿Verdadero o falso?":[0,19.56,1.42],"¡Enhorabuena! ¡Has conseguido todas las estrellas de Conoce a los dinos! ¡Aquí tienes tu trofeo!":[0,21.28,5.54],"¡Increíble! ¡Has conseguido todas las estrellas del nivel difícil de Conoce a los dinos! ¡Aquí tienes tu trofeo de fuego!":[0,27.12,7.12],"¡Nivel experto superado! ¡Has conseguido todas las estrellas del nivel experto de Conoce a los dinos! ¡Aquí tienes tu trofeo galáctico!":[0,34.54,8.0],"¡Enhorabuena! ¡Has conseguido todas las estrellas de Cómo eran! ¡Aquí tienes tu trofeo!":[0,42.84,5.36],"¡Increíble! ¡Has conseguido todas las estrellas del nivel difícil de Cómo eran! ¡Aquí tienes tu trofeo de fuego!":[0,48.5,6.846],"¡Nivel experto superado! ¡Has conseguido todas las estrellas del nivel experto de Cómo eran! ¡Aquí tienes tu trofeo galáctico!":[0,55.646,7.48],"Busca este dinosaurio:":[0,63.426,1.52],"¿De quién es esta sombra?":[0,65.246,1.46],"Solo se ve un trozo de la sombra. ¿De quién es?":[0,67.006,2.96],"Busca las parejas: cada dinosaurio con su sombra.":[0,70.266,3.04],"Busca las parejas: cada dinosaurio con su nombre.":[0,73.606,2.96],"¿De qué dinosaurio hablo?":[0,76.866,1.48],"¿Qué comía este dinosaurio?":[0,78.646,1.68],"Este diente es de un dinosaurio. ¿Qué comía?":[0,80.626,3.0],"Los dientes afilados y con sierra son de comer carne.":[0,83.926,3.02],"Los dientes con forma de hojita son de comer plantas.":[0,87.246,2.94],"¿Cuál de estos dinosaurios comía plantas?":[0,90.486,2.36],"¿Cuál de estos dinosaurios comía carne?":[0,93.146,2.18],"¿Cuál de estos dinosaurios comía peces?":[0,95.626,2.36],"¿Cuál era más largo?":[0,98.286,1.16],"Ordena los dinosaurios: toca primero el más pequeño.":[0,99.746,3.26],"¡Muy bien ordenados, del más pequeño al más grande!":[0,103.306,3.1],"¿Cuánto medía?":[0,106.706,0.96],"¡Sí, es un dinosaurio!":[0,107.966,1.76],"Solo una de estas frases es verdad. ¿Cuál?":[0,110.026,3.14],"Esta es tu dinopedia. Toca un cromo para ver su ficha.":[0,113.466,3.74],"Vivió en el Triásico.":[0,117.506,1.58],"Vivió en el Jurásico.":[0,119.386,1.54],"Vivió en el Cretácico.":[0,121.226,1.6],"Comía plantas.":[0,123.126,1.18],"Comía carne.":[0,124.606,1.1],"Comía de todo: plantas y animales.":[0,126.006,2.32],"Comía peces y otras presas.":[0,128.626,1.96],"Comía sobre todo plantas, aunque los científicos aún lo discuten.":[0,130.886,3.84],"No se sabe bien qué comía; quizá peces.":[0,135.026,2.6],"¿Era más largo o más corto que un autobús?":[0,137.926,2.48],"Un autobús mide unos 12 metros.":[0,140.706,2.2],"¿Era más largo o más corto que un coche?":[0,143.206,2.24],"Un coche mide unos 4 metros y medio.":[0,145.746,2.48],"¿Era más largo o más corto que una persona?":[0,148.526,2.4],"Una persona mayor mide menos de 2 metros.":[0,151.226,2.706],"Tiranosaurio rex":[1,0.3,1.58],"Medía unos 12 metros de largo.":[1,2.18,2.0],"Se encontró en Norteamérica.":[1,4.48,1.62],"Su nombre significa «rey de los lagartos tiranos».":[1,6.4,3.28],"Sus brazos eran cortitos, pero muy fuertes.":[1,9.98,2.84],"Triceratops":[1,13.12,1.04],"Medía unos 9 metros de largo.":[1,14.46,2.0],"Su nombre significa «cara con tres cuernos».":[1,16.76,3.0],"Tenía tres cuernos y una gola de hueso alrededor del cuello.":[1,20.06,3.6],"Estegosaurio":[1,23.96,1.16],"Medía unos 7 metros de largo.":[1,25.42,2.0],"Se encontró en Norteamérica y en Portugal.":[1,27.72,2.44],"Su nombre significa «lagarto con tejado».":[1,30.46,2.78],"Se defendía con los cuatro pinchos de su cola.":[1,33.54,2.5],"Velocirraptor":[1,36.34,1.16],"Medía unos 2 metros de largo, con la cola.":[1,37.8,2.62],"Se encontró en Mongolia, en Asia.":[1,40.72,2.12],"Su nombre significa «ladrón veloz».":[1,43.14,2.36],"Era del tamaño de un pavo y estaba cubierto de plumas.":[1,45.8,3.14],"Braquiosaurio":[1,49.24,1.14],"Medía unos 20 metros de largo.":[1,50.68,2.04],"Su nombre significa «lagarto brazo».":[1,53.02,2.52],"Sus patas de delante eran más largas que las de atrás, como una jirafa.":[1,55.84,3.729],"Diplodoco":[1,59.869,0.94],"Medía unos 26 metros de largo.":[1,61.109,2.18],"Su nombre significa «doble viga».":[1,63.589,2.36],"Su cola era larguísima y muy fina al final, como un látigo.":[1,66.249,3.58],"Anquilosaurio":[1,70.129,1.16],"Su nombre significa «lagarto rígido».":[1,71.589,2.5],"Tenía una maza de hueso al final de la cola para defenderse.":[1,74.389,3.14],"Espinosaurio":[1,77.829,1.14],"Medía unos 14 metros de largo.":[1,79.269,2.04],"Se encontró en Egipto y Marruecos, en África.":[1,81.609,2.62],"Su nombre significa «lagarto con espinas».":[1,84.529,2.7],"Vivía cerca de los ríos y comía muchos peces.":[1,87.529,3.02],"Parasaurolofo":[1,90.849,1.16],"Su nombre significa «casi un lagarto con cresta».":[1,92.309,3.08],"Su cresta era hueca: quizá la usaba para hacer sonidos, como una trompeta.":[1,95.689,4.66],"Paquicefalosaurio":[1,100.649,1.34],"Medía unos 4 metros y medio de largo.":[1,102.289,2.32],"Su nombre significa «lagarto de cabeza gruesa».":[1,104.909,3.12],"El hueso de encima de su cabeza era gordísimo, como un casco.":[1,108.329,3.52],"Iguanodonte":[1,112.149,1.04],"Medía unos 10 metros de largo.":[1,113.489,1.88],"Se encontró en Europa, también en Teruel.":[1,115.669,2.52],"Su nombre significa «diente de iguana».":[1,118.489,2.4],"Tenía un pincho en cada pulgar.":[1,121.189,1.76],"Alosaurio":[1,123.249,0.92],"Medía unos 8 metros de largo.":[1,124.469,2.04],"Su nombre significa «lagarto diferente».":[1,126.809,2.58],"Fue el gran cazador del Jurásico, mucho antes que el Tiranosaurio rex.":[1,129.689,4.04],"León":[1,134.029,0.7],"El león es un mamífero que vive hoy. No es un dinosaurio.":[1,135.029,3.34],"Elefante":[1,138.669,0.86],"El elefante es un mamífero que vive hoy. No es un dinosaurio.":[1,139.829,3.62],"Jirafa":[1,143.749,0.76],"La jirafa es un mamífero que vive hoy. No es un dinosaurio.":[1,144.809,3.54],"Tiburón":[1,148.649,0.82],"El tiburón es un pez. No es un dinosaurio.":[1,149.769,2.66],"Rana":[1,152.729,0.68],"La rana es un anfibio. No es un dinosaurio.":[1,153.709,2.9],"Oso":[1,156.909,0.62],"El oso es un mamífero que vive hoy. No es un dinosaurio.":[1,157.829,3.44],"Delfín":[1,161.569,0.78],"El delfín es un mamífero que vive en el mar. No es un dinosaurio.":[1,162.649,3.74],"Tortuga":[1,166.689,0.8],"La tortuga es un reptil, pero no es un dinosaurio.":[1,167.789,2.911],"Brontosaurio":[2,0.3,1.06],"Medía unos 22 metros de largo.":[2,1.66,2.08],"Su nombre significa «lagarto trueno».":[2,4.04,2.2],"Durante años se pensó que no existía, pero en 2015 volvió a ser un dinosaurio de verdad.":[2,6.54,5.28],"Celofisis":[2,12.12,0.92],"Medía unos 3 metros de largo.":[2,13.34,1.76],"Su nombre significa «forma hueca».":[2,15.4,2.08],"Fue uno de los primeros dinosaurios: vivió en el Triásico.":[2,17.78,3.4],"Carnotauro":[2,21.48,0.9],"Se encontró en Argentina, en Sudamérica.":[2,22.68,2.38],"Su nombre significa «toro carnívoro».":[2,25.36,2.28],"Tenía dos cuernos como un toro y unos brazos cortísimos.":[2,27.94,3.36],"Dilofosaurio":[2,31.6,1.1],"Su nombre significa «lagarto de dos crestas».":[2,33.0,2.64],"En las películas escupe veneno, pero eso es inventado.":[2,35.94,3.2],"Gallimimo":[2,39.44,0.92],"Medía unos 6 metros de largo.":[2,40.66,1.86],"Su nombre significa «imitador de gallina».":[2,42.82,2.56],"Corría muy rápido, como un avestruz.":[2,45.68,2.311],"Oviraptor":[2,48.291,0.98],"Medía alrededor de un metro y medio de largo.":[2,49.571,2.4],"Su nombre significa «ladrón de huevos».":[2,52.271,2.46],"Lo llamaron ladrón de huevos, pero probablemente estaba cuidando sus propios huevos.":[2,55.031,4.24],"Protoceratops":[2,59.571,1.1],"Medía unos 2 metros de largo.":[2,60.971,1.86],"Su nombre significa «primera cara con cuernos».":[2,63.131,2.72],"Era del tamaño de una oveja y tenía un pico como un loro.":[2,66.151,3.18],"Maiasaura":[2,69.631,0.98],"Su nombre significa «lagarta buena madre».":[2,70.911,2.42],"Las mamás cuidaban de sus crías en el nido.":[2,73.631,2.26],"Compsognato":[2,76.191,1.02],"Medía alrededor de 1 metro de largo, con la cola.":[2,77.511,2.72],"Se encontró en Alemania y en Francia.":[2,80.531,2.06],"Su nombre significa «mandíbula elegante».":[2,82.891,2.4],"Era pequeño como una gallina.":[2,85.591,1.66],"Argentinosaurio":[2,87.551,1.3],"Medía unos 30 metros de largo, ¡o más!":[2,89.151,2.52],"Su nombre significa «lagarto de Argentina».":[2,91.971,2.46],"Es uno de los animales más grandes que han pisado la Tierra.":[2,94.731,3.14],"Giganotosaurio":[2,98.171,1.2],"Su nombre significa «lagarto gigante del sur».":[2,99.671,2.9],"Era tan grande como el Tiranosaurio rex, o un poco más.":[2,102.871,3.32],"Terizinosaurio":[2,106.491,1.12],"Su nombre significa «lagarto guadaña».":[2,107.911,2.48],"Tenía unas garras larguísimas, pero comía plantas.":[2,110.691,3.08],"Volaba, pero no era un dinosaurio: era un reptil volador.":[2,115.291,3.66],"Quetzalcoatlus":[2,119.251,1.34],"Era un reptil volador gigante. No era un dinosaurio.":[2,120.891,3.08],"Plesiosaurio":[2,124.271,1.02],"Vivía en el mar. Era un reptil marino, no un dinosaurio.":[2,125.591,3.46],"Ictiosaurio":[2,129.351,1.02],"Parecía un delfín, pero era un reptil marino. No era un dinosaurio.":[2,130.671,3.88],"Mosasaurio":[2,134.851,1.0],"Era un lagarto marino gigante. No era un dinosaurio.":[2,136.151,3.134],"Concavenator":[3,0.3,1.16],"Se encontró en Las Hoyas, en Cuenca.":[3,1.76,2.18],"Su nombre significa «cazador de Cuenca».":[3,4.24,2.22],"Tenía una joroba puntiaguda en la espalda.":[3,6.76,2.2],"Turiasaurio":[3,9.26,0.98],"Medía entre 25 y 30 metros de largo.":[3,10.54,2.72],"Se encontró en Riodeva, en Teruel.":[3,13.56,2.16],"Su nombre significa «lagarto de Turia, el antiguo nombre de Teruel».":[3,16.02,3.72],"Es uno de los dinosaurios más grandes encontrados en Europa.":[3,20.04,3.34],"Pelecanimimo":[3,23.68,1.04],"Su nombre significa «imitador de pelícano».":[3,25.02,2.52],"Tenía más de 200 dientes pequeñitos.":[3,27.84,2.58],"Europelta":[3,30.72,0.9],"Medía unos 5 metros de largo.":[3,31.92,1.96],"Se encontró en Ariño, en Teruel.":[3,34.18,2.08],"Su nombre significa «escudo de Europa».":[3,36.56,2.3],"Su cuerpo estaba cubierto de placas de hueso, como una armadura.":[3,39.16,3.62],"Morelladon":[3,43.08,0.96],"Se encontró en Morella, en Castellón.":[3,44.34,2.2],"Su nombre significa «diente de Morella».":[3,46.84,2.22],"Tenía una vela de espinas en la espalda.":[3,49.36,2.18],"Demandasaurio":[3,51.84,1.14],"Medía unos 10 metros de largo, aunque su esqueleto está incompleto.":[3,53.28,3.94],"Se encontró en la sierra de la Demanda, en Burgos.":[3,57.52,2.82],"Su nombre significa «lagarto de la Demanda».":[3,60.64,2.72],"Su nombre completo recuerda a Charles Darwin, el gran científico.":[3,63.66,3.62],"Amargasaurio":[3,67.58,1.1],"Su nombre significa «lagarto de La Amarga».":[3,68.98,2.62],"Tenía dos filas de espinas en el cuello.":[3,71.9,2.28],"Microraptor":[3,74.48,1.02],"Medía menos de 1 metro de largo.":[3,75.8,1.84],"Se encontró en China, en Asia.":[3,77.94,1.9],"Su nombre significa «pequeño ladrón».":[3,80.14,2.5],"Tenía cuatro alas: plumas largas en los brazos y en las patas.":[3,82.94,3.9],"Arqueópterix":[3,87.14,1.08],"Medía unos 50 centímetros de largo.":[3,88.52,2.42],"Se encontró en Alemania.":[3,91.24,1.5],"Su nombre significa «ala antigua».":[3,93.04,2.42],"Tenía plumas como un pájaro, pero también dientes y garras en las alas.":[3,95.76,3.94],"Barionix":[3,100.0,1.0],"Se encontró en Inglaterra.":[3,101.3,1.54],"Su nombre significa «garra pesada».":[3,103.14,2.46],"En su tripa se encontraron escamas de pez.":[3,105.9,2.32],"Mamenquisaurio":[3,108.52,1.2],"Su nombre significa «lagarto de Mamenxi».":[3,110.02,2.72],"Tenía uno de los cuellos más largos de todos los animales.":[3,113.04,3.12],"Plateosaurio":[3,116.46,1.08],"Se encontró en Alemania y en Suiza.":[3,117.84,2.0],"Su nombre significa «lagarto ancho».":[3,120.14,2.26],"Fue uno de los primeros dinosaurios grandes.":[3,122.7,2.34],"Dimetrodon":[3,125.34,1.02],"Vivió antes que los dinosaurios, y es más pariente nuestro que de ellos.":[3,126.66,4.02],"Mamut":[3,130.98,0.7],"Era un mamífero, como los elefantes. Vivió muchísimo después de los dinosaurios.":[3,131.98,4.72],"Tigre de dientes de sable":[3,137.0,1.64],"Era un felino, un mamífero. Vivió muchísimo después de los dinosaurios.":[3,138.94,4.7],"Gallina":[3,143.94,0.82],"Sí es un dinosaurio: las aves son dinosaurios que siguen vivos.":[3,145.06,3.82],"Cocodrilo":[3,149.18,0.9],"El cocodrilo es pariente de los dinosaurios, pero no es un dinosaurio.":[3,150.38,3.814],"¿Cómo saben los científicos qué comía un dinosaurio?":[4,0.3,2.66],"Los dientes dan muchas pistas, y en las cacas fosilizadas se ven restos de lo que comían.":[4,3.26,5.0],"¿Cómo sabemos que el Barionix comía peces?":[4,8.56,2.3],"Junto a su esqueleto, donde tenía la tripa, se encontraron escamas de pez.":[4,11.16,4.08],"¿Cómo sabemos que el Microraptor también comía peces?":[4,15.54,2.88],"Los fósiles a veces guardan hasta la última comida del animal.":[4,18.72,3.16],"¿Quién tenía una maza de hueso en la cola?":[4,22.18,2.14],"¿Quién tenía tres cuernos?":[4,24.62,1.48],"¿Quién tenía placas en la espalda?":[4,26.4,1.78],"¿Quién tenía una vela en la espalda?":[4,28.48,1.7],"¿Quién tenía una cresta larga en la cabeza?":[4,30.48,2.24],"¿Quién tenía la cabeza dura como un casco?":[4,33.02,2.42],"¿Quién tenía plumas?":[4,35.74,1.28],"¿Quién tenía un pincho en cada pulgar?":[4,37.32,1.86],"¿Quién tenía las patas de delante más largas que las de atrás?":[4,39.48,3.12],"¿Quién tenía una cabeza enorme y los brazos cortitos?":[4,42.9,3.12],"¿Para qué servía la maza de la cola del Anquilosaurio?":[4,46.32,2.82],"Para defenderse de los carnívoros.":[4,49.44,1.756],"¿Para qué servían los pinchos de la cola del Estegosaurio?":[4,51.496,2.96],"Para defenderse.":[4,54.756,1.1],"¿Para qué servía la cresta del Parasaurolofo?":[4,56.156,2.4],"Quizá para hacer sonidos, como una trompeta.":[4,58.856,2.48],"¿Para qué tenía plumas el Velocirraptor?":[4,61.636,2.12],"Para abrigarse y lucirse, porque no podía volar.":[4,64.056,2.64],"¿Para qué servían las garras enormes del Terizinosaurio?":[4,66.996,2.86],"Quizá para alcanzar ramas y para defenderse.":[4,70.156,2.4],"¿Por qué el Oviraptor abría los brazos sobre el nido?":[4,72.856,2.72],"Para dar calor a sus huevos y protegerlos.":[4,75.876,2.34],"¿Para qué tenía el Gallimimo las patas tan largas?":[4,78.516,2.72],"Para correr muy rápido.":[4,81.536,1.44],"¿Para qué servían las dos crestas del Dilofosaurio?":[4,83.276,2.6],"Quizá para lucirse ante otros dilofosaurios.":[4,86.176,2.56],"¿Para qué servía la cabeza tan dura del Paquicefalosaurio?":[4,89.036,3.06],"Quizá para darse cabezazos con otros.":[4,92.396,2.16],"¿Para qué servía el cuello tan largo del Braquiosaurio?":[4,94.856,2.76],"Para comer hojas de árboles altos.":[4,97.916,1.839],"¿Para qué servían las placas del Estegosaurio?":[4,100.055,2.34],"No se sabe seguro: quizá para lucirse o para calentarse al sol.":[4,102.695,3.92],"¿Para qué servía la vela del Espinosaurio?":[4,106.915,2.3],"No se sabe seguro: quizá para lucirse.":[4,109.515,2.6],"¿Para qué servía la joroba del Concavenator?":[4,112.415,2.42],"Todavía no se sabe.":[4,115.135,1.24],"¿Para qué servían las espinas del cuello del Amargasaurio?":[4,116.675,2.96],"Quizá para defenderse o para lucirse.":[4,119.935,2.36],"¿Para qué servía la vela del Morelladon?":[4,122.595,2.14],"No se sabe seguro: quizá para lucirse o para el calor.":[4,125.035,3.38],"¿Para qué le servían al Microraptor sus cuatro alas?":[4,128.715,2.88],"Para planear o volar entre los árboles.":[4,131.895,2.36],"¿Para qué tenía el Arqueópterix garras en las alas?":[4,134.555,2.76],"Quizá para trepar y agarrarse.":[4,137.615,1.82],"¿Para qué tenía el Pelecanimimo una bolsa en la garganta?":[4,139.735,3.08],"Quizá para guardar los peces que pescaba.":[4,143.115,2.26],"¿Para qué tenía el Mamenquisaurio un cuello tan largo?":[4,145.675,2.76],"Para alcanzar muchas plantas sin moverse.":[4,148.735,2.048],"Los dinosaurios ponían huevos.":[5,0.3,1.94],"Sí: los dinosaurios nacían de huevos, como los pájaros.":[5,2.54,3.98],"El Tiranosaurio rex comía plantas.":[5,6.82,2.34],"Comía carne: era un gran cazador.":[5,9.46,2.3],"El Triceratops tenía tres cuernos.":[5,12.06,2.14],"Dos cuernos largos encima de los ojos y uno cortito en la nariz.":[5,14.5,3.66],"El Braquiosaurio tenía el cuello muy largo.":[5,18.46,2.44],"Con su cuello largo comía las hojas de los árboles altos.":[5,21.2,3.14],"Las personas vivieron a la vez que los dinosaurios.":[5,24.64,2.88],"Las personas llegaron muchísimo después, cuando ya no había dinosaurios gigantes.":[5,27.82,4.7],"Algunos dinosaurios eran pequeños como una gallina.":[5,32.82,2.98],"El Compsognato era pequeño como una gallina.":[5,36.1,2.74],"El Estegosaurio tenía placas en la espalda.":[5,39.14,2.52],"Tenía dos filas de placas y cuatro pinchos en la cola.":[5,41.96,3.08],"Los dinosaurios eran mamíferos.":[5,45.34,1.96],"No: eran reptiles. Y las aves de hoy son dinosaurios.":[5,47.6,4.16],"El Velocirraptor tenía plumas.":[5,52.06,1.94],"Sí: estaba cubierto de plumas, como un pájaro.":[5,54.3,3.0],"Todos los dinosaurios eran gigantes.":[5,57.6,2.131],"Había dinosaurios enormes, pero también muchos pequeños.":[5,60.031,3.5],"El Dilofosaurio escupía veneno.":[5,63.831,2.1],"Eso solo pasa en las películas: no hay ninguna prueba.":[5,66.231,3.02],"El Velocirraptor era más alto que una persona.":[5,69.551,2.66],"Era del tamaño de un pavo. En las películas lo hacen mucho más grande.":[5,72.511,3.98],"Era un reptil volador, pariente de los dinosaurios.":[5,79.031,2.94],"El Oviraptor robaba huevos.":[5,82.271,1.98],"Probablemente estaba cuidando sus propios huevos.":[5,84.551,2.64],"El Tiranosaurio rex tenía los brazos muy cortos.":[5,87.491,3.02],"Eran cortitos, pero muy fuertes.":[5,90.811,2.28],"Los dinosaurios y los mamuts vivieron a la vez.":[5,93.391,2.42],"Los mamuts llegaron millones de años después.":[5,96.111,2.74],"El Brontosaurio es un dinosaurio de verdad.":[5,99.151,2.36],"Durante años se pensó que no, pero en 2015 los científicos dijeron que sí.":[5,101.811,4.62],"La Maiasaura cuidaba de sus crías.":[5,106.731,2.18],"Sus crías se quedaban un tiempo en el nido y las mamás las cuidaban.":[5,109.21,3.7],"El Espinosaurio vivía cerca del agua.":[5,113.21,2.24],"Vivía junto a los ríos y comía muchos peces.":[5,115.75,2.78],"El Plesiosaurio era un dinosaurio que vivía en el mar.":[5,118.83,2.88],"Vivía en el mar, pero era un reptil marino, no un dinosaurio.":[5,122.01,3.36],"Las aves son dinosaurios.":[5,125.67,1.86],"Las aves vienen de dinosaurios con plumas: son dinosaurios que siguen vivos.":[5,127.83,4.44],"Muchos dinosaurios tenían plumas.":[5,132.57,1.98],"El Velocirraptor, el Microraptor y muchos otros tenían plumas.":[5,134.85,4.16],"El Tiranosaurio rex vivió más cerca de nosotros que del Estegosaurio.":[5,139.31,3.88],"El Estegosaurio vivió hace unos 150 millones de años, y el Tiranosaurio rex hace unos 68 millones.":[5,143.49,7.08],"Un asteroide acabó con la mayoría de los dinosaurios.":[5,150.87,2.9],"Hace unos 66 millones de años chocó un asteroide gigante contra la Tierra.":[5,154.07,4.68],"En España se han encontrado muchos dinosaurios.":[5,159.05,2.64],"Por ejemplo, el Concavenator en Cuenca y el Turiasaurio en Teruel.":[5,161.99,4.04],"Los científicos saben qué comían por sus dientes y sus cacas fosilizadas.":[5,166.33,4.0],"Los dientes y las cacas fosilizadas, que se llaman coprolitos, dan muchas pistas.":[5,170.63,4.48],"El Microraptor tenía cuatro alas.":[5,175.41,2.22],"Tenía plumas largas en los brazos y en las patas.":[5,177.93,2.56],"Algunos dinosaurios tenían más de 200 dientes.":[5,180.79,2.96],"El Pelecanimimo, encontrado en Cuenca, tenía más de 200 dientes pequeñitos.":[5,184.05,4.706],"En este huevo están los juegos de cuándo y dónde vivieron los dinosaurios. ¡Muy pronto se abrirá!":[6,0.3,5.76],"En este huevo están los cuentos de Mochi. ¡Muy pronto se abrirá!":[6,14.14,3.907],"Pteranodon":[7,0.3,0.96],"El Pteranodon era un dinosaurio.":[7,1.56,1.906],"Paleontólogos":[8,0.3,1.2],"¡A excavar!":[8,1.8,0.84],"Monta el esqueleto":[8,2.94,1.26],"Sigue las huellas":[8,4.5,1.18],"¿Qué hace un paleontólogo?":[8,5.98,1.46],"¡Enhorabuena! ¡Has conseguido todas las estrellas de Paleontólogos! ¡Aquí tienes tu trofeo!":[8,7.74,5.08],"¡Increíble! ¡Has conseguido todas las estrellas del nivel difícil de Paleontólogos! ¡Aquí tienes tu trofeo de fuego!":[8,13.12,6.62],"¡Nivel experto superado! ¡Has conseguido todas las estrellas del nivel experto de Paleontólogos! ¡Aquí tienes tu trofeo galáctico!":[8,20.04,7.86],"En este huevo están los juegos de paleontólogos. Se abrirá cuando consigas todas las estrellas de Cómo eran.":[8,28.2,5.96],"¡Mira! El huevo azul se está moviendo. ¡Tócalo para abrirlo!":[8,34.46,3.64],"¡Ha salido una sección nueva: Paleontólogos! Vamos a excavar fósiles y a montar esqueletos.":[8,38.4,5.568],"¡Hola! Soy Mochi, tu mochila. ¿Cómo te llamas? Escribe tu nombre y elige tu dinosaurio.":[9,0.3,5.46],"Puedes cambiar tu nombre o elegir otro dinosaurio.":[9,6.06,2.5],"¿Quién dejó estas pistas?":[10,0.3,1.54],"¿Qué fósil es el más antiguo?":[10,2.14,1.72],"¿Qué fósil es el más moderno?":[10,4.16,1.9],"Las capas de abajo se formaron primero: el fósil más antiguo es el de más abajo.":[10,6.36,4.74],"Las capas de arriba se formaron las últimas: el fósil más moderno es el de más arriba.":[10,11.4,4.88],"Toca los fósiles en orden: del más antiguo al más moderno.":[10,16.58,3.78],"¡Muy bien! Las capas se fueron formando unas encima de otras: los fósiles más antiguos están abajo.":[10,20.66,6.56],"¡El museo se ha equivocado! Una pieza de este esqueleto es de otro dinosaurio. Encuéntrala.":[10,27.52,5.42],"Esa pieza sí es de este esqueleto. Busca otra.":[10,33.24,3.2],"¡Bien visto! Esa pieza es de otro dinosaurio.":[10,36.74,3.12],"¿Y de quién es el esqueleto?":[10,40.16,1.46],"¿Qué pasó aquí?":[10,41.92,0.96],"¿Qué hizo este dinosaurio?":[10,43.18,1.46],"¿Cuál de los dos pasó antes?":[10,44.94,1.66],"Truco de paleontólogo: la cadera estaba unas cuatro veces más alta que lo que mide la huella.":[10,46.9,5.2],"La pieza equivocada era del Tiranosaurio rex.":[10,52.4,2.78],"La pieza equivocada era del Triceratops.":[10,55.48,2.66],"La pieza equivocada era del Estegosaurio.":[10,58.44,2.76],"La pieza equivocada era del Braquiosaurio.":[10,61.5,2.68],"La pieza equivocada era del Espinosaurio.":[10,64.48,2.72],"La pieza equivocada era del Anquilosaurio.":[10,67.5,2.72],"La pieza equivocada era del Parasaurolofo.":[10,70.52,2.86],"La pieza equivocada era del Velocirraptor.":[10,73.68,2.66],"La pieza equivocada era del Paquicefalosaurio.":[10,76.64,3.02],"Un diente con sierra y una huella de tres dedos con garras: era un gran carnívoro que andaba sobre dos patas.":[10,79.96,6.2],"Un diente de hojita y una huella grande y redonda: era un herbívoro de cuello largo que andaba a cuatro patas.":[10,86.46,6.066],"Una garra curva y una huella de solo dos dedos: era un raptor, como el Velocirraptor, que llevaba su garra grande levantada.":[10,92.825,7.8],"Un diente de comer plantas y una huella de tres dedos gordos: era un herbívoro con pico, como el Iguanodonte.":[10,100.925,6.6],"Un cráneo con pico y sin dientes junto a un nido de huevos: era un Oviraptor cuidando sus huevos.":[10,107.825,5.9],"Un cráneo enorme lleno de dientes y una caca fosilizada con trocitos de hueso: era un Tiranosaurio rex.":[10,114.026,6.44],"Un hueso de la pata enorme, un diente de hojita y una huella redonda: era un gigante de cuello largo.":[10,120.766,6.3],"Una garra enorme, un diente y restos de pez: era un dinosaurio pescador, como el Barionix.":[10,127.366,5.74],"Estos fósiles se encontraron en lo alto de una montaña. ¿Qué había aquí hace millones de años?":[10,133.406,5.68],"Amonites, peces y dientes de tiburón vivían en el mar: hace millones de años, aquí había mar.":[10,139.386,6.1],"¿Qué había aquí hace millones de años?":[10,145.786,2.32],"Helechos, huellas y dientes de comer plantas: aquí había tierra firme con plantas, y por ella paseaban dinosaurios.":[10,148.406,7.44],"Muchos huevos juntos en la misma capa: aquí había nidos. Algunos dinosaurios ponían sus huevos juntos, en colonias.":[10,156.146,7.5],"Peces, plantas y huellas en el barro: aquí había un río, y los dinosaurios paseaban por su orilla.":[10,163.946,6.28],"Los dedos apuntan hacia donde iban. Los dos van hacia el mismo lado y el carnívoro va detrás del herbívoro: parece que lo seguía.":[10,170.526,8.0],"Hay huellas grandes y pequeñas que van juntas hacia el mismo lado: era una manada con adultos y crías.":[10,178.826,5.86],"Los pasos son cada vez más largos: empezó a correr.":[10,184.985,3.44],"Las dos últimas huellas están una al lado de la otra: se paró.":[10,188.725,3.86],"Las huellas hacen una curva y vuelven hacia atrás: dio la vuelta.":[10,192.885,3.82],"Una huella de tres dedos pisa a una huella redonda: el de las huellas redondas pasó antes.":[10,197.005,5.36],"Una huella redonda pisa a una huella de tres dedos: el de las huellas de tres dedos pasó antes.":[10,202.665,5.74],"Esta huella mide 25 centímetros. ¿A qué altura tenía la cadera?":[10,208.705,4.4],"25 por 4 son 100 centímetros: su cadera estaba a 1 metro del suelo.":[10,213.405,5.14],"Esta huella mide 50 centímetros. ¿A qué altura tenía la cadera?":[10,218.845,4.2],"50 por 4 son 200 centímetros: su cadera estaba a 2 metros del suelo.":[10,223.345,5.32],"Esta huella mide 75 centímetros. ¿A qué altura tenía la cadera?":[10,228.965,4.5],"75 por 4 son 300 centímetros: su cadera estaba a 3 metros del suelo, casi tan alta como una canasta de baloncesto.":[10,233.765,8.646],"Cuándo y dónde":[11,0.3,1.24],"La línea del tiempo":[11,1.84,1.38],"Viaje en el tiempo":[11,3.52,1.24],"¿Quién se ha colado?":[11,5.06,1.14],"¿Dónde se encontró?":[11,6.5,1.1],"¡Enhorabuena! ¡Has conseguido todas las estrellas de Cuándo y dónde! ¡Aquí tienes tu trofeo!":[11,7.9,5.28],"¡Increíble! ¡Has conseguido todas las estrellas del nivel difícil de Cuándo y dónde! ¡Aquí tienes tu trofeo de fuego!":[11,13.48,6.78],"¡Nivel experto superado! ¡Has conseguido todas las estrellas del nivel experto de Cuándo y dónde! ¡Aquí tienes tu trofeo galáctico!":[11,20.56,7.74],"En este huevo están los juegos de cuándo y dónde vivieron los dinosaurios. Se abrirá cuando consigas todas las estrellas de Conoce a los dinos.":[11,28.6,7.82],"¡Mira! El huevo morado se está moviendo. ¡Tócalo para abrirlo!":[11,36.72,3.8],"¡Ha salido una sección nueva: Cuándo y dónde! Vamos a viajar en el tiempo y por el mapa.":[11,40.82,4.941],"Las personas":[12,0.3,1.08],"Cuentos de Mochi":[13,0.3,1.04],"Cuentos para escuchar":[13,1.64,1.2],"Cuentos para leer":[13,3.14,1.1],"¡Enhorabuena! ¡Has conseguido todas las estrellas de Cuentos de Mochi! ¡Aquí tienes tu trofeo!":[13,4.54,5.08],"¡Increíble! ¡Has conseguido todas las estrellas del nivel difícil de Cuentos de Mochi! ¡Aquí tienes tu trofeo de fuego!":[13,9.92,6.88],"¡Nivel experto superado! ¡Has conseguido todas las estrellas del nivel experto de Cuentos de Mochi! ¡Aquí tienes tu trofeo galáctico!":[13,17.1,7.7],"En este huevo están los cuentos de Mochi. Se abrirá cuando consigas todas las estrellas de Paleontólogos.":[13,25.1,5.68],"¡Mira! El huevo naranja se está moviendo. ¡Tócalo para abrirlo!":[13,31.08,3.62],"¡Ha salido una sección nueva: Cuentos de Mochi! Ponte cómodo, que empieza el cuento.":[13,35.0,4.736],"Quita la arena con el dedo para descubrir el fósil.":[14,0.3,2.82],"¿De quién es este esqueleto?":[14,3.42,1.5],"¿Qué has encontrado?":[14,5.22,1.14],"No todos los fósiles son de dinosaurios. ¿Qué fósil es?":[14,6.66,3.68],"Arrastra cada pieza hasta su sitio para montar el esqueleto.":[14,10.64,3.22],"Algunas piezas están giradas: tócalas para girarlas y después arrástralas a su sitio.":[14,14.16,5.18],"Esa pieza no va ahí. Fíjate bien en los huesos.":[14,19.64,3.12],"Esa pieza va ahí, pero está girada. Tócala para girarla.":[14,23.06,3.72],"¡Esqueleto montado!":[14,27.08,1.32],"¿Quién dejó esta huella?":[14,28.7,1.38],"¿Hacia dónde iba el dinosaurio?":[14,30.38,1.68],"¿Cuántos dinosaurios pasaron por aquí?":[14,32.36,1.96],"¿Iba andando o corriendo?":[14,34.62,1.56],"¿Iba solo o en grupo?":[14,36.48,1.5],"¿Cuál de los dos iba más deprisa?":[14,38.28,1.88],"Ordena los pasos: toca primero lo que se hace antes.":[14,40.46,3.42],"¡Muy bien! Así trabaja un paleontólogo, paso a paso.":[14,44.18,3.68],"¿Cómo se forma un fósil? Ordena los pasos: toca primero lo que pasa antes.":[14,48.16,5.22],"¡Muy bien! Así se forma un fósil.":[14,53.68,2.3],"Es el esqueleto del Tiranosaurio rex.":[14,56.28,2.34],"Mira su cabeza enorme llena de dientes y sus brazos cortitos.":[14,58.92,3.56],"Es el esqueleto del Triceratops.":[14,62.78,1.94],"Mira los tres cuernos y la gola de hueso de su cabeza.":[14,65.02,2.94],"Es el esqueleto del Estegosaurio.":[14,68.26,2.02],"Mira las placas de su espalda y los pinchos de su cola.":[14,70.58,2.88],"Es el esqueleto del Braquiosaurio.":[14,73.76,2.04],"Mira su cuello larguísimo, como el de una jirafa.":[14,76.1,2.94],"Es el esqueleto del Espinosaurio.":[14,79.34,1.96],"Mira la vela de espinas de su espalda y su hocico largo, como el de un cocodrilo.":[14,81.6,4.6],"Es el esqueleto del Anquilosaurio.":[14,86.5,1.92],"Mira la maza de hueso al final de su cola.":[14,88.72,2.16],"Es el esqueleto del Parasaurolofo.":[14,91.18,2.02],"Mira la cresta larga y hueca de su cabeza.":[14,93.5,2.24],"Es el esqueleto del Velocirraptor.":[14,96.04,1.92],"Mira la garra grande y curva de sus patas.":[14,98.26,2.36],"Es el esqueleto del Paquicefalosaurio.":[14,100.92,2.2],"Mira el hueso gordísimo de encima de su cabeza, como un casco.":[14,103.42,3.58],"Es un diente afilado y con sierra: era de un dinosaurio que comía carne.":[14,107.3,4.06],"Es un diente con forma de hojita: era de un dinosaurio que comía plantas.":[14,111.66,4.22],"Es una garra curva y afilada. Las garras servían para agarrar y para defenderse.":[14,116.18,4.82],"¡Es un huevo de dinosaurio! Los dinosaurios ponían huevos, como las aves.":[14,121.3,4.56],"Es una huella. Las huellas nos cuentan cómo andaban los dinosaurios.":[14,126.16,4.04],"Es una caca fosilizada. Se llama coprolito y nos dice qué comía.":[14,130.5,4.54],"Es un cráneo, el hueso de la cabeza. ¡Este es de un Tiranosaurio rex!":[14,135.34,4.66],"Es un hueso de la pata. Juntando muchos huesos se monta un esqueleto.":[14,140.3,4.22],"Es un amonites: un animal del mar con concha en espiral, pariente de los pulpos y los calamares.":[14,144.82,5.72],"Es un trilobites: un animal del mar que vivió muchísimo antes que los dinosaurios.":[14,150.84,4.98],"Es un mosquito atrapado en ámbar, la resina de un árbol que se endureció hace millones de años.":[14,156.12,5.12],"Es un helecho fósil: las plantas también se convierten en fósiles.":[14,161.54,3.9],"Es un pez fósil. Los peces ya vivían en el agua mucho antes que los dinosaurios.":[14,165.74,4.78],"Es un diente de tiburón fósil. ¡Los tiburones ya existían antes que los dinosaurios!":[14,170.82,5.0],"Tres dedos finos con garras afiladas: es la huella de un carnívoro que andaba sobre dos patas.":[14,176.12,5.32],"Una huella grande y redonda, como la de un elefante: es de un dinosaurio de cuello largo, que andaba sobre cuatro patas.":[14,181.74,6.94],"Tres dedos gordos y redondeados: es la huella de un herbívoro con pico, como el Iguanodonte o el Parasaurolofo.":[14,188.98,6.7],"Solo dos dedos: los raptores, como el Velocirraptor, llevaban levantada su garra grande, por eso sus huellas tienen dos dedos.":[14,195.98,7.88],"Los dedos de las huellas apuntan hacia la derecha: iba hacia la derecha.":[14,204.16,3.94],"Los dedos de las huellas apuntan hacia la izquierda: iba hacia la izquierda.":[14,208.4,3.9],"Hay un camino de huellas: pasó un dinosaurio.":[14,212.6,2.598],"Hay dos caminos de huellas: pasaron dos dinosaurios.":[15,0.3,3.0],"Hay tres caminos de huellas: pasaron tres dinosaurios.":[15,3.6,3.22],"Las huellas están cerca unas de otras: daba pasos cortos, iba andando.":[15,7.12,4.52],"Las huellas están muy separadas: daba pasos largos, ¡iba corriendo!":[15,11.94,4.42],"Solo hay un camino de huellas: iba solo.":[15,16.66,2.56],"Hay muchos caminos de huellas juntos que van hacia el mismo lado: iban en grupo, como una manada.":[15,19.52,5.38],"Iba más deprisa el de arriba: sus huellas están más separadas porque daba pasos más largos.":[15,25.2,4.86],"Iba más deprisa el de abajo: sus huellas están más separadas porque daba pasos más largos.":[15,30.36,4.96],"¿Con qué quita la arena del fósil, con mucho cuidado?":[15,35.62,2.84],"Con un pincel: así quita la arena sin romper el fósil.":[15,38.76,3.4],"¿Con qué mira los detalles más pequeños?":[15,42.46,2.18],"Con una lupa, que hace que todo se vea más grande.":[15,44.94,2.9],"¿Con qué rompe la roca dura que hay alrededor del fósil?":[15,48.14,2.94],"Con un martillo y un cincel, dando golpecitos con cuidado.":[15,51.38,3.38],"¿Con qué cava la tierra?":[15,55.06,1.34],"Con una pala, pero lejos del fósil, para no romperlo.":[15,56.7,3.18],"¿Con qué mide lo largo que es un hueso?":[15,60.18,2.04],"Con una regla o con una cinta de medir.":[15,62.52,2.2],"¿Dónde dibuja y apunta lo que encuentra?":[15,65.02,2.22],"En un cuaderno: dibuja y apunta dónde estaba cada hueso.":[15,67.54,3.54],"¿Qué se pone para proteger su cabeza?":[15,71.38,2.06],"Un casco, por si cae alguna piedra.":[15,73.74,2.08],"¿Con qué hace fotos de lo que encuentra?":[15,76.12,1.88],"Con una cámara, antes de mover nada.":[15,78.3,2.28],"Buscar fósiles en las rocas":[15,80.88,1.86],"Excavar con cuidado":[15,83.04,1.32],"Limpiar la arena con el pincel":[15,84.66,1.82],"Envolver los huesos en yeso":[15,86.78,1.84],"Llevarlos al museo":[15,88.92,1.327],"Montar el esqueleto":[15,90.547,1.38],"¿Por qué envuelven los huesos en yeso?":[15,92.227,1.98],"El yeso se pone duro y protege los huesos, como la escayola de un brazo roto.":[15,94.507,4.16],"¿Por qué usan un pincel y no una pala para limpiar el fósil?":[15,98.967,3.38],"Los fósiles son delicados: el pincel quita la arena sin hacerles daño.":[15,102.647,4.12],"¿Dónde se guardan los fósiles para que todos los veamos?":[15,107.067,2.84],"En los museos se guardan, se estudian y se enseñan a todo el mundo.":[15,110.207,3.84],"¿Por qué hacen fotos y apuntan dónde estaba cada hueso?":[15,114.347,2.92],"Así saben cómo estaba el animal y pueden montar bien su esqueleto.":[15,117.567,3.46],"Un dinosaurio muere cerca de un río":[15,121.327,2.08],"El barro y la arena lo tapan":[15,123.707,1.66],"Pasan millones de años y los huesos se vuelven piedra":[15,125.667,3.06],"La roca sale a la superficie":[15,129.027,1.72],"Un paleontólogo lo encuentra":[15,131.047,1.6],"¿Qué partes de un dinosaurio se convierten en fósil más fácilmente?":[15,132.947,3.44],"Los huesos y los dientes son duros; lo blando casi siempre desaparece antes de convertirse en fósil.":[15,136.687,5.44],"¿Cuánto tarda en formarse un fósil?":[15,142.427,1.8],"Hacen falta muchísimos años para que el hueso se convierta en piedra.":[15,144.527,3.48],"¿Un fósil de hueso es un hueso de verdad?":[15,148.307,2.32],"El agua mete minerales dentro del hueso y, poco a poco, lo convierte en piedra.":[15,150.927,4.32],"¿Qué significa la palabra paleontólogo?":[15,155.547,2.16],"Paleo significa antiguo: los paleontólogos estudian los seres vivos de hace muchísimo tiempo.":[15,158.007,5.38],"¿Vivieron personas a la vez que los dinosaurios?":[15,163.687,2.5],"Entre los últimos dinosaurios y las primeras personas pasaron más de sesenta millones de años.":[15,166.487,5.1],"¿Cómo saben de qué color eran algunos dinosaurios con plumas?":[15,171.887,3.18],"En algunas plumas fósiles se ven, con el microscopio, unas bolitas diminutas que les daban color.":[15,175.367,5.342],"Ordena los momentos: toca primero el más antiguo. Escucha las pistas: cada una te dice algo de otro momento.":[16,0.3,7.06],"Ordena los momentos, del más antiguo al más moderno. Esta vez no hay pistas.":[16,7.66,4.82],"Coloca cada tarjeta en su sitio de la regla del tiempo: toca una tarjeta y después su sitio.":[16,12.78,5.44],"Piensa qué pasó antes.":[16,18.52,1.58],"Ahí no va. Mira los millones de años.":[16,20.4,2.52],"¡Bien colocado! Ahora piensa.":[16,23.22,2.34],"La máquina del tiempo ha parado. ¿En qué época estamos?":[16,25.86,3.34],"¿En qué época vivió este dinosaurio?":[16,29.5,2.06],"¿Pudieron verse estos dos?":[16,31.86,1.52],"Alguien se ha colado en el viaje. ¿Quién es?":[16,33.68,2.68],"En este paisaje hay dos cosas que no son de esta época: un animal y una planta. Encuéntralas.":[16,36.66,5.98],"¡Bien! Todavía queda otra cosa que no es de esta época.":[16,42.94,3.3],"Toca el continente en el mapa.":[16,46.54,1.68],"Lee las pistas y piensa: ¿dónde se encontró?":[16,48.52,2.82],"¿En qué provincia se encontró? Toca la provincia en el mapa.":[16,51.64,3.46],"Hace unos 200 millones de años, todos los continentes estaban juntos: era Pangea. Toca un continente y después su sitio.":[16,55.4,8.08],"Ese no es su sitio. Fíjate en la forma de la costa.":[16,63.78,3.18],"¡Pangea montada! Así estaba el mundo cuando empezaron los dinosaurios.":[16,67.26,4.32],"¿Por qué?":[16,71.88,0.62],"Esa planta sí podía estar aquí.":[16,72.8,1.84],"Estamos en el Triásico.":[16,74.94,1.5],"Ese sí vivió en el Triásico.":[16,76.74,1.84],"Estamos en el Jurásico.":[16,78.88,1.52],"Ese sí vivió en el Jurásico.":[16,80.7,1.76],"Estamos en el Cretácico.":[16,82.76,1.56],"Ese sí vivió en el Cretácico.":[16,84.62,1.86],"Los primeros dinosaurios: hace unos 230 millones de años.":[16,86.78,4.28],"El Braquiosaurio: hace unos 150 millones de años.":[16,91.36,3.944],"El Estegosaurio: hace unos 150 millones de años.":[16,95.604,3.8],"Las primeras flores: hace unos 130 millones de años.":[16,99.704,3.86],"El Tiranosaurio rex: hace unos 67 millones de años.":[16,103.864,3.98],"El asteroide: hace 66 millones de años.":[16,108.144,3.3],"Los mamuts: hace unos pocos millones de años.":[16,111.744,3.12],"Las primeras personas: hace unos 300.000 años.":[16,115.164,3.5],"Fue lo primero de todo: antes no había dinosaurios.":[16,118.964,3.3],"Vivió después de los primeros dinosaurios.":[16,122.564,2.4],"Cayó mucho después del Braquiosaurio.":[16,125.264,2.24],"Llegaron muchísimo después del asteroide.":[16,127.804,2.38],"Antes que ellos no había ningún dinosaurio.":[16,130.484,2.48],"Vivió mucho antes que el Tiranosaurio rex.":[16,133.264,2.5],"Vivió justo antes de que cayera el asteroide.":[16,136.064,2.46],"Vivieron cuando ya no quedaba ningún Tiranosaurio rex.":[16,138.824,3.0],"Comía hojas de los árboles: en su época aún no había flores.":[16,142.124,3.76],"Aparecieron antes de que cayera el asteroide.":[16,146.184,2.4],"Después de caer, ya no quedó ningún dinosaurio gigante.":[16,148.884,3.2],"Son lo más moderno de todo.":[16,152.384,1.68],"Cuando aparecieron, todavía no había flores.":[16,154.364,2.38],"Ya existían cuando vivió el Tiranosaurio rex.":[16,157.044,2.68],"Ninguna persona llegó a verlo.":[16,160.024,1.9],"Vivió muchos millones de años antes que el Tiranosaurio rex.":[16,162.224,3.42],"Llegaron cuando los dinosaurios gigantes ya no existían.":[16,165.944,3.14],"Vivió mucho después que el Braquiosaurio.":[16,169.384,2.3],"Llegaron muchísimo después que el Tiranosaurio rex.":[16,171.984,2.9],"¿Quién vivió más cerca de nosotros en el tiempo: el Tiranosaurio rex o el Estegosaurio?":[16,175.184,5.08],"Entre el Estegosaurio y el Tiranosaurio rex pasaron unos 80 millones de años; entre el Tiranosaurio rex y nosotros, unos 66.":[16,180.564,8.56],"¿Cuánto tiempo ha pasado desde que cayó el asteroide?":[16,189.424,2.66],"El asteroide cayó hace 66 millones de años, muchísimo antes de que hubiera personas.":[17,0.3,5.28],"¿Qué está más lejos en el tiempo: los primeros dinosaurios o las primeras flores?":[17,5.88,4.44],"Los primeros dinosaurios aparecieron unos 100 millones de años antes que las primeras flores.":[17,10.62,4.88],"¿Pudo el Estegosaurio oler una flor?":[17,15.8,2.02],"El Estegosaurio vivió hace unos 150 millones de años, y las primeras flores son de hace unos 130.":[17,18.12,6.54],"Los dinosaurios gigantes vivieron unos 165 millones de años. Las personas llevamos unos 300.000. ¿Quién ha durado más?":[17,24.96,8.26],"Los dinosaurios gigantes duraron unas quinientas veces más de lo que llevamos las personas.":[17,33.52,4.7],"Si toda la historia de los dinosaurios cupiera en un solo día, ¿cuánto llevaríamos las personas?":[17,38.52,5.2],"Comparadas con los dinosaurios, las personas acabamos de llegar: unos tres minutos de un día entero.":[17,44.02,5.72],"¿Cuándo aparecieron las primeras aves, como el Arqueopterix?":[17,50.04,3.02],"El Arqueopterix vivió hace unos 150 millones de años. Las aves son dinosaurios que han llegado hasta hoy.":[17,53.36,6.3],"¿Pudo alguna persona ver caer el asteroide?":[17,59.96,2.3],"Cuando cayó el asteroide faltaban más de 65 millones de años para que aparecieran las personas.":[17,62.56,5.44],"Mira: entre las plantas hay flores de colores.":[17,68.3,2.84],"Las primeras flores aparecieron en el Cretácico.":[17,71.44,2.7],"Un Estegosaurio come helechos junto al río.":[17,74.44,2.48],"El Estegosaurio vivió en el Jurásico.":[17,77.22,2.2],"Los dinosaurios acaban de aparecer y todavía son pequeños.":[17,79.72,3.26],"Los primeros dinosaurios aparecieron en el Triásico.":[17,83.28,2.88],"Un Braquiosaurio estira el cuello para comer de los árboles más altos.":[17,86.46,3.62],"El Braquiosaurio, uno de los gigantes de cuello largo, vivió en el Jurásico.":[17,90.38,4.3],"Un Triceratops pasea entre magnolias en flor.":[17,94.98,2.56],"El Triceratops vivió en el Cretácico, cuando ya había flores.":[17,97.84,3.6],"Todos los continentes están juntos y los primeros dinosaurios corren por ellos.":[17,101.74,4.22],"En el Triásico aparecieron los primeros dinosaurios, y todos los continentes estaban juntos.":[17,106.26,5.22],"En el cielo se ve una luz enorme: ¡el asteroide está a punto de caer!":[17,111.78,3.92],"El asteroide cayó al final del Cretácico.":[17,116.0,2.4],"Un pequeño Celofisis corre entre helechos.":[17,118.7,2.48],"El Celofisis fue uno de los primeros dinosaurios, en el Triásico.":[17,121.48,3.76],"Hay helechos y árboles altísimos, pero ninguna flor, y los gigantes de cuello largo comen sus hojas.":[17,125.54,5.94],"Los gigantes de cuello largo y los helechos sin flores son del Jurásico.":[17,131.78,3.68],"A lo lejos ruge un Tiranosaurio rex.":[17,135.76,2.68],"El Tiranosaurio rex vivió al final del Cretácico.":[17,138.74,2.92],"Fue de los primeros dinosaurios grandes: comía plantas cuando los dinosaurios llevaban poco tiempo en la Tierra.":[17,141.96,5.86],"Vivió poco después de que aparecieran los primeros dinosaurios.":[17,148.12,3.22],"Es uno de los dinosaurios más antiguos que se conocen.":[17,151.64,2.98],"Cazaba cuando los dinosaurios acababan de aparecer.":[17,154.92,2.68],"Cazaba Estegosaurios.":[17,157.9,1.52],"Vivió en el mismo sitio y en la misma época que el Estegosaurio.":[17,159.72,3.44],"Vivió en la época del Estegosaurio, junto a la primera ave.":[17,163.46,3.2],"Era uno de los gigantes de cuello largo, cuando aún no había flores.":[17,166.96,3.68],"Cazaba en la Antártida al principio de la época de los gigantes de cuello largo.":[17,170.94,3.94],"Fue un gigante de cuello largo que vivió en Teruel en la época del Estegosaurio.":[17,175.18,4.18],"Vivió en Asia cuando ya había flores.":[17,179.66,2.32],"Pescaba en ríos con plantas con flores en la orilla.":[17,182.28,2.7],"Se defendía con su maza de los mordiscos del Tiranosaurio rex.":[17,185.28,3.64],"Corría por Asia poco antes de que cayera el asteroide.":[17,189.22,2.94],"Cazaba junto a un lago de Cuenca donde crecían algunas de las primeras flores.":[17,192.46,4.12],"Vivió cuando aparecieron las primeras flores.":[17,196.88,2.4],"Cazaba en Australia cuando ya había flores.":[17,199.58,2.48],"Los dos vivieron en Norteamérica hace unos 66 millones de años. ¡Seguro que se vieron!":[17,202.36,5.8],"Se encontró un fósil de los dos peleando, en un desierto de Mongolia.":[17,208.46,3.86],"Los dos vivieron en el Jurásico, en Norteamérica y en Portugal. El Alosaurio cazaba Estegosaurios.":[17,212.62,6.88],"Los dos se encontraron en las mismas rocas de Alemania, de hace unos 150 millones de años.":[17,219.8,5.62],"Los dos vivieron junto al mismo lago de Las Hoyas, en Cuenca.":[17,225.72,3.46],"¡Claro que sí! Las aves son dinosaurios, y las personas las vemos todos los días.":[17,229.48,5.346],"El Estegosaurio vivió unos 80 millones de años antes que el Tiranosaurio rex: entre ellos hay más tiempo que entre el Tiranosaurio rex y nosotros.":[18,0.3,8.02],"En Parque Jurásico aparecen juntos, pero el Braquiosaurio vivió más de 80 millones de años antes que el Tiranosaurio rex.":[18,8.62,6.54],"El Celofisis vivió en el Triásico, y el Diplodoco, muchos millones de años después, en el Jurásico.":[18,15.46,5.66],"Los dos son del Cretácico, pero el Cretácico duró muchísimo: el Iguanodonte vivió unos 60 millones de años antes que el Triceratops.":[18,21.42,7.46],"Ninguna persona vio nunca un Tiranosaurio rex: entre ellos pasaron más de 60 millones de años.":[18,29.18,5.46],"Vivieron más o menos a la vez, hace más de 120 millones de años, pero el Iguanodonte en Europa y el Microraptor en China.":[18,34.94,7.0],"Los dos son del final del Jurásico, pero el Estegosaurio vivía en Norteamérica y el Mamenquisaurio en China.":[18,42.24,5.66],"Las personas llegaron muchísimo después de los dinosaurios.":[18,48.2,3.12],"¿Por qué no puede haber una flor aquí?":[18,51.62,1.7],"Las primeras flores aparecieron en el Cretácico. Antes había helechos, cícadas y árboles como las araucarias, pero ninguna flor.":[18,53.62,7.18],"¿Por qué no puede haber un cactus aquí?":[18,61.1,1.82],"Los cactus aparecieron hace unos 35 millones de años, mucho después de que cayera el asteroide.":[18,63.22,5.48],"Ese no se ha colado: los primeros mamíferos, pequeñitos, ya vivían con los dinosaurios.":[18,69.0,5.1],"¿Dónde está Norteamérica?":[18,74.4,1.46],"¿Dónde está Sudamérica?":[18,76.16,1.4],"¿Dónde está Europa?":[18,77.86,1.22],"¿Dónde está África?":[18,79.38,1.24],"¿Dónde está Asia?":[18,80.92,1.22],"¿Dónde está Oceanía?":[18,82.44,1.38],"¿Dónde está la Antártida?":[18,84.12,1.46],"Eso es Norteamérica.":[18,85.88,1.42],"Eso es Sudamérica.":[18,87.6,1.32],"Eso es Europa.":[18,89.22,1.22],"Eso es África.":[18,90.74,1.18],"Eso es Asia.":[18,92.22,1.1],"Eso es Oceanía.":[18,93.62,1.3],"Eso es la Antártida.":[18,95.22,1.36],"Hoy allí hay un desierto.":[18,96.88,1.54],"Está en Asia.":[18,98.72,0.9],"Allí también se encontraron el Oviraptor y el Protoceratops.":[18,99.92,3.58],"Entonces había ríos enormes llenos de peces.":[18,103.8,2.58],"No está en Asia.":[18,106.68,1.04],"Está en Europa.":[18,108.02,1.06],"Comía peces: allí había ríos y lagos.":[18,109.38,2.72],"Es una isla.":[18,112.4,0.98],"Está al sur del ecuador.":[18,113.68,1.36],"Allí se encontraron algunos de los dinosaurios más grandes de todos.":[18,115.34,3.6],"Allí también vivió el Giganotosaurio.":[18,119.24,2.16],"Está en el sur del mundo.":[18,121.7,1.4],"Hoy hace allí un frío terrible.":[18,123.4,1.96],"Casi nadie vive allí.":[18,125.66,1.28],"Es un continente rodeado de mar por todas partes.":[18,127.24,2.88],"Hoy hace allí mucho calor.":[18,130.42,1.56],"No es una isla.":[18,132.28,1.04],"Allí también se encontró el Pelecanimimo, el de más de 200 dientes.":[18,133.62,4.16],"Allí también se encontraron el Compsognato y el Plateosaurio.":[18,138.08,3.42],"Allí se han encontrado muchísimos dinosaurios con plumas.":[18,141.8,3.06],"No es un desierto.":[18,145.16,1.14],"Está en el norte del mundo.":[18,146.6,1.54],"Allí vivieron también el Triceratops y el Estegosaurio.":[18,148.44,3.12],"Se encontró en el mismo lago fósil que el Concavenator.":[18,151.86,2.94],"Su nombre viene del río Turia, que nace en esta provincia. Pista: no tiene mar y toca a Castellón.":[18,155.1,7.66],"Se encontró en Ariño, en la misma provincia que el Turiasaurio.":[18,163.06,3.42],"Su nombre viene de Morella, un pueblo de la única de estas provincias que tiene mar.":[18,166.78,4.68],"Se encontró en la sierra de la Demanda, en la provincia que está más al norte de las cinco.":[18,171.76,4.52],"Aquí no hay esqueletos famosos, pero sí miles de huellas de dinosaurio. Es la más pequeña de las cinco provincias.":[18,176.58,7.281],"Eso es Cuenca.":[18,184.16,0.98],"Eso es Teruel.":[18,185.44,1.02],"Eso es Castellón.":[18,186.76,1.36],"Eso es Burgos.":[18,188.42,1.16],"Eso es La Rioja.":[18,189.88,1.36],"En Enciso, en La Rioja, hay miles de huellas de dinosaurio: es uno de los mejores sitios de Europa para verlas.":[18,191.54,6.54],"¿Por qué se encuentran Alosaurios en Portugal y también en Norteamérica, con un océano en medio?":[18,198.38,4.94],"Hace unos 150 millones de años, Norteamérica y Europa casi se tocaban. Después los continentes se separaron y entre ellos se abrió el océano Atlántico.":[18,203.62,10.04],"Se encontró un Criolofosaurio en la Antártida. ¿Cómo es posible, con tanto hielo?":[18,213.96,4.94],"En el Jurásico, en la Antártida había bosques. El hielo llegó muchísimo después.":[18,219.2,5.24],"Eoraptor":[18,224.74,0.9],"Medía alrededor de 1 metro de largo.":[18,225.94,2.08],"Su nombre significa «ladrón del amanecer».":[18,228.32,2.44],"Fue uno de los primeros dinosaurios. Los científicos creen que comía de todo.":[18,231.06,4.58],"Herrerasaurio":[18,235.94,1.06],"Medía unos 4 metros de largo.":[18,237.3,1.92],"Su nombre significa «lagarto de Herrera».":[18,239.52,2.48],"Se llama así por el pastor que encontró sus huesos. Fue uno de los primeros dinosaurios cazadores.":[18,242.3,5.72],"Criolofosaurio":[18,248.32,1.2],"Medía unos 6 metros y medio de largo.":[18,249.82,2.22],"Se encontró en la Antártida.":[18,252.34,1.54],"Su nombre significa «lagarto con cresta helada».":[18,254.18,2.86],"Tenía una cresta de lado a lado de la cabeza, como una peineta. Entonces la Antártida no estaba helada.":[18,257.34,6.38],"Australovenator":[18,264.02,1.18],"Se encontró en Australia, en Oceanía.":[18,265.5,2.28],"Su nombre significa «cazador del sur».":[18,268.08,2.38],"Tenía tres garras grandes y curvas en cada mano.":[18,270.76,2.531],"Escucha el cuento con atención. Después te haré unas preguntas.":[19,0.3,3.54],"Este cuento solo se oye una vez. ¡Escucha con mucha atención!":[19,4.14,3.84],"¿Qué crees que pasará?":[19,8.28,1.2],"¡Vamos a ver si aciertas!":[19,9.78,1.34],"Fin. Ahora, las preguntas.":[19,11.42,2.62],"Lee el cuento con atención y contesta las preguntas.":[19,14.34,3.08],"Lee el cuento con atención. Luego tendrás que contestar sin mirarlo.":[19,17.72,3.96],"Ordena lo que pasó: toca primero lo que pasó antes.":[19,21.98,3.38],"¡Muy bien! Así pasó todo, en orden.":[19,25.66,2.78],"El huevo de Mochi":[19,28.74,1.26],"Mochi estaba excavando en unas rocas de los Pirineos, en Lleida. De pronto, su pincel tocó algo redondo y duro. No era una piedra: era un huevo de dinosaurio, convertido en piedra hace muchísimos millones de años.":[19,30.3,13.48],"Mochi quitó la arena con cuidado, grano a grano. Al lado había otro huevo, y otro, y otro más. ¡Era un nido entero! Los huevos eran redondos como pelotas y grandes como un melón pequeño.":[19,44.08,13.04],"Mochi pensó como piensan los paleontólogos. Cerca de allí habían aparecido huesos de cuellos larguísimos. ¡Eran huevos de saurópodo, uno de los gigantes de cuello largo que comían hojas de los árboles!":[19,57.42,12.06],"Las crías, al nacer, eran pequeñas comparadas con sus padres, pero crecían muy deprisa. Mochi tapó el nido con mucho cuidado y lo apuntó en su mapa. Al día siguiente, se lo enseñó a sus amigos del museo.":[19,69.78,13.52],"¿De quién crees que serán los huevos?":[19,83.6,1.92],"¿Dónde estaba excavando Mochi?":[19,85.82,1.72],"¿Con qué quitó Mochi la arena?":[19,87.84,1.62],"¿Cómo eran los huevos?":[19,89.76,1.211],"¿Por qué pensó Mochi que eran huevos de saurópodo?":[19,91.271,2.54],"Los paleontólogos juntan pistas: cerca de los huevos había huesos de gigantes de cuello largo.":[19,94.111,5.42],"¿Por qué tapó Mochi el nido con tanto cuidado?":[19,99.831,2.52],"Los fósiles son delicados: hay que protegerlos hasta llevarlos al museo.":[19,102.651,4.1],"Un día en el Jurásico":[19,107.051,1.48],"Mochi subió a su máquina del tiempo, giró la rueda y… ¡zas! Apareció en el Jurásico, hace unos 150 millones de años. Hacía calor y todo olía a plantas mojadas.":[19,108.831,12.04],"A su alrededor había helechos enormes y árboles altísimos, pero ninguna flor. Un Braquiosaurio estiraba el cuello para comer las hojas de arriba, y un Estegosaurio mordisqueaba helechos junto al río. De pronto, se oyeron unos pasos muy fuertes: ¡pum, pum, pum!":[19,121.171,18.62],"¡Era un Alosaurio, un gran cazador! Mochi se escondió detrás de un helecho y no hizo ni un ruido. El Alosaurio olfateó el aire… y se fue por donde había venido.":[19,140.091,11.1],"Entonces, algo pequeño pasó volando sobre su cabeza: un Arqueopterix, con plumas y dientes. «¡Una de las primeras aves!», pensó Mochi. Volvió a la máquina del tiempo con un montón de cosas que contar.":[19,151.491,13.92],"¿Quién crees que viene?":[19,165.711,1.2],"¿A qué época viajó Mochi?":[19,167.211,1.7],"¿Qué comía el Braquiosaurio?":[19,169.211,1.62],"¿Dónde se escondió Mochi?":[19,171.131,1.52],"¿Por qué no podía ser un Tiranosaurio rex el que venía?":[19,172.951,2.96],"El Tiranosaurio rex vivió al final del Cretácico, muchos millones de años después del Jurásico.":[19,176.211,5.78],"¿Por qué no había flores en el paisaje?":[19,182.291,1.98],"Las primeras flores aparecieron en el Cretácico, después del Jurásico.":[19,184.571,4.18],"La mamá Maiasaura":[19,189.051,1.266],"En Norteamérica, hace unos 76 millones de años, muchas mamás Maiasaura hacían sus nidos juntas, una al lado de la otra, como en un pueblo. Cada nido era un montículo de barro con un hueco en medio.":[20,0.3,11.74],"Dentro, la mamá ponía sus huevos. Los científicos creen que los tapaba con plantas: al pudrirse, las plantas daban calor, como una manta calentita. Así los huevos no se enfriaban mientras ella vigilaba cerca. Por fin, ¡crac!, los huevos se abrieron, y las crías tenían mucha hambre.":[20,12.34,17.42],"En los nidos se han encontrado crías bastante crecidas, con las patas todavía débiles, y cáscaras de huevo pisoteadas. Eso hace pensar que las crías se quedaban un tiempo en el nido… ¡y que sus padres les llevaban la comida!":[20,30.06,12.4],"Por eso este dinosaurio se llama Maiasaura, que significa «buena madre lagarto». Las crías crecían muy deprisa y, cuando eran fuertes, se iban con toda la manada.":[20,42.76,10.22],"¿Qué crees que hará la mamá?":[20,53.28,1.3],"¿Cómo eran los nidos de las Maiasaura?":[20,54.88,2.02],"¿Para qué tapaban los huevos con plantas?":[20,57.2,2.04],"Al pudrirse, las plantas daban calor, como una manta.":[20,59.54,3.06],"La mamá hace el nido de barro":[20,62.9,1.62],"Pone los huevos y los tapa con plantas":[20,64.82,2.12],"Las crías salen del huevo":[20,67.24,1.54],"La mamá les lleva comida al nido":[20,69.08,1.8],"¿Por qué creen los científicos que las crías no salían a buscar comida?":[20,71.18,3.46],"Con las patas tan débiles no podían ir lejos: alguien tenía que llevarles la comida.":[20,74.94,4.6],"¿Qué significa Maiasaura?":[20,79.84,1.62],"El Oviraptor no era un ladrón":[20,81.76,1.84],"Hace unos cien años, unos paleontólogos excavaban en un desierto de Mongolia. Encontraron un dinosaurio pequeño, con pico, justo encima de un nido de huevos.":[20,83.9,9.4],"Pensaron que los huevos eran de otro dinosaurio, el Protoceratops, y que aquel animal los estaba robando para comérselos. Por eso le pusieron de nombre Oviraptor, que significa «ladrón de huevos». Pero ¿y si no era un ladrón?":[20,93.6,13.339],"Muchos años después se encontraron más nidos iguales. Dentro de uno de los huevos había una cría sin nacer… ¡y no era un Protoceratops! Era de la familia del Oviraptor. Y otro fósil estaba sentado sobre su nido, con los brazos abiertos, como una gallina que da calor a sus huevos.":[20,107.239,16.9],"¡No era un ladrón: cuidaba sus propios huevos! Los científicos cambiaron de idea porque encontraron pruebas nuevas. Pero el nombre de un animal no se cambia, así que se sigue llamando Oviraptor.":[20,124.439,12.0],"¿Qué crees que hacía de verdad junto a los huevos?":[20,136.739,2.32],"¿Dónde se encontró el primer Oviraptor?":[20,139.359,2.1],"¿Por qué pensaron que era un ladrón?":[20,141.759,1.62],"Lo encontraron sobre un nido y creyeron que los huevos eran de otro dinosaurio.":[20,143.679,4.1],"Encuentran un dinosaurio encima de un nido":[20,148.079,2.26],"Le ponen el nombre de «ladrón de huevos»":[20,150.639,2.18],"Encuentran una cría sin nacer dentro de un huevo":[20,153.119,2.62],"Descubren que cuidaba sus propios huevos":[20,156.039,2.38],"¿Qué hacía el Oviraptor sentado sobre el nido?":[20,158.719,2.4],"Estaba sentado con los brazos abiertos sobre los huevos, como una gallina que los incuba.":[20,161.419,4.7],"¿Por qué cambiaron de idea los científicos?":[20,166.419,2.22],"La cría dentro del huevo y el fósil sentado en el nido eran pruebas nuevas.":[20,168.939,4.1],"El último día del Cretácico":[20,173.339,1.82],"Hace 66 millones de años, en Norteamérica, un Triceratops comía helechos y un Tiranosaurio rex dormía la siesta. Por el cielo volaban aves pequeñas, y entre las hojas correteaban mamíferos no más grandes que un ratón.":[20,175.459,13.78],"Pero aquel día apareció en el cielo una luz muy brillante. Era un asteroide, una roca enorme del espacio, más grande que una montaña. Cayó en el mar, donde hoy está México, y la Tierra entera tembló. Después, el polvo tapó el sol durante mucho tiempo.":[20,189.539,16.58],"Sin la luz del sol, muchas plantas se secaron. Los grandes dinosaurios que comían plantas se quedaron sin comida, y los cazadores, sin presas. Poco a poco, los dinosaurios gigantes desaparecieron.":[20,206.419,12.596],"Pero no todos los animales. Algunos pequeños, que necesitaban poca comida, sobrevivieron: mamíferos, tortugas, cocodrilos… y algunas aves. Las aves son dinosaurios, así que los dinosaurios no se acabaron del todo: ¡siguen volando a nuestro alrededor!":[21,0.3,16.16],"¿Qué crees que les pasó a las plantas sin la luz del sol?":[21,16.76,2.7],"¿Por qué se quedaron sin comida los dinosaurios que comían plantas?":[21,19.76,3.42],"Las plantas necesitan la luz del sol, y el polvo la tapaba.":[21,23.48,3.4],"¿Por qué sobrevivieron algunos animales pequeños?":[21,27.18,2.64],"Con tan poca comida, solo pudieron aguantar los que necesitaban muy poca.":[21,30.12,3.82],"¿Es verdad o inventado? En el cuento, aquel día un Tiranosaurio rex dormía la siesta.":[21,34.24,6.2],"Sí vivían Tiranosaurios entonces, pero lo de la siesta es inventado: eso no lo puede contar ningún fósil.":[21,40.74,6.18],"¿Es verdad o inventado? Un asteroide cayó donde hoy está México.":[21,47.22,4.5],"Bajo la península de Yucatán, en México, está el cráter de Chicxulub, de unos 180 kilómetros.":[21,52.02,6.1],"Este resumen tiene un error: «Cayó un asteroide, el polvo tapó el sol, las plantas se secaron y no sobrevivió ningún dinosaurio». ¿Cuál es?":[21,58.42,8.94],"Las aves son dinosaurios, y algunas sobrevivieron.":[21,67.66,2.96],"El cazador de Cuenca":[21,70.92,1.34],"Hace unos 125 millones de años, donde hoy está Cuenca, había un lago tranquilo rodeado de plantas. En el agua nadaban peces, y en la orilla tomaban el sol pequeños cocodrilos. Allí crecían también algunas de las primeras plantas con flores.":[21,72.56,14.5],"Por la orilla caminaba un cazador de seis metros: el Concavenator. Tenía algo muy raro: en la espalda, cerca de las caderas, le salía una joroba alta y puntiaguda, como una pequeña vela.":[21,87.36,11.2],"¿Para qué servía la joroba? Los paleontólogos todavía no lo saben. Quizá para lucirse, quizá para reconocerse entre ellos. En los huesos de sus brazos encontraron unos bultitos; algunos creen que ahí tenía plumas, aunque otros no están de acuerdo.":[21,98.86,14.74],"Su esqueleto apareció en 2010, en Las Hoyas, casi completo, y hasta con marcas de su piel con escamas. Por eso se llama Concavenator: «cazador de Cuenca». Hoy es uno de los dinosaurios más famosos de España.":[21,113.9,12.5],"¿Para qué crees que le servía la joroba?":[21,126.7,1.879],"¿Qué había en Cuenca hace 125 millones de años?":[21,128.879,3.44],"¿Qué tenía de raro el Concavenator?":[21,132.619,2.06],"¿Es verdad o inventado? Los científicos saben seguro para qué servía la joroba.":[21,134.979,5.34],"En el cuento lo dice: los paleontólogos todavía no lo saben.":[21,140.619,3.46],"¿Cómo saben los científicos que su piel tenía escamas?":[21,144.379,2.82],"A veces, el barro guarda la forma de la piel, y queda como una huella en la roca.":[21,147.499,4.28],"Este resumen tiene un error: «El Concavenator vivía junto a un lago de Cuenca, tenía una joroba en la cabeza y su nombre significa cazador de Cuenca». ¿Cuál es?":[21,152.079,9.9],"La joroba le salía en la espalda, cerca de las caderas.":[21,162.279,2.96],"Era un día de mucho calor. Un Triceratops caminaba despacio, con la lengua fuera. Al fin vio un río y bebió agua fresca durante un buen rato. Luego se tumbó a la sombra de un árbol grande y cerró los ojos.":[21,165.539,12.58],"¿Qué tiempo hacía?":[21,178.419,1.0],"¿Qué hizo al ver el río?":[21,179.719,1.26],"¿Cómo se sentía el Triceratops al final?":[21,181.279,2.22],"Se tumbó a la sombra y cerró los ojos: estaba a gusto.":[21,183.799,3.3],"Una cría de Estegosaurio se alejó de su manada persiguiendo una libélula. Cuando se dio la vuelta, no vio a nadie. Entonces oyó un ruido conocido: era su mamá, que la llamaba desde detrás de unos helechos. La cría corrió hacia ella moviendo la cola.":[21,187.399,15.36],"¿Qué perseguía la cría?":[21,203.059,1.3],"¿Dónde estaba su mamá?":[21,204.659,1.26],"¿Cómo se sintió la cría al oír a su mamá?":[21,206.219,2.18],"Corrió hacia ella moviendo la cola, como cuando estamos contentos.":[21,208.699,3.459],"El Pteranodon volaba muy alto sobre el mar. Con sus ojos grandes vio un pez cerca del agua. Bajó en picado, lo atrapó con su pico largo y volvió a subir. No era un dinosaurio: era un reptil volador.":[22,0.3,12.08],"¿Por dónde volaba el Pteranodon?":[22,12.68,1.6],"¿Con qué atrapó el pez?":[22,14.58,1.18],"¿Qué comía el Pteranodon?":[22,16.06,1.42],"Bajó en picado a por un pez: comía peces.":[22,17.78,2.74],"Una manada de Parasaurolofos caminaba hacia el río. De repente, la más vieja levantó la cabeza: había olido a un cazador. Sopló por su cresta hueca y sonó un bramido larguísimo, como una trompeta. Todas las demás entendieron la señal y echaron a correr. Cuando el cazador llegó al río, la orilla estaba desierta.":[22,20.82,19.2],"¿Qué hizo la más vieja al oler al cazador?":[22,40.32,2.1],"«La orilla estaba desierta» quiere decir que…":[22,42.72,2.82],"Desierta quiere decir vacía, sin nadie.":[22,45.84,2.72],"¿Para qué servía el bramido?":[22,48.86,1.46],"Al oírlo, todas entendieron la señal y huyeron.":[22,50.62,2.74],"¿A qué se parecía el sonido?":[22,53.66,1.52],"El Anquilosaurio era lento, pero no tenía miedo. Su lomo estaba cubierto de placas de hueso, como una armadura. Un día, un Tiranosaurio intentó atacarlo. El Anquilosaurio se agachó, pegó la panza al suelo y movió la cola. ¡Plaf! La maza de hueso golpeó la pata del cazador, que se marchó cojeando.":[22,55.48,18.62],"¿Con qué estaba cubierto su lomo?":[22,74.4,1.74],"¿Qué es una armadura?":[22,76.44,1.2],"Como la de los caballeros: una protección dura que cubre el cuerpo.":[22,77.94,3.64],"¿Por qué pegó la panza al suelo?":[22,81.88,1.62],"Su panza era blanda: pegándola al suelo, el cazador no podía morderla.":[22,83.8,4.049],"¿Cómo se marchó el Tiranosaurio?":[22,88.149,1.84],"Lucía y su abuelo paseaban por Enciso, en La Rioja. En una roca plana vieron agujeros con forma de pie de tres dedos. —Son huellas de dinosaurio —dijo el abuelo—. Hace millones de años, esto era barro blando junto a un lago. Lucía puso su pie al lado: la huella era tres veces más grande. «Debía de ser enorme», pensó.":[22,90.289,23.26],"¿Dónde paseaban Lucía y su abuelo?":[22,113.849,2.16],"¿Qué forma tenían los agujeros?":[22,116.309,1.82],"¿Qué quiere decir «barro blando»?":[22,118.429,2.02],"Por eso el pie del dinosaurio se hundió y dejó la huella.":[22,120.749,2.94],"¿Por qué pensó Lucía que el dinosaurio era enorme?":[22,123.989,2.58],"Comparó su pie con la huella: era tres veces más grande.":[22,126.869,3.4],"Hace casi doscientos años, en Inglaterra, se encontraron los primeros huesos de Iguanodonte. Entre ellos había un pincho de hueso con forma de cucurucho. Los científicos pensaron que era un cuerno y lo pusieron en la nariz, como el de un rinoceronte. Años después, en una mina de Bélgica, aparecieron muchos Iguanodontes completos. ¡El pincho estaba en la mano! Era su pulgar. Hoy creen que lo usaba para defenderse o para arrancar plantas.":[22,130.569,27.46],"¿Por qué se equivocaron al principio?":[22,158.329,1.84],"Con pocos huesos sueltos es fácil ponerlos en un sitio que no es.":[22,160.469,3.48],"¿Dónde estaba de verdad el pincho?":[22,164.249,1.86],"¿Qué ayudó a descubrir el error?":[22,166.409,1.74],"En los esqueletos completos de Bélgica, el pincho aparecía en la mano.":[22,168.449,3.62],"¿Qué quiere decir «con forma de cucurucho»?":[22,172.369,2.52],"Como el cucurucho de un helado.":[22,175.189,1.62],"El Microraptor era un dinosaurio del tamaño de un cuervo. Tenía plumas largas en los brazos y en las patas, como si tuviera cuatro alas. Durante mucho tiempo nadie supo de qué color era. Pero unos científicos miraron sus plumas fósiles con un microscopio muy potente y encontraron unas bolitas diminutas que dan color. Por su forma, descubrieron que sus plumas eran negras y brillaban con reflejos azulados.":[22,177.109,24.32],"¿Cuántas alas parecía tener el Microraptor?":[22,201.729,2.5],"Tenía plumas largas en los brazos y en las patas: parecían cuatro alas.":[22,204.529,4.22],"¿Cómo supieron de qué color era?":[22,209.049,1.68],"Si lo vieras al sol, ¿cómo lo verías?":[22,211.029,2.32],"Sus plumas eran negras con reflejos azulados.":[22,213.649,2.76],"¿Qué quiere decir «diminutas»?":[22,216.709,1.94],"Eran tan pequeñas que solo se ven con un microscopio.":[22,218.949,2.96],"Cerca de Riodeva, un pueblo de Teruel, unos paleontólogos encontraron huesos enormes en un campo de trigo abandonado. Excavaron durante años, porque los huesos eran muchos y muy grandes. Solo el húmero, el hueso del brazo, medía casi dos metros. Era un saurópodo nuevo: el Turiasaurio, uno de los dinosaurios más grandes de Europa. Como todos los saurópodos, comía plantas.":[22,222.209,24.94],"¿Dónde se encontraron los huesos?":[22,247.449,1.84],"¿Por qué tardaron años en excavar?":[22,249.589,1.92],"Sacar huesos tan grandes sin romperlos lleva mucho tiempo.":[22,251.809,3.36],"¿Cuánto medía su húmero?":[22,255.469,1.48],"¿Qué comía el Turiasaurio?":[22,257.249,1.64],"El cuento dice que era un saurópodo, y los saurópodos comían plantas.":[22,259.189,5.954],"Un diente de comer plantas y una huella grande y redonda: era un herbívoro de cuello largo que andaba a cuatro patas.":[23,0.3,6.72],"Un hueso de la pata enorme, un diente de comer plantas y una huella redonda: era un gigante de cuello largo.":[23,7.32,6.62],"Los amonites, los peces y los tiburones vivían en el mar: hace millones de años, aquí había mar.":[23,14.24,6.24],"¿Vivieron personas a la vez que los dinosaurios gigantes?":[23,20.78,2.84],"Entre los últimos dinosaurios gigantes y las primeras personas pasaron más de sesenta millones de años.":[23,23.92,5.76],"Triásico":[24,0.3,0.88],"Los primeros dinosaurios, todavía pequeños. Todos los continentes juntos.":[24,1.48,5.48],"Jurásico":[24,7.26,0.88],"Los gigantes de cuello largo, helechos y árboles altísimos. Aún no hay flores.":[24,8.44,5.08],"Cretácico":[24,13.82,0.98],"Las primeras flores, el Tiranosaurio rex y el Triceratops. Termina con el asteroide.":[24,15.1,5.82],"Los primeros dinosaurios":[24,21.22,1.62],"El Braquiosaurio":[24,23.14,1.2],"El Estegosaurio":[24,24.64,1.2],"Las primeras flores":[24,26.14,1.38],"El Tiranosaurio rex":[24,27.82,1.54],"Cae el asteroide":[24,29.66,1.16],"Los mamuts":[24,31.12,1.02],"Las primeras personas":[24,32.44,1.5],"¿Cuándo aparecieron las primeras aves, como el Arqueópterix?":[24,34.24,3.16],"El Arqueópterix vivió hace unos 150 millones de años. Las aves son dinosaurios que han llegado hasta hoy.":[24,37.7,6.9],"Un pequeño Celofisis, uno de los primeros dinosaurios, corre por un valle seco.":[24,44.9,4.58],"No tiene mar.":[24,49.78,0.94],"Está en África.":[24,51.02,1.1],"Llega hasta el mar.":[24,52.42,1.08],"Su nombre viene de Turia, el nombre antiguo de su provincia. Pista: no tiene mar y toca a Castellón.":[24,53.8,7.333],"¿Con qué tocó Mochi el huevo al encontrarlo?":[25,0.3,2.3],"Entonces, algo pequeño pasó volando sobre su cabeza: un Arqueópterix, con plumas y dientes. «¡Una de las primeras aves!», pensó Mochi. Volvió a la máquina del tiempo con un montón de cosas que contar.":[25,2.9,14.02],"Por eso este dinosaurio se llama Maiasaura, que significa «lagarta buena madre». Las crías crecían muy deprisa y, cuando eran fuertes, se iban con toda la manada.":[25,17.22,10.62],"¿Se sabe de verdad o es inventado para el cuento? Aquel día, un Tiranosaurio rex dormía la siesta.":[25,28.14,7.44],"¿Se sabe de verdad o es inventado para el cuento? Un asteroide cayó donde hoy está México.":[25,35.88,6.6],"Su esqueleto apareció en Las Hoyas, casi completo, y hasta con marcas de su piel con escamas. En 2010 los científicos le pusieron nombre: Concavenator, que significa «cazador de Cuenca». Hoy es uno de los dinosaurios más famosos de España.":[25,42.78,15.84],"¿Verdadero o falso? Los científicos saben seguro para qué servía la joroba.":[25,58.92,5.4],"Corrió hacia ella moviendo la cola: estaba contenta.":[25,64.62,3.12],"El Pteranodon volaba muy alto sobre el mar. Con sus ojos grandes vio un pez cerca de la superficie. Bajó en picado, lo atrapó con su pico largo y volvió a subir. No era un dinosaurio: era un reptil volador.":[25,68.04,13.68],"Hace unos doscientos años, en Inglaterra, se encontraron los primeros huesos de Iguanodonte. Entre ellos había un pincho de hueso con forma de cucurucho. Los científicos pensaron que era un cuerno y lo pusieron en la nariz, como el de un rinoceronte. Años después, en una mina de Bélgica, aparecieron muchos Iguanodontes completos. ¡El pincho estaba en la mano! Era su pulgar. Hoy creen que lo usaba para defenderse o para arrancar plantas.":[25,82.02,27.64],"¡Ha salido una sección nueva: Cuentos de Mochi! Ponte a gusto, que empieza el cuento.":[25,109.96,5.329],"¡Hola! Soy Mochi, tu mochila. ¿Cómo te llamas? Escribe tu nombre y elige tu animal.":[26,0.3,5.66],"¿Quién va a jugar hoy?":[26,6.26,1.2],"Puedes cambiar tu nombre o elegir otro animal.":[26,7.76,2.62],"¿Qué quieres practicar? Elige y pulsa jugar.":[26,10.68,2.84],"Elige el nivel y pulsa jugar.":[26,13.82,1.9],"¡Nuevo nivel desbloqueado!":[26,16.02,1.6],"¡Muy bien!":[26,17.92,1.04],"¡Genial!":[26,19.26,0.96],"¡Bravo!":[26,20.52,0.92],"¡Lo has clavado!":[26,21.74,1.14],"¡Fenomenal!":[26,23.18,1.08],"¡Estupendo!":[26,24.56,1.04],"¡Perfecto!":[26,25.9,1.0],"¡Casi!":[26,27.2,0.7],"Uy, prueba otra vez.":[26,28.2,1.36],"¡Tú puedes!":[26,29.86,0.96],"Piénsalo un poquito más.":[26,31.12,1.6],"¡Buen trabajo!":[26,33.02,1.1],"¡Increíble!":[26,34.42,1.04],"♪sfx-ok":[26,35.76,0.27],"♪sfx-ko":[26,36.33,0.28],"♪sfx-win":[26,36.91,0.6],"♪sfx-tap":[26,37.81,0.04],"♪sfx-pop":[26,38.15,0.1],"♪sfx-star":[26,38.55,0.28],"♪fiesta":[26,39.13,8.0]}};
 const V={map:(VOICE_MANIFEST&&VOICE_MANIFEST.map)||{},files:(VOICE_MANIFEST&&VOICE_MANIFEST.files)||[],buf:{},load:{}};
 const vkey=(t,lang)=>(lang&&lang.startsWith('en')?'en:':'')+String(t).replace(/\s+/g,' ').trim();
-const APP_BUILD='22-11-2026 22:14';   // fecha de esta versión (la pone build.py): se ve en «Para las familias» y en el diagnóstico
+const APP_BUILD='26-11-2026 23:38';   // fecha de esta versión (la pone build.py): se ve en «Para las familias» y en el diagnóstico
 const DIAG=[]; const dlog=m=>{DIAG.push(new Date().toTimeString().slice(0,8)+' '+m); if(DIAG.length>30) DIAG.shift();};
 const STANDALONE=(()=>{try{return navigator.standalone===true||matchMedia('(display-mode: standalone)').matches;}catch(e){return false;}})();
 const IOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
@@ -1369,6 +1397,10 @@ const AUTO_RETRY=7*864e5;
    eso, instalada en iOS, «Automático» sigue siendo «html» salvo que el navegador diga que es iPadOS/iOS 26.2 o posterior. */
 const IOSV=(()=>{const u=navigator.userAgent,m=/OS (\d+)[_.](\d+)/.exec(u)||/Version\/(\d+)\.(\d+)/.exec(u);return m?+m[1]+(+m[2])/100:0;})();
 const autoDefault=()=>!(STANDALONE&&IOS)?'web':((IOSV>=26.02||(DB.opt&&DB.opt.webOk))&&!(DB.opt&&DB.opt.autoHtml&&Date.now()-DB.opt.autoHtml<AUTO_RETRY))?'web':'html';   // webOk: la familia ha comprobado en «Para las familias» que aquí el modo rápido se oye
+/* La prueba de sonido de «Para las familias» pone el modo rápido mientras pregunta si se oye. Si la app se cerró sin
+   contestar, al volver a abrirla se vuelve a lo automático: en un iPad antiguo, instalada, el modo rápido puede ser mudo
+   y se quedaba así en cada arranque. (Cuando la familia contesta que sí, se guarda como automático + webOk, no como 'web'.) */
+try{if(STANDALONE&&IOS&&DB.opt&&DB.opt.audio==='web') DB.opt.audio='auto';}catch(e){}
 let autoEng=autoDefault();
 const engine=()=>{const m=audioMode();return m==='auto'?autoEng:m;};
 let actx=null;
@@ -1719,8 +1751,8 @@ function goNewPlayer(ed=null,back=goProfiles){
   RUN=null; CUR_SUB=null; let av=ed?ed.avatar:pick(AVATARS)[0];
   const inp=h('input',{id:'nombre',type:'text',maxlength:'16',autocomplete:'off',autocapitalize:'words',enterkeyhint:'go',placeholder:'Escribe tu nombre'});
   if(ed) inp.value=ed.name;
-  const grid=h('div',{class:'avatars'},AVATARS.map(([a,n])=>h('button',{type:'button',class:'avb'+(a===av?' on':''),'data-a':a,'aria-label':'Elegir '+n,'aria-pressed':String(a===av),
-    onclick:()=>{av=a;grid.querySelectorAll('.avb').forEach(x=>{x.classList.toggle('on',x.dataset.a===a);x.setAttribute('aria-pressed',String(x.dataset.a===a));});sfx.pop();}},avEl(a))));
+  const grid=h('div',{class:'avatars'},AVATARS.flatMap(([a,n,g],i)=>[g&&(!i||AVATARS[i-1][2]!==g)?h('div',{class:'av-sec'},g):null,h('button',{type:'button',class:'avb'+(a===av?' on':''),'data-a':a,'aria-label':'Elegir '+n,'aria-pressed':String(a===av),
+    onclick:()=>{av=a;grid.querySelectorAll('.avb').forEach(x=>{x.classList.toggle('on',x.dataset.a===a);x.setAttribute('aria-pressed',String(x.dataset.a===a));});sfx.pop();}},avEl(a))]));
   const go=()=>{
     const name=inp.value.trim().slice(0,16);
     if(!name){inp.focus();inp.classList.remove('shake');void inp.offsetWidth;inp.classList.add('shake');return;}
@@ -1745,15 +1777,17 @@ function goNewPlayer(ed=null,back=goProfiles){
    que en el iPad guardan sus datos por separado */
 /* El código va sin palabras delante («MOCHILA:» parecía un enlace y el iPad lo cambiaba al pegarlo)
    y solo con letras, números, - y _. Al leerlo se busca el código dentro de lo que se haya pegado. */
-const exportCode=()=>btoa(unescape(encodeURIComponent(JSON.stringify({v:1,players:DB.players})))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+const exportCode=()=>btoa(unescape(encodeURIComponent(JSON.stringify({v:1,app:KEY,players:DB.players})))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
 function readCode(t){
   t=t.replace(/-/g,'+').replace(/_/g,'/').replace(/[^A-Za-z0-9+/]/g,''); while(t.length%4) t+='=';
-  const d=JSON.parse(decodeURIComponent(escape(atob(t)))); if(!d||!Array.isArray(d.players)) throw new Error('código'); return d;
+  const d=JSON.parse(decodeURIComponent(escape(atob(t)))); if(!d||!Array.isArray(d.players)) throw new Error('código');
+  if(d.app&&d.app!==KEY){const e=new Error('otra app');e.otra=true;throw e;}   // varias apps Mochi comparten identificadores de juego: sus estrellas no se mezclan
+  return d;
 }
 function findCode(txt){
   let s=String(txt||''); try{if(/%[0-9a-f]{2}/i.test(s)) s=decodeURIComponent(s);}catch(e){}
   const tries=[...(s.match(/[A-Za-z0-9+/_-]{16,}=*/g)||[]).sort((a,b)=>b.length-a.length),s.replace(/^[\s\S]*?mochila\s*:/i,'').replace(/\s+/g,'')];
-  for(const t of tries){try{return readCode(t);}catch(e){}}
+  for(const t of tries){try{return readCode(t);}catch(e){if(e&&e.otra) throw e;}}
   throw new Error('código');
 }
 function importCode(txt){
@@ -1783,7 +1817,7 @@ function backupBox(){
   const load=()=>{try{const n=importCode(inp.value);inp.value='';make();say(`Listo: ${n} ${n===1?'jugador cargado':'jugadores cargados'}.`);
       setTimeout(()=>{if(!msg.isConnected||RUN) return; goHome(); const f=$('details.families'); if(f){f.open=true; const b=f.querySelector('#backup-in'); b&&b.scrollIntoView({block:'center'});}
         showToast('¡Listo!',`${n} ${n===1?'jugador cargado':'jugadores cargados'}.`);},900);}
-    catch(e){say('Ese código no es válido. Cópialo entero, sin dejarte ningún trozo.',true);}};
+    catch(e){say(e&&e.otra?`Ese código es de otra app de Mochi, no de ${APP.the}.`:'Ese código no es válido. Cópialo entero, sin dejarte ningún trozo.',true);}};
   make();
   return h('div',{class:'backup'},h('h3',null,'Pasar el progreso a otro dispositivo'),
     h('p',{style:'margin:0;color:var(--ink-soft)'},`Copia este código y pégalo en ${APP.the} del otro iPad o navegador. Las estrellas, los cromos y los trofeos se juntan (se queda lo mejor de cada dispositivo); no se borra nada.`),
@@ -1824,7 +1858,7 @@ function bringPanel(after,small){
   const msg=h('p',{class:'msg','aria-live':'polite'}), man=h('div',{class:'bring-man',hidden:true},ta,h('button',{type:'button',class:'btn',style:'--c:var(--verde)',onclick:()=>load(ta.value)},'Cargar'));
   const say=(t,err)=>{msg.className='msg'+(err?' err':'');msg.textContent=t;};
   function load(t){try{const n=importCode(t);sfx.win();say(`¡Listo! ${n===1?'Ya están tus estrellas.':'Ya están las estrellas de '+n+' jugadores.'}`);setTimeout(()=>{if(msg.isConnected) after();},900);}
-    catch(e){say('No encuentro el código. En Safari, toca «Copiar mis estrellas» y vuelve aquí.',true);man.hidden=false;}}
+    catch(e){say(e&&e.otra?`Lo copiado es de otra app de Mochi. Abre ${APP.the} en Safari, toca «Copiar mis estrellas» y vuelve aquí.`:'No encuentro el código. En Safari, toca «Copiar mis estrellas» y vuelve aquí.',true);man.hidden=false;}}
   const paste=async()=>{sfx.tap();try{const t=await navigator.clipboard.readText();if(t&&t.trim()) return load(t);}catch(e){}
     man.hidden=false;try{ta.focus();}catch(e){} say('Mantén pulsado el recuadro, elige «Pegar» y toca «Cargar».');};
   return h('div',{class:'panel bring'+(small?' small':'')},
@@ -1840,7 +1874,7 @@ function soundBox(){
   const msg=h('p',{class:'msg','aria-live':'polite',style:'margin:0'});
   const say=(t,err)=>{msg.className='msg'+(err?' err':'');msg.textContent=t;};
   const name=()=>engine()==='html'?'modo seguro':'modo rápido';
-  let tried=[];
+  let tried=[], viaFast=false;
   const setMode=(id,extra)=>{DB.opt=DB.opt||{};DB.opt.audio=id;Object.assign(DB.opt,extra||{});if(id==='auto'){webFails=0;autoEng=autoDefault();}save();stopVoice();stopSnd();haSleep();ctxStale=engine()==='web'&&!!actx&&STANDALONE&&IOS;unlockAudio();draw();};
   const play=()=>{const was=DB.sound;DB.sound=true;stopVoice();
     const fxs=()=>{[0,350,700].forEach(t=>setTimeout(()=>playSnd('♪sfx-pop'),t));setTimeout(()=>playSnd('♪sfx-win'),1150);};
@@ -1852,11 +1886,12 @@ function soundBox(){
   const no=h('button',{class:'btn',style:'--c:var(--naranja)',onclick:()=>{
     tried.push(engine());const other=engine()==='web'?'html':'web';
     if(tried.includes(other)){tried=[];ask.hidden=true;setMode('auto',{webOk:0});
+      if(viaFast){viaFast=false;say(`De acuerdo: se queda el ${name()}.`);return;}   // solo se estaba probando el modo rápido: el de antes sigue sonando
       say('No hemos conseguido que suene. Comprueba el volumen, que el dispositivo no esté en silencio (la campana del Centro de control) y que el altavoz de arriba no esté tachado. Si está en la pantalla de inicio, prueba también a abrirla en Safari.',true);return;}
     setMode(other,other==='html'?{webOk:0}:null);say(`Probando con el ${name()}…`);play();}},'👎 No, o se oye mal');
   const ask=h('div',{hidden:true,style:'display:flex;flex-direction:column;gap:8px'},h('strong',null,'¿Has oído a Mochi y, después, cuatro sonidos?'),h('div',{class:'row'},yes,no));
-  const test=()=>{tried=[];ask.hidden=false;say(`Sonando con el ${name()}…`);play();};
-  const fast=h('button',{class:'btn ghost',onclick:()=>{tried=['html'];setMode('web');ask.hidden=false;say('Probando el modo rápido…');play();}},'⚡ Probar el modo rápido');
+  const test=()=>{tried=[];viaFast=false;ask.hidden=false;say(`Sonando con el ${name()}…`);play();};
+  const fast=h('button',{class:'btn ghost',onclick:()=>{tried=['html'];viaFast=true;setMode('web');ask.hidden=false;say('Probando el modo rápido…');play();}},'⚡ Probar el modo rápido');
   const state=h('p',{style:'margin:0;color:var(--ink-soft);font-size:.9rem'});
   function draw(){fast.hidden=!(STANDALONE&&IOS&&engine()==='html');
     state.textContent=`Ahora: ${name()}${audioMode()==='auto'?'':' (elegido a mano)'} · versión del ${APP_BUILD||'—'}${STANDALONE?' · abierta desde la pantalla de inicio':''}`;}
@@ -1939,7 +1974,7 @@ function goSubject(id){
 
 /* ---------- trofeo: vídeo de premio al completar una asignatura ---------- */
 let RW=null;
-function closeReward(){if(!RW) return; const r=RW; RW=null; stopSnd(); document.documentElement.style.overflow=''; try{r.vid.pause();}catch(e){} r.el.classList.add('out'); setTimeout(()=>r.el.remove(),260); document.removeEventListener('keydown',r.key);}
+function closeReward(){if(!RW) return; const r=RW; RW=null; stopSnd(); stopVoice(); document.documentElement.style.overflow=''; try{r.vid.pause();}catch(e){} r.el.classList.add('out'); setTimeout(()=>r.el.remove(),260); document.removeEventListener('keydown',r.key);}
 function showReward(sid,isNew,fromHome,l=1){
   closeReward(); stopVoice(); hideFb(); const s=SUBJ[sid],T=TROPHY[l],v=T.vid||sid,sp=tProg(sid,l);
   const vid=h('video',{class:'rw-video',src:`vid/premio-${v}.mp4`,poster:`vid/premio-${v}.jpg`,muted:true,playsinline:true,autoplay:true,loop:true,preload:'auto','aria-label':`Vídeo de premio de ${s.name}`});
@@ -2031,26 +2066,30 @@ function nextQ(run){
 function addSayBtn(run){
   const st=run.stage; if(!run.say||st.querySelector('.say,.listen,[aria-label^="Escuchar"]')) return;
   const p=st.querySelector('.q-prompt'); if(!p) return;
-  const t=run.say,b=h('button',{class:'say','aria-label':'Escuchar',onclick:()=>{b.classList.add('on');speakSeq(t,undefined,()=>b.classList.remove('on'));}},ICO.sound());
+  const t=run.say,b=h('button',{class:'say','aria-label':'Escuchar',onclick:()=>{speakSeq(t,undefined,()=>b.classList.remove('on'));b.classList.add('on');}},ICO.sound());
   const w=h('div',{class:'with-say'}); p.replaceWith(w); w.append(p,b);
 }
 function makeCtx(run){
+  const saveNow=st=>{ if(RUN!==run) return; const g=run.g,l=run.lvl||1,lv=hasLevels(g); if(run.wasOpen===undefined) run.wasOpen=!!(lv&&l<3&&lvOpen(g.id,l+1)); setStars(lv?lvKey(g.id,l):g.id,st); };
   return {
     right(msg,v={}){ if(RUN!==run||run.locked) return; run.locked=true; sfx.ok(); if(!run.missed) run.score++; run.pts+=run.missed?.5:1;
       if(APP.album&&APP.album.subjects.includes(run.g.subject)&&run.q&&run.q.n&&APP.album.unlock(run.q.n)) msg=(msg?msg+' ':'')+'🃏 ¡Cromo nuevo para tu álbum!';
       const f=run.pts/run.total; if(run.meter) run.meter.set(f,starsFor(f));
+      if(!run.g.custom&&run.i>=run.total-1) saveNow(Math.max(1,starsFor(f)));   // última pregunta: ya están ganadas aunque no se pulse «Siguiente»
       const p=pick(PRAISE); showFb('ok',p,msg,()=>{run.i++;nextQ(run);});
       if(DB.sound||v.force) speakSeq([v.pre,p,v.post].flat()); },
     wrong(msg){ if(RUN!==run||run.locked) return; run.missed=true; sfx.ko(); const r=pick(RETRY); showToast(r,msg||'');
       if(DB.sound) speak(r); },
     meter(frac,n){ if(RUN===run&&run.meter) run.meter.set(frac,n||0); },
+    /* guarda ya las estrellas ganadas (la pantalla final llega después); recuerda si el nivel siguiente estaba abierto, para el aviso de «desbloqueado» */
+    save:saveNow,
     finish(stars,msg){ if(RUN!==run) return; finish(run,stars,msg); }
   };
 }
 function finish(run,stars,msg){
   const g=run.g,lvl=run.lvl||1,lv=hasLevels(g);
   if(stars==null){stars=Math.max(1,starsFor(run.pts/run.total)); msg=`Has acertado ${run.score} de ${run.total} a la primera.`;}
-  const wasOpen=lv&&lvl<3&&lvOpen(g.id,lvl+1);
+  const wasOpen=run.wasOpen!==undefined?run.wasOpen:lv&&lvl<3&&lvOpen(g.id,lvl+1);
   setStars(lv?lvKey(g.id,lvl):g.id,stars); RUN=null; hideFb(); sfx.win(); if(stars>=2) confetti();
   const unlocked=lv&&lvl<3&&!wasOpen&&lvOpen(g.id,lvl+1);
   if(run.meter){run.meter.count(''); run.meter.set(run.g.custom?run.meter.frac():run.pts/run.total,stars);}
@@ -2114,6 +2153,120 @@ const U=['cero','uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve
 const T=['','','','treinta','cuarenta','cincuenta','sesenta','setenta','ochenta','noventa'];
 const C=['','ciento','doscientos','trescientos','cuatrocientos','quinientos','seiscientos','setecientos','ochocientos','novecientos'];
 function words(n){if(n<30)return U[n];if(n<100){const t=Math.floor(n/10),u=n%10;return T[t]+(u?' y '+U[u]:'');}if(n===100)return 'cien';const c=Math.floor(n/100),r=n%100;return C[c]+(r?' '+words(r):'');}
+</script>
+<script>
+"use strict";
+/* ---------- emojis nuevos en ordenadores y tabletas antiguos (motor común) ----------
+   Un Mac o un iPad viejo no tiene los emojis más recientes: salen cuadraditos o nada (pasó en «Escucha y toca» de la
+   Mochila en un Mac antiguo: se oía la palabra, pero no salían todos los dibujos). EMO_ALT tiene cada emoji de las
+   apps Mochi de Unicode 10 o más moderno (al montar, tools/emo_check.py avisa si falta alguno) con su repuesto: otro
+   emoji más antiguo, un dibujo propio (svg:…), un círculo de color (dot:…), 🐾 para animales que llevan su nombre al
+   lado, o nada (''). Cada app puede añadir o cambiar repuestos con APP.emoAlt en su 0-app.html.
+   Cuando uno de esos emojis va a salir en pantalla, se prueba una vez dibujándolo en un canvas; si no se ve, se cambia
+   por su repuesto (un MutationObserver, antes de pintar: no hay parpadeo). En los aparatos modernos no cambia nada.
+   Los juegos que preguntan por el dibujo quitan las palabras sin un repuesto fiel: emoPrune(lista, x=>emoji) / emoUsable(e).
+   Para probarlo en un ordenador moderno: añadir ?emoviejo a la dirección (hace como si no hubiera ninguno). */
+const EMO_BASE={
+  '🫏':'🐾','🫛':'','🪼':'🐾','🫧':'','🪙':'svg:coin','🪟':'svg:window','🦫':'🐾','🦭':'🐾','🦬':'🐾','🪱':'🐾','🪴':'','🪲':'🐾','🐻‍❄️':'🐾',
+  '🦧':'🐾','🦪':'🐾','🦥':'🐾','🦩':'🐾','🦜':'🐾','🦟':'🐾','🦝':'🐾','🦘':'🐾','🦙':'🐾','🦞':'🐾','🦢':'🐾','🦛':'🐾',
+  '🦒':'🐾','🦔':'🐾','🦗':'🐾','🦓':'🐾','🦖':'svg:rex','🦕':'svg:sauro',
+  '🟢':'dot:#1fa22e','🟡':'dot:#ffd21f','🟠':'dot:#f28c0f','🟣':'dot:#a23ee8','🟤':'dot:#7a4420',
+  '🪁':'svg:kite','🪑':'svg:chair','🩳':'svg:shorts','🦷':'svg:tooth','🦵':'svg:leg','🦴':'svg:bone','🧩':'svg:puzzle','🧊':'svg:cube','🥫':'svg:can',
+  '🩱':'👙','🦶':'👣','🧃':'🥤','🥤':'','🩺':'👨‍⚕️','🧑‍🏫':'👩‍🏫','🧑‍🍳':'👨‍🍳','🧍':'🚶','🧍‍♂️':'🚶','🥶':'⛄','🤫':'🤐','🥩':'🍖','🏴‍☠️':'☠️','👨‍👩‍👧':'👪',
+  '🪺':'🥚','🧐':'🤔','🩹':'','🧈':'','🪂':'','🧅':'','🧳':'','🧸':'','🧼':'','🧶':'','🧱':'','🧭':'','🧮':'','🥪':'','🧤':'','🥥':'','🧠':'','🧦':'','🧢':'','🧥':'','🧣':''};
+const EMO_ALT=Object.assign({},EMO_BASE,(typeof APP!=='undefined'&&APP.emoAlt)||{});
+/* dibujos propios, al estilo de los emojis (64 × 64) */
+const EMO_SVG={
+  kite:'<g transform="rotate(-18 32 30)"><path d="M32 3 32 25 13 25Z" fill="#e53935"/><path d="M32 3 51 25 32 25Z" fill="#fdd835"/><path d="M51 25 32 49 32 25Z" fill="#1e88e5"/><path d="M13 25 32 25 32 49Z" fill="#43a047"/><path d="M32 3 51 25 32 49 13 25Z" fill="none" stroke="#5d4037" stroke-width="2" stroke-linejoin="round"/><path d="M32 3V49M13 25H51" stroke="#5d4037" stroke-width="1.6"/></g><path d="M40 46C34 52 46 55 39 61" fill="none" stroke="#5d4037" stroke-width="1.6"/><path d="M36 51l5 1-3 3zM40 56l5 0-2 4z" fill="#e53935"/>',
+  chair:'<rect x="15" y="5" width="6" height="55" rx="2" fill="#8d5524"/><rect x="43" y="5" width="6" height="55" rx="2" fill="#8d5524"/><rect x="14" y="5" width="36" height="9" rx="3" fill="#c68642"/><rect x="15" y="18" width="34" height="5" rx="2" fill="#c68642"/><path d="M15 31H49L55 39H9Z" fill="#d9944f"/><rect x="9" y="39" width="46" height="4" rx="1.5" fill="#a5672f"/><rect x="10" y="42" width="6" height="19" rx="2" fill="#a5672f"/><rect x="48" y="42" width="6" height="19" rx="2" fill="#a5672f"/>',
+  window:'<rect x="7" y="4" width="50" height="52" rx="4" fill="#8d6e63"/><rect x="12" y="9" width="18" height="20" rx="1.5" fill="#90caf9"/><rect x="34" y="9" width="18" height="20" rx="1.5" fill="#90caf9"/><rect x="12" y="33" width="18" height="18" rx="1.5" fill="#bbdefb"/><rect x="34" y="33" width="18" height="18" rx="1.5" fill="#bbdefb"/><path d="M15 21l8-8M37 21l8-8M16 26l4-4M38 26l4-4" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".8"/><rect x="3" y="55" width="58" height="6" rx="2" fill="#6d4c41"/>',
+  shorts:'<path d="M12 14H52L57 52 37 54 32 31 27 54 7 52Z" fill="#1e88e5" stroke="#1565c0" stroke-width="2" stroke-linejoin="round"/><rect x="11" y="8" width="42" height="9" rx="2.5" fill="#1565c0"/><path d="M29 17c-2 5-4 7-4 9M35 17c2 5 4 7 4 9" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M9 46l20 2M55 46l-20 2" stroke="#90caf9" stroke-width="2.5"/>',
+  tooth:'<path d="M20 7C11 7 7 14 9 24c2 8 6 12 7 22 1 11 9 13 11 3 1-7 2-11 5-11s4 4 5 11c2 10 10 8 11-3 1-10 5-14 7-22 2-10-2-17-11-17-5 0-8 3-12 3s-7-3-12-3Z" fill="#fff" stroke="#90a4ae" stroke-width="2.4" stroke-linejoin="round"/><path d="M16 15c2-3 6-3 8-2" stroke="#cfd8dc" stroke-width="3" fill="none" stroke-linecap="round"/>',
+  leg:'<path d="M22 3H40C41 12 42 20 41 27 40 33 37 37 36 42L35 50 49 52C54 53 55 61 49 61H29C26 61 25 59 25 56L26 44C24 37 22 31 21 25 20 17 21 10 22 3Z" fill="#ffcc4d" stroke="#e0a32e" stroke-width="2" stroke-linejoin="round"/><path d="M27 37c3 2 7 2 9 0" stroke="#e0a32e" stroke-width="1.8" fill="none" stroke-linecap="round"/>',
+  bone:'<g transform="rotate(-35 32 32)"><rect x="14" y="26" width="36" height="12" fill="#f3ead3"/><circle cx="13" cy="25" r="8" fill="#f3ead3"/><circle cx="13" cy="39" r="8" fill="#f3ead3"/><circle cx="51" cy="25" r="8" fill="#f3ead3"/><circle cx="51" cy="39" r="8" fill="#f3ead3"/><path d="M19 26H45M19 38H45" stroke="#c9b78b" stroke-width="2"/><path d="M8 20a8 8 0 0 1 11 -1M45 19a8 8 0 0 1 11 1M8 44a8 8 0 0 0 11 1M45 45a8 8 0 0 0 11 -1" stroke="#c9b78b" stroke-width="2" fill="none"/></g>',
+  puzzle:'<path d="M10 18H25C22 9 41 9 38 18H52V31C61 28 61 47 52 44V58H38C41 49 22 49 25 58H10V44C19 47 19 28 10 31Z" fill="#43a047" stroke="#2e7d32" stroke-width="2.4" stroke-linejoin="round"/><path d="M15 24h7" stroke="#a5d6a7" stroke-width="3" stroke-linecap="round"/>',
+  coin:'<circle cx="32" cy="32" r="27" fill="#fbc02d" stroke="#e69500" stroke-width="3"/><circle cx="32" cy="32" r="19" fill="none" stroke="#f9a825" stroke-width="2.5"/><path d="M28 23l6-4v26" fill="none" stroke="#e69500" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 22c3-6 9-10 15-10" stroke="#fff59d" stroke-width="3" fill="none" stroke-linecap="round"/>',
+  cube:'<path d="M32 6 56 18 32 30 8 18Z" fill="#e1f5fe"/><path d="M8 18 32 30V58L8 46Z" fill="#b3e5fc"/><path d="M32 30 56 18V46L32 58Z" fill="#81d4fa"/><path d="M32 6 56 18V46L32 58 8 46V18ZM8 18 32 30 56 18M32 30V58" fill="none" stroke="#4fc3f7" stroke-width="2" stroke-linejoin="round"/><path d="M14 26v12M20 30v6" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>',
+rex:'<g stroke="#2e7d32" stroke-width="4.5" stroke-linejoin="round" fill="#2e7d32"><rect x="34" y="7" width="25" height="13" rx="5"/><rect x="38" y="17" width="17" height="7" rx="3"/><path d="M29 25 40 13 47 20 39 33Z"/><ellipse cx="29" cy="35" rx="14" ry="11" transform="rotate(-30 29 35)"/><path d="M20 33 3 55 8 57 28 43Z"/><ellipse cx="31" cy="42" rx="8" ry="9"/><rect x="26" y="45" width="6" height="12" rx="2"/><rect x="34" y="45" width="6" height="12" rx="2"/><rect x="26" y="55" width="11" height="4" rx="2"/><rect x="34" y="55" width="11" height="4" rx="2"/></g><g fill="#66bb6a"><rect x="34" y="7" width="25" height="13" rx="5"/><rect x="38" y="17" width="17" height="7" rx="3"/><path d="M29 25 40 13 47 20 39 33Z"/><ellipse cx="29" cy="35" rx="14" ry="11" transform="rotate(-30 29 35)"/><path d="M20 33 3 55 8 57 28 43Z"/><ellipse cx="31" cy="42" rx="8" ry="9"/><rect x="26" y="45" width="6" height="12" rx="2"/><rect x="34" y="45" width="6" height="12" rx="2"/><rect x="26" y="55" width="11" height="4" rx="2"/><rect x="34" y="55" width="11" height="4" rx="2"/></g><path d="M33 28c3 4 4 9 3 14" stroke="#a5d6a7" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M41 31l6 3 1 3" stroke="#2e7d32" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="51" cy="12" r="2" fill="#1b5e20"/><path d="M41 20.5h15" stroke="#fff" stroke-width="1.6" stroke-dasharray="2 1.5"/>',
+  sauro:'<g stroke="#2e7d32" stroke-width="4.5" stroke-linejoin="round" fill="#2e7d32"><path d="M37 38Q50 28 47 10" fill="none" stroke-width="13" stroke-linecap="round"/><ellipse cx="50" cy="9" rx="8" ry="5"/><ellipse cx="28" cy="40" rx="18" ry="11"/><path d="M13 37 1 57 6 58 20 47Z"/><rect x="14" y="45" width="7" height="13" rx="2.5"/><rect x="34" y="45" width="7" height="13" rx="2.5"/></g><g fill="#66bb6a"><path d="M37 38Q50 28 47 10" fill="none" stroke="#66bb6a" stroke-width="8.5" stroke-linecap="round"/><ellipse cx="50" cy="9" rx="8" ry="5"/><ellipse cx="28" cy="40" rx="18" ry="11"/><path d="M13 37 1 57 6 58 20 47Z"/><rect x="14" y="45" width="7" height="13" rx="2.5"/><rect x="34" y="45" width="7" height="13" rx="2.5"/></g><path d="M16 36c6-5 18-6 26-2" stroke="#a5d6a7" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="53" cy="8" r="1.8" fill="#1b5e20"/>',
+    can:'<rect x="14" y="10" width="36" height="46" fill="#cfd8dc"/><rect x="14" y="20" width="36" height="26" fill="#e53935"/><ellipse cx="32" cy="56" rx="18" ry="5" fill="#b0bec5"/><ellipse cx="32" cy="10" rx="18" ry="5" fill="#eceff1" stroke="#90a4ae" stroke-width="2"/><path d="M14 10V56M50 10V56" stroke="#90a4ae" stroke-width="2"/><circle cx="32" cy="33" r="7" fill="#fff"/><path d="M19 22v22" stroke="#ef9a9a" stroke-width="3" stroke-linecap="round"/>'};
+const EMO_FORCE=(()=>{try{return /[?&]emoviejo/.test(location.search||'');}catch(e){return false;}})();
+const EMO_OK={};
+let EMO_CV=null,EMO_TEST=null;   // null: aún sin probar; false: el canvas no sirve para probarlo
+function emoOK(e){
+  if(e in EMO_OK) return EMO_OK[e];
+  if(EMO_FORCE) return EMO_OK[e]=!(e in EMO_ALT);
+  if(EMO_TEST===null){EMO_TEST=false;
+    try{const c=document.createElement('canvas');c.width=c.height=40;EMO_CV=c.getContext('2d');
+      if(EMO_CV){EMO_CV.font='32px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif';EMO_CV.textBaseline='top';
+        EMO_TEST=true;EMO_TEST=emoDraws('😀')&&emoDraws('🐶');}   // si ni estos se ven (p. ej. con protección antirrastreo), no se cambia nada
+    }catch(err){EMO_TEST=false;}}
+  return EMO_OK[e]=EMO_TEST?emoDraws(e):true;
+}
+/* se ve si sale con color y igual pintado en rojo que en azul (un cuadradito o una letra cogerían el color);
+   uno compuesto (🧑‍🏫) debe salir en un solo dibujo, no en dos */
+function emoDraws(e){
+  try{const x=EMO_CV;
+    const shot=col=>{x.clearRect(0,0,40,40);x.fillStyle=col;x.fillText(e,2,2);return x.getImageData(0,0,40,40).data;};
+    const a=shot('#f00'),b=shot('#00f');let ink=false;
+    for(let i=0;i<a.length;i+=4){if(a[i+3]>8) ink=true; if(a[i]!==b[i]||a[i+1]!==b[i+1]||a[i+2]!==b[i+2]||a[i+3]!==b[i+3]) return false;}
+    if(!ink) return false;
+    if(e.indexOf('\u200d')>=0&&x.measureText(e).width>x.measureText('😀').width*1.5) return false;
+    return true;
+  }catch(err){return true;}
+}
+/* qué se pone en lugar de e: null (se ve bien), {t:'txt'|'svg'|'dot'|'none', v, ph: es solo un hueco (🐾 o nada)} */
+function emoRep(e){
+  if(!(e in EMO_ALT)) e=e.replace(/\uFE0F$/,'');
+  if(!(e in EMO_ALT)||emoOK(e)) return null;
+  const a=EMO_ALT[e];
+  if(!a) return {t:'none',v:'',ph:true};
+  if(a.indexOf('svg:')===0) return {t:'svg',v:a.slice(4)};
+  if(a.indexOf('dot:')===0) return {t:'dot',v:a.slice(4)};
+  const r=emoRep(a); if(r) return r;
+  return a==='🐾'?{t:'txt',v:a,ph:true}:{t:'txt',v:a};
+}
+/* para los juegos que preguntan por el dibujo: ¿se puede ver ese dibujo (o uno fiel)? */
+const emoUsable=e=>{const r=emoRep(e);return !r||!r.ph;};
+function emoPrune(arr,get){for(let i=arr.length-1;i>=0;i--) if(!emoUsable(get(arr[i]))) arr.splice(i,1);}
+const EMO_RE=new RegExp('(?:'+Object.keys(EMO_ALT).sort((a,b)=>b.length-a.length).join('|')+')\\uFE0F?','g');
+function emoNode(rep){
+  if(rep.t==='svg'){const i=document.createElement('img');i.className='emo-alt';i.alt='';i.setAttribute('aria-hidden','true');
+    i.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">'+EMO_SVG[rep.v]+'</svg>');return i;}
+  const s=document.createElement('span');s.className='emo-dot';s.setAttribute('aria-hidden','true');s.style.backgroundColor=rep.v;return s;
+}
+const EMO_SKIP={SCRIPT:1,STYLE:1,TEXTAREA:1,TITLE:1,NOSCRIPT:1};
+function emoFixText(node){
+  const p=node.parentNode; if(!p||EMO_SKIP[p.nodeName]) return;   // nunca el código de los <script> que aún se están leyendo
+  const t=node.nodeValue;
+  if(!t||t.length>20000) return;
+  EMO_RE.lastIndex=0; if(!EMO_RE.test(t)) return;
+  EMO_RE.lastIndex=0;
+  const parts=[];let last=0,m,changed=false,boxes=false;
+  while((m=EMO_RE.exec(t))){const rep=emoRep(m[0]); if(!rep) continue;
+    changed=true; parts.push(t.slice(last,m.index)); parts.push(rep); if(rep.t==='svg'||rep.t==='dot') boxes=true; last=m.index+m[0].length;}
+  if(!changed) return;
+  parts.push(t.slice(last));
+  const inSvg=p.namespaceURI==='http://www.w3.org/2000/svg';
+  if(!boxes||inSvg){node.nodeValue=parts.map(x=>typeof x==='string'?x:(x.t==='txt'?x.v:'')).join('');return;}
+  const f=document.createDocumentFragment();
+  parts.forEach(x=>{if(typeof x==='string'){if(x) f.appendChild(document.createTextNode(x));}else if(x.t==='txt') f.appendChild(document.createTextNode(x.v));else if(x.t!=='none') f.appendChild(emoNode(x));});
+  p.replaceChild(f,node);
+}
+function emoFixTree(root){
+  if(!root) return;
+  if(root.nodeType===3){emoFixText(root);return;}
+  if(root.nodeType!==1&&root.nodeType!==11) return;
+  if(EMO_SKIP[root.nodeName]) return;
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null,false),list=[];
+  while(w.nextNode()) list.push(w.currentNode);
+  list.forEach(emoFixText);
+}
+try{
+  new MutationObserver(ms=>{for(const m of ms){if(m.type==='characterData') emoFixText(m.target); else m.addedNodes.forEach(emoFixTree);}})
+    .observe(document.documentElement,{childList:true,subtree:true,characterData:true});
+  if(document.body) emoFixTree(document.body);
+}catch(e){}
 </script>
 <script>
 "use strict";
@@ -2229,7 +2382,8 @@ const dimg=(d,cls='')=>h('img',{class:'dino '+cls,src:d.e,alt:'',draggable:'fals
 const vh=t=>h('span',{class:'vh'},t);
 function distract(d,pool,n,similar){
   const c=pool.filter(x=>x!==d&&!(d.twin&&x.twin===d.twin));
-  const same=shuffle(c.filter(x=>x.look===d.look)),other=shuffle(c.filter(x=>x.look!==d.look));
+  const fam=x=>String(x.look||'').replace(/\d+$/,'');   // «ter» y «ter2», «cuello» y «cuello2»… son de la misma familia de forma
+  const same=shuffle(c.filter(x=>fam(x)===fam(d))),other=shuffle(c.filter(x=>fam(x)!==fam(d)));
   return (similar?[...same,...other]:[...other,...same]).slice(0,n);
 }
 const dinoOpts=(d,others,ctx,o)=>choices(shuffle([d,...others]).map(x=>({value:x.k,label:[dimg(x),vh(x.n)]})),d.k,ctx,{cls:'dinos'+(others.length>2?' four':''),...o});
@@ -2237,6 +2391,8 @@ const dhead=(d,big=true)=>[dimg(d,big?'big':''),h('div',{class:'with-say'},h('di
 const qline=(t,say=t)=>h('div',{class:'with-say'},h('div',{class:'q-prompt'},t),sayBtn(say));
 function albumOf(p=me()){return (p&&p.album)||[];}
 function unlockDino(k){const p=me(); if(!p||!DK[k]||!ALBUM.includes(DK[k])) return false; p.album=p.album||[]; if(p.album.includes(k)) return false; p.album.push(k); save(); return true;}
+/* las barras salen al acertar: que se vean enteras por encima de la hoja de «¡Muy bien!» */
+const verBarras=area=>setTimeout(()=>{if(area.isConnected) area.scrollIntoView({behavior:reduced?'auto':'smooth',block:'nearest'});},350);
 /* barras de tamaño para comparar */
 function sizeBars(list){const max=Math.max(...list.map(d=>d.m));
   return h('div',{class:'bars'},list.map(d=>h('div',{class:'bar-row'},d.e?h('img',{class:'bar-img',src:d.e,alt:''}):h('span',{class:'bar-emo'},d.emo),
@@ -2245,7 +2401,7 @@ function sizeBars(list){const max=Math.max(...list.map(d=>d.m));
 /* ================= CONOCE A LOS DINOS ================= */
 defGame({id:'quien',subject:'conoce',icon:'🔎',title:'¿Quién es?',desc:'Escucha el nombre y busca el dinosaurio. Niveles 2 y 3: dinosaurios nuevos y opciones más parecidas',rounds:8,
   prepare(run){run.data.next=deck(dinosL(lvD(run)));},
-  make(run){const d=run.data.next(),l=lvD(run);return {n:d.k,d,others:distract(d,dinosL(l),l===1?2:3,l===3)};},
+  make(run){const d=run.data.next(),l=lvD(run);return {n:d.k,d,others:distract(d,dinosL(l),l===1?2:3,l>1)};},
   render(q,stage,ctx){const d=q.d;
     stage.append(qline(`Busca: ${d.n}`,()=>d.n),
       dinoOpts(d,q.others,ctx,{explain:`${d.n}. ${d.fact}`,voice:{post:[d.n,d.fact]},hint:x=>`Ese es otro: ${DK[x].n}.`}));
@@ -2271,11 +2427,13 @@ defGame({id:'memo',subject:'conoce',icon:'🃏',title:'Memory de dinos',desc:'En
       const face=c.kind==='name'?h('span',{class:'face nm'},c.d.n):h('span',{class:'face pic'},dimg(c.d,c.kind==='sil'?'sil':''));
       const b=h('button',{class:'card','aria-label':'Carta tapada',onclick:()=>{
         if(lock||b.classList.contains('up')||b.classList.contains('done')) return;
-        sfx.pop();b.classList.add('up');b.setAttribute('aria-label',c.d.n);if(DB.sound) speak(c.d.n);open.push([b,c]);
+        sfx.pop();b.classList.add('up');b.setAttribute('aria-label',c.d.n);if(DB.sound&&c.kind!==(l===1?'sil':'pic')) speak(c.d.n);open.push([b,c]);   // el nombre solo se oye en la carta que no hay que adivinar
+        
         if(open.length<2) return;
         moves++;info.textContent='Intentos: '+moves;const [[b1,c1],[b2,c2]]=open;open=[];
         if(c1.i===c2.i){setTimeout(()=>{b1.classList.add('done');b2.classList.add('done');sfx.ok();found++;ctx.meter(found/np,0);unlockDino(c1.d.k);
-          if(found===np){const st=moves<=np*1.5?3:moves<=np*2.2?2:1;setTimeout(()=>ctx.finish(st,`Has encontrado las ${np} parejas en ${moves} intentos.`),900);}},350);}
+          if(found===np){const st=moves<=Math.ceil(np*1.5)+2?3:moves<=np*2.2?2:1;   // con memoria perfecta hacen falta hasta 11, 14 y 17 intentos según caigan las cartas: con el tope anterior (9, 12 y 15) las 3 estrellas dependían de la suerte
+            setTimeout(()=>ctx.finish(st,`Has encontrado las ${np} parejas en ${moves} intentos.`),900);}},350);}
         else{lock=true;setTimeout(()=>{[b1,b2].forEach(x=>{x.classList.remove('up');x.setAttribute('aria-label','Carta tapada');});lock=false;},1150);}
       }},h('span',{class:'card-in'},h('span',{class:'backf','aria-hidden':'true'},h('img',{src:IMG.wave,alt:''})),face));
       return b;}));
@@ -2289,7 +2447,8 @@ defGame({id:'nombre',subject:'conoce',icon:'🔤',title:'¿Qué significa su nom
   make(run){const d=run.data.next();return {n:d.k,d};},
   render(q,stage,ctx,run){const l=lvD(run),d=q.d;
     if(l===1){
-      const others=distract(d,DINOS.filter(x=>x.vis),2,false);
+      const pinchos={espinosaurio:['estegosaurio','anquilosaurio']}[d.k]||[];   // otros dibujos en los que también se ven «espinas»
+      const others=distract(d,DINOS.filter(x=>x.vis&&!pinchos.includes(x.k)),2,false);
       stage.append(qline(`¿Quién es? Su nombre significa «${d.mean}»`,()=>meanS(d)),
         dinoOpts(d,others,ctx,{explain:`${d.n}: ${d.mean}.`,voice:{post:[d.n,meanS(d)]},hint:x=>`No, ese es ${DK[x].n}. Mira el dibujo: ¿qué se ve?`}));
       instr(SAYD.nombre1,meanS(d)); return;}
@@ -2411,14 +2570,18 @@ const SIRVE3=[
   {d:'mamenquisaurio',q:'¿Para qué tenía el Mamenquisaurio un cuello tan largo?',a:'Para alcanzar muchas plantas sin moverse',w:['Para ver a los pájaros','Para nadar en el mar']},
 ];
 
+/* «Ordénalos»: todos los grupos de cuatro del nivel 2 que se distinguen bien de tamaño (cada uno al menos un 30 % más largo que el anterior) y sin gemelos */
+function ordenSets(){const D=dinosL(2).slice().sort((x,y)=>x.m-y.m),out=[];
+  const rec=(i,s)=>{if(s.length===4){out.push(s);return;}
+    for(let j=i;j<D.length;j++){const d=D[j],p=s[s.length-1];if(p&&d.m<p.m*1.3) continue;if(d.twin&&s.some(x=>x.twin===d.twin)) continue;rec(j+1,[...s,d]);}};
+  rec(0,[]);return out;}
 defGame({id:'tamano',subject:'como',icon:'📏',title:'¿Grande o pequeño?',desc:'¿Cuál era más largo? Nivel 2: ordénalos · Nivel 3: metros y comparaciones con un autobús',
   rounds:8,
-  prepare(run){const l=lvD(run);run.total=l===2?6:8;run.data.next=deck(dinosL(l));run.data.vistas=new Set();run.data.metros=deck(dinosL(3).filter(x=>METROS[x.k]));},
+  prepare(run){const l=lvD(run);run.total=l===2?6:8;run.data.next=deck(dinosL(l));if(l===2) run.data.orden=deck(ordenSets());run.data.vistas=new Set();run.data.metros=deck(dinosL(3).filter(x=>METROS[x.k]));},
   make(run){const l=lvD(run);
     if(l===1){const a=run.data.next(),par=x=>[a.k,x.k].sort().join(),pos=dinosL(1).filter(x=>x.m>=a.m*2||a.m>=x.m*2),nuevas=pos.filter(x=>!run.data.vistas.has(par(x)));
       const b=pick(nuevas.length?nuevas:pos);run.data.vistas.add(par(b));return {mode:'dos',n:(a.m>b.m?a:b).k,a,b};}
-    if(l===2){let best=null;for(let t=0;t<40&&!best;t++){const s=pickN(dinosL(2),4).sort((x,y)=>x.m-y.m);if(s.every((d,i)=>i===0||d.m>=s[i-1].m*1.3)) best=s;}
-      return {mode:'orden',list:best||[DK.compsognato,DK.celofisis,DK.carnotauro,DK.argentinosaurio]};}
+    if(l===2) return {mode:'orden',list:run.data.orden()};
     if(run.i%2===0){const d=run.data.metros();return {mode:'metros',n:d.k,d};}
     const d=run.data.next(),refs=Object.entries(REF).filter(([,r])=>d.m>=r.m*1.8||r.m>=d.m*1.8);const [rk,r]=pick(refs);return {mode:'compara',n:d.k,d,rk,r};},
   render(q,stage,ctx,run){
@@ -2426,7 +2589,7 @@ defGame({id:'tamano',subject:'como',icon:'📏',title:'¿Grande o pequeño?',des
       const area=h('div',{class:'size-area'});
       stage.append(qline(SAYD.grande),choices(shuffle([q.a,q.b]).map(x=>({value:x.k,label:[dimg(x),h('span',{class:'opt-name'},x.n)]})),big.k,ctx,{cls:'dinos two',
         explain:`${big.n}: ${big.mt} · ${small.n}: ${small.mt}`,voice:{post:[big.n,big.sz,small.n,small.sz]},hint:'Piensa en lo largo que era de la cabeza a la cola.',
-        onPick:ok=>{if(ok) area.append(sizeBars([big,small]));}}),area);
+        onPick:ok=>{if(ok){area.append(sizeBars([big,small]));verBarras(area);}}}),area);
       instr(SAYD.grande); return;}
     if(q.mode==='orden'){const goal=q.list;let k=0;
       const slots=h('div',{class:'slots dslots'},goal.map(()=>h('span',{class:'slot'})));
@@ -2434,7 +2597,7 @@ defGame({id:'tamano',subject:'como',icon:'📏',title:'¿Grande o pequeño?',des
       const tiles=h('div',{class:'tiles dtiles'},shuffle(goal).map(d=>{const b=h('button',{class:'tile','aria-label':d.n,onclick:()=>{
         if(b.classList.contains('used')||k>=goal.length) return;
         if(d===goal[k]){b.classList.add('used');slots.children[k].replaceChildren(dimg(d));slots.children[k].classList.add('on');k++;sfx.pop();
-          if(k===goal.length){slots.classList.add('good');burst(slots);area.append(sizeBars(goal));
+          if(k===goal.length){slots.classList.add('good');burst(slots);area.append(sizeBars(goal));goal.forEach(x=>unlockDino(x.k));verBarras(area);
             ctx.right(goal.map(x=>`${x.n}: ${x.mt}`).join(' · '),{post:SAYD.ordenOk});}}
         else{b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');ctx.wrong('Busca el más pequeño de los que quedan.');}
       }},dimg(d),h('span',{class:'tile-name'},d.n));return b;}));
@@ -2634,7 +2797,7 @@ function capas(c){   // c: de abajo arriba
 /* ---------- excavar: arena que se quita con el dedo ---------- */
 function digBox(img,onReveal){   // img: lo que queda debajo de la arena
   const cv=h('canvas',{class:'dig-sand','aria-hidden':'true'});
-  const brush=h('button',{class:'btn ghost dig-brush',hidden:true,onclick:()=>{sfx.pop();reveal();}},'🖌️ Barrer la arena');
+  const brush=h('button',{class:'btn ghost dig-brush espera',onclick:()=>{sfx.pop();reveal();}},'🖌️ Barrer la arena');
   const box=h('div',{class:'dig'},img,cv);
   const GN=24,grid=new Uint8Array(GN*GN);
   let g2=null,W=0,H=0,done=false,last=null,down=false,marked=0;
@@ -2659,13 +2822,13 @@ function digBox(img,onReveal){   // img: lo que queda debajo de la arena
     if(last){const n=Math.ceil(Math.hypot(p[0]-last[0],p[1]-last[1])/(R()*.6));for(let i=1;i<=n;i++) mark(last[0]+(p[0]-last[0])*i/n,last[1]+(p[1]-last[1])*i/n);} else mark(p[0],p[1]);
     last=p; if(marked/(GN*GN)>=.55) reveal();
   }
-  function reveal(){ if(done) return; done=true; down=false; cv.classList.add('gone'); brush.hidden=true; box.classList.add('found'); sfx.pop(); burst(box); onReveal&&onReveal(); }
+  function reveal(){ if(done) return; done=true; down=false; cv.classList.add('gone'); brush.classList.add('espera'); box.classList.add('found'); sfx.pop(); burst(box); onReveal&&onReveal(); }
   let dedo=null;   // se rasca con un dedo cada vez: un segundo dedo no corta ni une trazos
-  cv.addEventListener('pointerdown',e=>{if(done||dedo!==null)return;e.preventDefault();dedo=e.pointerId;down=true;last=null;try{cv.setPointerCapture(e.pointerId);}catch(x){}scrape(at(e));});
+  cv.addEventListener('pointerdown',e=>{if(done||dedo!==null||e.button>0)return;e.preventDefault();dedo=e.pointerId;down=true;last=null;try{cv.setPointerCapture(e.pointerId);}catch(x){}scrape(at(e));});
   cv.addEventListener('pointermove',e=>{if(down&&!done&&e.pointerId===dedo)scrape(at(e));});
   const up=e=>{if(e.pointerId!==dedo)return;dedo=null;down=false;last=null;}; cv.addEventListener('pointerup',up); cv.addEventListener('pointercancel',up);
   requestAnimationFrame(()=>{if(done) return; if(!paint()) reveal();});
-  setTimeout(()=>{if(!done&&box.isConnected) brush.hidden=false;},5000);
+  setTimeout(()=>{if(!done&&box.isConnected) brush.classList.remove('espera');},5000);   // el botón tiene su hueco reservado (visibility), así el tablero no salta bajo el dedo
   return {el:h('div',{class:'dig-wrap'},box,brush),reveal,isDone:()=>done};
 }
 
@@ -2762,7 +2925,7 @@ defGame({id:'esqueleto',subject:'paleo',icon:'🧩',title:'Monta el esqueleto',d
     }
     function drag(pc){
       let sx=0,sy=0,pid=null,moving=false,gh=null;
-      pc.el.addEventListener('pointerdown',e=>{if(done||pc.placed)return;e.preventDefault();
+      pc.el.addEventListener('pointerdown',e=>{if(done||pc.placed||e.button>0)return;e.preventDefault();
         if(gh){gh.remove();gh=null;pc.el.classList.remove('lifted');hover(null);}   // un segundo dedo sobre la misma pieza: se suelta el arrastre anterior
         pid=e.pointerId;sx=e.clientX;sy=e.clientY;moving=false;try{pc.el.setPointerCapture(pid);}catch(x){}});
       pc.el.addEventListener('pointermove',e=>{
@@ -2774,7 +2937,8 @@ defGame({id:'esqueleto',subject:'paleo',icon:'🧩',title:'Monta el esqueleto',d
       const end=e=>{
         if(e.pointerId!==pid) return; pid=null;
         if(moving){moving=false;const k=e.type==='pointerup'&&gh?dropCell(pc,gh.getBoundingClientRect()):null;if(gh){gh.remove();gh=null;}pc.el.classList.remove('lifted');hover(null);
-          if(k!=null&&!filled[k]) tryPlace(pc,k);}
+          if(k!=null&&!filled[k]) tryPlace(pc,k);
+          else if(e.type==='pointerup'&&Math.hypot(e.clientX-sx,e.clientY-sy)<28) tapPiece(pc);}   // un toque en el que el dedo resbala un poco sigue siendo un toque
         else if(e.type==='pointerup') tapPiece(pc);
       };
       pc.el.addEventListener('pointerup',end); pc.el.addEventListener('pointercancel',end);
@@ -2795,7 +2959,7 @@ defGame({id:'esqueleto',subject:'paleo',icon:'🧩',title:'Monta el esqueleto',d
       done=true; const st=mistakes<=2&&!hints?3:mistakes<=N?2:1;
       board.classList.add('solved'); sfx.win(); confetti(); unlockDino(d.k);
       const say=[PSAY.built,esqSay(d),ESQ_PISTA[d.k]];
-      const go=h('button',{class:'btn big',style:'--c:var(--paleo)',onclick:()=>{fuera=true;sfx.pop();stopVoice();ctx.finish(st,`Has montado el esqueleto del ${d.n} ${mistakes?`con ${mistakes} ${mistakes===1?'fallo':'fallos'}`:'sin ningún fallo'}.`);}},'¡Seguir! ▶');
+      const go=h('button',{class:'btn big',style:'--c:var(--paleo)',onclick:()=>{fuera=true;sfx.pop();stopVoice();ctx.finish(st,`Has montado el esqueleto del ${d.n} ${mistakes?`con ${mistakes} ${mistakes===1?'fallo':'fallos'}`:'sin ningún fallo'}${hints?`${mistakes?' y':', pero con'} ${hints} ${hints===1?'pista':'pistas'}`:''}.${hints&&mistakes<=2?' Sin pistas ganarás las 3 estrellas.':''}`);}},'¡Seguir! ▶');
       const hecho=h('div',{class:'esq-done'},dimg(d,'big'),h('div',{class:'with-say'},h('div',{class:'q-prompt'},`Es el ${d.n}`),seqBtn(say)),go);
       tray.replaceWith(hecho);
       later(()=>{if(hecho.isConnected) hecho.scrollIntoView({behavior:reduced?'auto':'smooth',block:'nearest'});},450);   // que se vea «¡Seguir!» aunque la pantalla sea alta y estrecha
@@ -2820,14 +2984,15 @@ const INT_DECK=deck([...PESQ[1],...PESQ[2],...PESQ[3]]);
 const INT_GRP={trex:'ter',velocirraptor:'ter',espinosaurio:'ter',estegosaurio:'cua',anquilosaurio:'cua',triceratops:'cua',braquiosaurio:'cue',parasaurolofo:'orn',paquicefalosaurio:'orn'};
 function intruso(stage,run,ctx){
   const ROUNDS=4,G=4,all=[...PESQ[1],...PESQ[2],...PESQ[3]];
-  let r=0,errs=0,tPrev=-1;const timers=[];const later=(f,ms)=>timers.push(setTimeout(f,ms));
+  let r=0,errs=0,tPrev=-1;const vistos=new Set();const timers=[];const later=(f,ms)=>timers.push(setTimeout(f,ms));
   cleanup=()=>timers.forEach(clearTimeout);
   const area=h('div',{class:'intruso'});stage.append(area);
   const fin=()=>{const st=errs<=1?3:errs<=4?2:1;
     ctx.finish(st,`Has encontrado las ${ROUNDS} piezas equivocadas ${errs?`con ${errs} ${errs===1?'fallo':'fallos'}`:'sin ningún fallo'}.`);};
   async function ronda(){
     if(RUN!==run) return;
-    const a=DK[INT_DECK()],b=DK[pick(all.filter(k=>INT_GRP[k]!==INT_GRP[a.k]))];   // de un dinosaurio con otra forma de cuerpo
+    let ak;do{ak=INT_DECK();}while(vistos.has(ak)&&vistos.size<all.length);vistos.add(ak);   // en una partida no se repite esqueleto, aunque el mazo se rebaraje a mitad
+    const a=DK[ak],b=DK[pick(all.filter(k=>INT_GRP[k]!==INT_GRP[a.k]))];   // de un dinosaurio con otra forma de cuerpo
     let t=5,tono=1;
     try{const [ia,ib]=await Promise.all([loadImg(esqImg(a.k)),loadImg(esqImg(b.k))]);const la=esqLook(ia,G),lb=esqLook(ib,G);
       const cand=[];for(const k of [1,2,4,5,6,7,8,9,10,11,13,14]){if(lb[k].rough<9) continue;   // la pieza mala tiene que tener huesos
@@ -2852,8 +3017,10 @@ function intruso(stage,run,ctx){
     instr(PSAY.intruso);
     function paso2(){
       const others=pickN(all.filter(k=>k!==a.k&&k!==b.k),2).map(k=>DK[k]);
-      const stub={right:()=>{sfx.ok();r++;ctx.meter(r/ROUNDS,0);unlockDino(a.k);
-          const say=[pick(PRAISE),esqSay(a),pieceSay(b)];showToast(say[0],`${esqSay(a)} ${pieceSay(b)}`);
+      const stub={right:()=>{sfx.ok();hideToast();r++;ctx.meter(r/ROUNDS,0);unlockDino(a.k);
+          const say=[pick(PRAISE),esqSay(a),pieceSay(b)];
+          /* el acierto se escribe en el propio panel (el aviso de arriba es el de los fallos: título rojo y Mochi dudando) */
+          side.replaceChildren(h('div',{class:'int-ok'},h('img',{src:pic('happy'),alt:''}),h('div',null,h('strong',null,say[0]),h('span',null,`${esqSay(a)} ${pieceSay(b)}`))));
           /* se pasa al siguiente cuando Mochi termina de explicarlo (antes un reloj fijo le cortaba la última frase) */
           let ya=false;const sig=()=>{if(ya||RUN!==run) return;ya=true;r>=ROUNDS?fin():ronda();};
           if(DB.sound){speakSeq(say,undefined,()=>later(sig,700));later(sig,11000);} else later(sig,2600);},
@@ -2922,7 +3089,7 @@ function escena(q){
   const dir=q.dir||1,X=x=>dir>0?x:100-x;
   if(q.a==='caza') return barro(fila('sauro',{y:40,dir,gaps:14,sz:9,x0:X(40)}),fila('tres',{y:60,dir,gaps:12,sz:8,x0:X(6),x1:X(70),delay:.6}));
   if(q.a==='crias') return barro(fila('sauro',{y:24,dir,gaps:15,sz:10}),fila('sauro',{y:50,dir,gaps:9,sz:5.5,delay:.3}),fila('sauro',{y:76,dir,gaps:15,sz:10,delay:.15}));
-  if(q.a==='acelera') return barro(fila('tres',{y:50,dir,gaps:[6,7,9,11,14,18,23],sz:8}));
+  if(q.a==='acelera') return barro(fila('tres',{y:50,dir,gaps:[9,10,11,13,16,20,24],sz:8}));
   if(q.a==='para'){const xs=[6,18,30,42,54,66],sz=9;
     return barro(xs.map((x,i)=>pisada('tres',X(x),i===xs.length-1?42:50+(i%2?1:-1)*sz*.32,sz,dir*90,i*.14)),pisada('tres',X(66),58,sz,dir*90,xs.length*.14));}   // las dos últimas, una al lado de la otra
   if(q.a==='vuelta'){const sz=8,out=[];let i=0;
@@ -2935,21 +3102,26 @@ function escena(q){
 }
 /* dos caminos que se cruzan: el de encima pasó después y su huella tapa un poco la de debajo */
 function cruce(later){
-  const sau=[8,22,36,50,64,78,92].map((x,i)=>pisada('sauro',x,50+(x===50?0:(i%2?1:-1)*3),9,90,i*.14,later==='sauro'&&x===50?'encima':''));
-  const tre=[82,66,46,30,14].map((y,i)=>pisada('tres',50+(y===46?0:(i%2?1:-1)*2.5),y,7,0,.4+i*.14,later==='tres'&&y===46?'encima':''));   // se cruzan un poco desplazadas, para que asome la de debajo
+  const ts=later==='sauro'?.8:0,tt=later==='sauro'?0:1.05;   // primero se ven las huellas del que pasó antes, y después las del otro
+  const sau=[8,22,36,50,64,78,92].map((x,i)=>pisada('sauro',x,50+(x===50?0:(i%2?1:-1)*3),9,90,ts+i*.14,later==='sauro'&&x===50?'encima':''));
+  const tre=[82,66,46,30,14].map((y,i)=>pisada('tres',50+(y===46?0:(i%2?1:-1)*2.5),y,7,0,tt+i*.14,later==='tres'&&y===46?'encima':''));   // se cruzan un poco desplazadas, para que asome la de debajo
   return later==='tres'?barro(sau,tre):barro(tre,sau);
 }
-const quienHuella=(kind,others)=>{const k=PHU[kind],d=DK[pick(k.pool)];
+const quienHuella=(kind,others,saca)=>{const d=DK[saca?saca[kind]():pick(PHU[kind].pool)];
   return {n:d.k,d,kind,others:others.map(o=>DK[pick(PHU[o].pool)])};};
+/* las 8 huellas del nivel 1: más de los tipos con más dinosaurios (el de dos dedos solo tiene uno) y nunca dos iguales seguidas */
+function huellasOrden(){const base=['tres','tres','tres','sauro','sauro','romo','romo','dos'];let o=shuffle(base);
+  for(let i=0;i<60&&o.some((k,j)=>j&&k===o[j-1]);i++) o=shuffle(base);
+  return o;}
 
 defGame({id:'huellas',subject:'paleo',icon:'🐾',title:'Sigue las huellas',desc:'¿Quién dejó esta huella? Nivel 2: lee lo que pasó (persecuciones, manadas, carreras) · Nivel 3: mide y calcula como un paleontólogo',rounds:8,
   prepare(run){const l=lvD(run);
     /* sin rondas repetidas: tantas como escenas distintas hay en cada nivel */
     run.data.modes=l===1?Array(8).fill('quien'):l===2?shuffle(['caza','crias','hizo','hizo','hizo']):shuffle(['cadera','antes','cadera','rapido','cadera','antes','rapido']);
     run.total=run.data.modes.length;
-    run.data.kinds=deck(['tres','sauro','romo','dos']);run.data.hizo=deck(['acelera','para','vuelta']);run.data.cad=deck(CADERA);run.data.antes=deck(['tres','sauro']);run.data.top=deck([0,1]);},
+    run.data.kinds=huellasOrden();run.data.saca=Object.fromEntries(Object.keys(PHU).map(k=>[k,deck(PHU[k].pool)]));run.data.hizo=deck(['acelera','para','vuelta']);run.data.cad=deck(CADERA);run.data.antes=deck(['tres','sauro']);run.data.top=deck([0,1]);},
   make(run){const m=run.data.modes[run.i%run.data.modes.length];
-    if(m==='quien'){const kind=run.data.kinds();return {mode:'quien',...quienHuella(kind,pickN(['tres','sauro','romo','dos'].filter(x=>x!==kind),2))};}
+    if(m==='quien'){const kind=run.data.kinds[run.i%run.data.kinds.length];return {mode:'quien',...quienHuella(kind,pickN(['tres','sauro','romo','dos'].filter(x=>x!==kind),2),run.data.saca)};}
     if(m==='caza'||m==='crias') return {mode:'paso',a:m,dir:pick([1,-1])};
     if(m==='hizo') return {mode:'hizo',a:run.data.hizo(),dir:pick([1,-1])};
     if(m==='antes') return {mode:'antes',later:run.data.antes()};
@@ -2961,9 +3133,9 @@ defGame({id:'huellas',subject:'paleo',icon:'🐾',title:'Sigue las huellas',desc
         dinoOpts(q.d,q.others,ctx,{explain:`${q.d.n}. ${k.why}`,voice:{post:[q.d.n,k.why]},hint:x=>`No, ${DK[x].n} no. Fíjate en los dedos de la huella.`}));
       instr(PSAY.quien); return;}
     if(q.mode==='cadera'){const c=q.c;
-      stage.append(h('div',{class:'truco'},'💡 Truco de paleontólogo: la cadera estaba unas 4 veces más alta que lo que mide la huella.'),
-        h('div',{class:'medida'},h('img',{class:'huella-big',src:PHU.tres.img,alt:'Huella de dinosaurio'}),h('div',{class:'regla'},h('span',null,`${c.cm} cm`))),
-        qline(c.q),choices(shuffle([c.a,...c.w]).map(t=>({value:t,label:t})),c.a,ctx,{wide:true,explain:c.why,voice:{post:c.why},hint:'Multiplica lo que mide la huella por 4.'}));
+      stage.append(pane2([h('div',{class:'truco'},'💡 Truco de paleontólogo: la cadera estaba unas 4 veces más alta que lo que mide la huella.'),
+        h('div',{class:'medida'},h('img',{class:'huella-big',src:PHU.tres.img,alt:'Huella de dinosaurio'}),h('div',{class:'regla'},h('span',null,`${c.cm} cm`)))],
+        [qline(c.q),choices(shuffle([c.a,...c.w]).map(t=>({value:t,label:t})),c.a,ctx,{wide:true,explain:c.why,voice:{post:c.why},hint:'Multiplica lo que mide la huella por 4.'})]));
       instr(PSAY.truco,c.q); return;}
     let ask,mud,opts;
     if(q.mode==='paso'){ask=PSAY.paso;mud=escena(q);
@@ -2976,7 +3148,7 @@ defGame({id:'huellas',subject:'paleo',icon:'🐾',title:'Sigue las huellas',desc
       mud=barro(fila('tres',{y:27,dir:q.dir,gaps:q.top?fast:slow,sz:9.5}),fila('tres',{y:73,dir:q.dir,gaps:q.top?slow:fast,sz:9.5,delay:.3}));
       const w=q.top?PHUW.rapido.up:PHUW.rapido.down;
       opts=choices([{value:1,label:'⬆️ El de arriba'},{value:0,label:'⬇️ El de abajo'}],q.top,ctx,{wide:true,explain:w,voice:{post:w},hint:'El que corre da pasos más largos.'});}
-    stage.append(mud,qline(ask),opts);
+    stage.append(pane2([mud],[qline(ask),opts]));   // en pantallas anchas, el barro a un lado y las opciones al otro: todo a la vista
     instr(ask);
   }});
 
@@ -3360,18 +3532,19 @@ function paisaje(era,items,onTap){
   return box;
 }
 defGame({id:'colado',subject:'cuando',icon:'🔍',title:'¿Quién se ha colado?',desc:'Encuentra lo que no es de esa época. Nivel 2: un dinosaurio de otra época · Nivel 3: un animal y una planta, y por qué',rounds:8,
-  prepare(run){const l=lvD(run);run.data.era=deck(ERAS);if(l===3) run.total=6;},
+  prepare(run){const l=lvD(run);run.data.era=deck(ERAS);run.data.x=deck(NO_DINO);if(l===3) run.total=6;},
   make(run){const l=lvD(run),era=run.data.era();
-    const own=pickN(DE_ERA[era],l===1?3:4);
-    if(l===1){const x=pick(NO_DINO);return {era,x,items:shuffle([...own.map(k=>({k})),{k:x,mal:1}])};}
+    const own=pickN(DE_ERA[era],l===1?3:Math.min(4,DE_ERA[era].length-1));
+    if(l===1){const x=run.data.x();return {era,x,items:shuffle([...own.map(k=>({k})),{k:x,mal:1}])};}
     const other=pick(ERAS.filter(e=>e!==era)),x=pick(DE_ERA[other]);
     if(l===2) return {era,x,n:x,items:shuffle([...own.map(k=>({k})),{k:x,mal:1}])};
     const pm=era==='c'?'cactus':'flor',buenas=era==='c'?pickN(['helecho','flor','araucaria','cicada'],1):pickN(era==='t'?['helecho','cicada']:['helecho','cicada','araucaria'],1);
     const animals=[...own.slice(0,era==='t'?3:2).map(k=>({k})),...(era==='t'?[]:[{k:'mamifero'}]),{k:Math.random()<.35?pick(NO_DINO.filter(k=>k!=='personas')):x,mal:1}];
     return {era,x:animals[animals.length-1].k,pm,items:shuffle([...animals,...buenas.map(k=>({k,planta:1})),{k:pm,planta:1,mal:1}])};},
   render(q,stage,ctx,run){const l=lvD(run),E=ERA[q.era];
-    let found=0;const need=q.items.filter(i=>i.mal).length;
+    let found=0,tPista=0;const need=q.items.filter(i=>i.mal).length;
     const tap=(it,b)=>{
+      clearTimeout(tPista);
       if(run.locked||found>=need||b.classList.contains('bien')) return;   // con la ronda resuelta (o la pregunta abierta), el paisaje ya no cuenta
       if(it.mal){b.classList.add('bien');burst(b);sfx.pop();found++;
         if(found<need){showToast('¡Bien visto!',CSAY.colado3uno);if(DB.sound)speak(CSAY.colado3uno);return;}
@@ -3382,7 +3555,7 @@ defGame({id:'colado',subject:'cuando',icon:'🔍',title:'¿Quién se ha colado?'
         instr(P.q);$('.colado-porque').scrollIntoView({behavior:reduced?'auto':'smooth',block:'nearest'});return;}
       b.classList.remove('nope');void b.offsetWidth;b.classList.add('nope');
       const pista=it.k==='mamifero'?MAMIFERO_SI:it.planta?CSAY.plantaSi:E.si;
-      ctx.wrong(pista); if(DB.sound) setTimeout(()=>{if(RUN===run&&!run.locked&&found<need&&b.isConnected) speak(pista);},900);};
+      ctx.wrong(pista); if(DB.sound) tPista=setTimeout(()=>{if(RUN===run&&!run.locked&&found<need&&b.isConnected) speak(pista);},900);};
     const ask=l===3?CSAY.colado3:CSAY.colado;
     stage.append(qlineS(`${E.ic} ${E.n}: ${l===3?'busca un animal y una planta':'¿quién se ha colado?'}`,[E.es,ask]),paisaje(q.era,q.items,tap));
     instr(E.es,ask);
@@ -3401,6 +3574,8 @@ const ESO_ES={na:'Eso es Norteamérica.',sa:'Eso es Sudamérica.',eu:'Eso es Eur
 function mundo(onTap){const M=MAPAS.mundo;
   const svg=sv('svg',{class:'mapa mundo',viewBox:`0 0 ${M.w} ${M.h}`,role:'img','aria-label':'Mapa del mundo'});
   svg.append(sv('rect',{x:0,y:0,width:M.w,height:M.h,rx:18,class:'mar'}));
+  /* la Antártida ocupa de y=505 a y=564 (de 574): con el dedo es difícil acertarle, así que vale toda la banda de abajo (va debajo de los demás continentes) */
+  svg.append(sv('rect',{x:0,y:Math.round(M.h*.86),width:M.w,height:M.h-Math.round(M.h*.86),class:'an-zona',onclick:()=>onTap&&onTap('an')}));
   Object.keys(M.c).forEach(c=>svg.append(sv('g',{class:'tierra c-'+c,'data-c':c,onclick:()=>onTap&&onTap(c)},sv('path',{d:M.c[c],class:'borde'}),sv('path',{d:M.c[c],class:'relleno'}))));
   return svg;}
 function marca(svg,x,y,img){const g=sv('g',{class:'marca'});g.append(sv('circle',{cx:x,cy:y,r:9}));
@@ -3452,7 +3627,7 @@ const PANGEA_Q={q:'¿Por qué se encuentran Alosaurios en Portugal y también en
 const FRIO_Q={q:'Se encontró un Criolofosaurio en la Antártida. ¿Cómo es posible, con tanto hielo?',a:'Entonces no estaba helada: el clima era mucho más cálido',
   w:['Los dinosaurios llevaban abrigo','Lo llevaron allí en barco'],why:'En el Jurásico, en la Antártida había bosques. El hielo llegó muchísimo después.'};
 function pangeaPuzzle(stage,ctx,onDone){const P=MAPAS.pangea;
-  let sel=null,left=Object.keys(P.p).length;
+  let sel=null,left=Object.keys(P.p).length,tNo=0;
   const svg=sv('svg',{class:'mapa pangea',viewBox:`0 0 ${P.w} ${P.h}`,role:'img','aria-label':'Pangea'});
   svg.append(sv('rect',{x:0,y:0,width:P.w,height:P.h,rx:18,class:'mar'}));
   const tray=h('div',{class:'pangea-piezas'});
@@ -3460,9 +3635,10 @@ function pangeaPuzzle(stage,ctx,onDone){const P=MAPAS.pangea;
     const ghost=sv('g',{transform:`translate(${p.x},${p.y})`,class:'hueco','data-k':k,onclick:()=>{
       if(ghost.classList.contains('puesto')) return;   // ese sitio ya está ocupado
       if(!sel){sfx.tap();showToast('Primero, un continente','Toca un continente de abajo y después su sitio.');return;}
+      clearTimeout(tNo);
       if(sel.dataset.k===k){ghost.setAttribute('class','puesto c-'+k);sel.remove();sel=null;sfx.pop();left--;
         if(!left){svg.classList.add('hecha');onDone(svg);}}
-      else{sel.classList.remove('shake');void sel.offsetWidth;sel.classList.add('shake');ctx.wrong(CSAY.pangeaNo);if(DB.sound)setTimeout(()=>{if(svg.isConnected&&left>0) speak(CSAY.pangeaNo);},900);}}},
+      else{sel.classList.remove('shake');void sel.offsetWidth;sel.classList.add('shake');ctx.wrong(CSAY.pangeaNo);if(DB.sound)tNo=setTimeout(()=>{if(svg.isConnected&&left>0) speak(CSAY.pangeaNo);},900);}}},
       sv('path',{d:p.d,class:'borde'}),sv('path',{d:p.d,class:'relleno'}));
     svg.append(ghost);
     const t=sv('svg',{viewBox:p.bb.join(' '),class:'pieza-svg c-'+k},sv('path',{d:p.d,class:'borde'}),sv('path',{d:p.d,class:'relleno'}));
@@ -3479,12 +3655,14 @@ defGame({id:'mapa',subject:'cuando',icon:'🗺️',title:'¿Dónde se encontró?
     if(l===1) return {mode:'mundo',n:x,d:DK[x],c:CONT_DE[x]};
     if(l===2) return {mode:'pistas',n:x.k,...x};
     return x.mode?x:{mode:'es',n:DK[x.k]?x.k:null,...x};},
-  render(q,stage,ctx){
+  render(q,stage,ctx,run){
+    let tEso=0;const eso=t=>{clearTimeout(tEso);if(DB.sound) tEso=setTimeout(()=>{if(RUN===run&&!run.locked) speak(t);},900);};   // tras el «¡Casi!», Mochi dice qué se ha tocado
     if(q.mode==='mundo'){const d=q.d;let svg;
       svg=mundo(c=>{if(svg.classList.contains('hecho')) return;
+        clearTimeout(tEso);
         if(c===q.c){svg.classList.add('hecho');svg.querySelector('.c-'+c).classList.add('bien');rotulo(svg,c);const [x,y]=MAPAS.mundo.marca[d.k];marca(svg,x,y,d.e);
           ctx.right(`${d.n}. ${d.wh}`,{post:[d.n,d.wh]});}
-        else{const el=svg.querySelector('.c-'+c);el.classList.remove('nope');void el.getBBox;el.classList.add('nope');setTimeout(()=>el.classList.remove('nope'),700);ctx.wrong(ESO_ES[c]);}});
+        else{const el=svg.querySelector('.c-'+c);el.classList.remove('nope');void el.getBBox;el.classList.add('nope');setTimeout(()=>el.classList.remove('nope'),700);ctx.wrong(ESO_ES[c]);eso(ESO_ES[c]);}});
       stage.append(h('div',{class:'mapa-cabeza'},dimg(d),h('div',null,h('div',{class:'q-prompt'},d.n),h('p',{class:'pista-txt'},d.wh))),qlineS(DONDE_ESTA[q.c].replace('¿Dónde está ','Toca ').replace('?',' en el mapa'),[d.n,d.wh,DONDE_ESTA[q.c]]),h('div',{class:'mapa-caja'},svg));
       instr(d.n,d.wh,DONDE_ESTA[q.c]);return;}
     if(q.mode==='pistas'){const d=DK[q.k];
@@ -3494,9 +3672,10 @@ defGame({id:'mapa',subject:'cuando',icon:'🗺️',title:'¿Dónde se encontró?
       instr(CSAY.mapa2,...q.p);return;}
     if(q.mode==='es'){const d=DK[q.k],img=d?d.e:'img/p-huella-tres.webp',n=d?d.n:'Las huellas';let svg;
       svg=espana(p=>{if(svg.classList.contains('hecho')) return;
+        clearTimeout(tEso);
         if(p===q.a){svg.classList.add('hecho');svg.querySelector(`[data-p="${p}"]`).classList.add('bien');
           ctx.right(d?`${d.n}. ${d.wh}`:RIOJA_WHY,{post:d?[d.n,d.wh]:[RIOJA_WHY]});}
-        else{const el=svg.querySelector(`[data-p="${p}"]`);el.classList.remove('nope');void el.getBBox;el.classList.add('nope');setTimeout(()=>el.classList.remove('nope'),700);ctx.wrong(ESP_SAY[p]);}});
+        else{const el=svg.querySelector(`[data-p="${p}"]`);el.classList.remove('nope');void el.getBBox;el.classList.add('nope');setTimeout(()=>el.classList.remove('nope'),700);ctx.wrong(ESP_SAY[p]);eso(ESP_SAY[p]);}});
       stage.append(h('div',{class:'mapa-cabeza'},h('img',{class:'dino',src:img,alt:''}),h('div',null,h('div',{class:'q-prompt'},n),h('p',{class:'pista-txt'},q.p))),
         qlineS('¿En qué provincia?',[CSAY.mapa3,...(d?[d.n]:[]),q.p]),h('div',{class:'mapa-caja'},svg));
       instr(CSAY.mapa3,d?d.n:null,q.p);return;}
@@ -3698,7 +3877,7 @@ defGame({id:'escucha',subject:'cuentos',icon:'📖',title:'Cuentos para escuchar
   intro(stage,run,done){const c=run.data.c,lvl=lvD(run),una=lvl===3;let p=0,predicho=false,verTexto=false,t0=0,fin=false;
     /* al acabar: Mochi dice «Fin» y después llegan las preguntas (nextQ corta la voz, así que se espera a que termine) */
     const ir=()=>{if(fin||RUN!==run) return; fin=true; done();};
-    const pagina=()=>{stage.replaceChildren();stopVoice();t0=Date.now();
+    const pagina=callado=>{stage.replaceChildren();stopVoice();t0=Date.now();
       /* en el nivel 3 el cuento solo se oye; si el sonido está quitado (o no se oye), el texto se puede leer */
       const muestraTexto=!una||!DB.sound||verTexto;
       const sig=h('button',{class:'btn big',onclick:()=>{
@@ -3708,16 +3887,17 @@ defGame({id:'escucha',subject:'cuentos',icon:'📖',title:'Cuentos para escuchar
         if(p<c.pags.length-1){p++;pagina();return;}
         sig.disabled=true; if(DB.sound){speak(KSAY.fin,'es-ES',undefined,ir);setTimeout(ir,2600);} else ir();
       }},p<c.pags.length-1?'Siguiente ▶':'¡A las preguntas! ▶');
-      const noOigo=una&&!muestraTexto?h('button',{class:'btn ghost small',onclick:()=>{verTexto=true;pagina();}},'📖 No lo oigo: leer el texto'):null;
+      const noOigo=una&&!muestraTexto?h('button',{class:'btn ghost small',onclick:()=>{verTexto=true;pagina(true);}},'📖 No lo oigo: leer el texto'):null;
       stage.append(h('div',{class:'cuento'},h('div',{class:'cuento-cab'},h('span',{class:'cuento-t'},c.titulo),h('span',{class:'cuento-p'},`${p+1} / ${c.pags.length}`)),
         h('img',{class:'cuento-img',src:c.img[p],alt:''}),
         muestraTexto?h('p',{class:'cuento-txt'},c.pags[p]):h('p',{class:'cuento-txt oculto'},'👂 Escucha con atención…'),
         h('div',{class:'row center'},una?noOigo:leerBtn(c.pags[p],'🔊 Otra vez'),sig)));
-      if(DB.sound){if(p===0) speakSeq([una?KSAY.unaVez:KSAY.escucha,c.titulo,c.pags[0]]); else speak(c.pags[p]);}
+      if(DB.sound&&!callado){if(p===0) speakSeq([una?KSAY.unaVez:KSAY.escucha,c.titulo,c.pags[0]]); else speak(c.pags[p]);}
       scrollTo({top:0});};
-    const predecir=()=>{stage.replaceChildren();stopVoice();
+    const predecir=()=>{stage.replaceChildren();stopVoice();let elegido=false;
       stage.append(h('div',{class:'cuento-pred'},mochi('think','pred-mochi'),qlineS(c.pred.q,[KSAY.predice,c.pred.q]),
         h('div',{class:'opts wide'},shuffle(c.pred.o).map(t=>{const b=h('button',{class:'opt',onclick:()=>{
+          if(elegido) return; elegido=true;   // con teclado se podía elegir dos veces y saltarse una página
           stage.querySelectorAll('.opt').forEach(x=>x.classList.add('lock'));b.classList.add('elegida');sfx.pop();
           if(DB.sound) speak(KSAY.aVer);setTimeout(()=>{if(RUN===run){p++;pagina();}},DB.sound?1600:700);}},t);return b;}))));
       instr(KSAY.predice,c.pred.q);};
@@ -3794,14 +3974,17 @@ const secOpen=(sid,p=me())=>{const e=PRONTO.find(x=>x.sid===sid);return !e||eggS
 function withSubjects(list,fn){const all=SUBJECTS.slice();SUBJECTS.splice(0,SUBJECTS.length,...list);try{return fn();}finally{SUBJECTS.splice(0,SUBJECTS.length,...all);}}
 
 /* un toque: el dibujo da un salto (o se tambalea) y, si hay sonido, Mochi dice la frase */
-function dinoTap(el,cls,text){
+function dinoTap(el,cls,text,escribe){
   el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls);
-  sfx.tap(); if(DB.sound&&text) speak(text);
+  sfx.tap(); if(DB.sound&&text) speak(text); else if(escribe) escribe();   // con el sonido quitado, lo que diría Mochi se escribe
 }
+let tPista=0;
+const PISTA_VALLE='Toca un animal del valle para oír su nombre.';   // «animal»: el Pteranodon no es un dinosaurio
+function nombreEnValle(n){const p=$('.valle-pista'); if(!p) return; clearTimeout(tPista); p.textContent=n; tPista=setTimeout(()=>{if(p.isConnected) p.textContent=PISTA_VALLE;},2600);}
 function valle(p,t){
   const dinos=VALLE.map(v=>{const d=DK[v.k];
-    return h('button',{class:'vdino'+(v.vuela?' vuela':''),style:`--x:${v.x};--hh:${v.hh};${v.t!=null?`top:${v.t}%`:`bottom:${v.b}%`}`,'aria-label':d.n,
-      onclick:e=>dinoTap(e.currentTarget,'salta',d.n),onanimationend:e=>e.currentTarget.classList.remove('salta')},
+    return h('button',{class:'vdino v-'+v.k+(v.vuela?' vuela':''),style:`--x:${v.x};--hh:${v.hh};${v.t!=null?`top:${v.t}%`:`bottom:${v.b}%`}`,'aria-label':d.n,
+      onclick:e=>dinoTap(e.currentTarget,'salta',d.n,()=>nombreEnValle(d.n)),onanimationend:e=>e.currentTarget.classList.remove('salta')},
       h('img',{src:`img/v-${v.k}.webp`,alt:'',draggable:'false'}));});
   return h('div',{class:'valle-wrap'},
     h('section',{class:'valle'},
@@ -3810,7 +3993,7 @@ function valle(p,t){
       h('button',{class:'vmochi','aria-label':'Mochi',onclick:e=>dinoTap(e.currentTarget,'salta',SAY.home),onanimationend:e=>e.currentTarget.classList.remove('salta')},mochi('wave'))),
     h('div',{class:'bubble valle-bubble'},h('div',null,h('h1',null,`¡Hola, ${p.name}!`),
       h('p',null,t?`Llevas ${t} ${t===1?'estrella':'estrellas'}. ${APP.homeAsk}`:`${APP.homeAsk} ${APP.homePick}`),
-      h('p',{class:'valle-pista'},'Toca un dinosaurio para oír su nombre.')),sayBtn(SAY.home)));
+      h('p',{class:'valle-pista'},PISTA_VALLE)),sayBtn(SAY.home)));
 }
 function gameStars(g){return hasLevels(g)?[1,2,3].reduce((a,l)=>a+lvStars(g.id,l),0):bestStars(g.id);}
 function seccion(s){
@@ -3836,7 +4019,7 @@ function huevo(e,p){
     const cr=h('span',{class:'egg-cracks'});cr.innerHTML=CRACKS;pic.append(cr);
     tag=st==='lista'?'¡Tócalo!':`${sp.got}/${sp.max} ★ de ${SUBJ[e.need].name}`;}
   return h('button',{class:cls,'aria-label':st==='lista'?`${e.name}: tócalo para abrirlo`:`${e.name}: ${st==='pronto'?'muy pronto':tag}`,
-    onclick:ev=>{const el=ev.currentTarget; if(st==='lista') return hatch(e,el,p); dinoTap(el,'tiembla',e.say);},
+    onclick:ev=>{const el=ev.currentTarget; if(st==='lista') return hatch(e,el,p); dinoTap(el,'tiembla',e.say,()=>{const t=$('.pronto-p'); if(t) t.textContent=e.say;});},
     onanimationend:ev=>ev.currentTarget.classList.remove('tiembla')},
     pic,h('span',{class:'egg-name'},e.name),h('span',{class:'egg-tag'},tag));
 }
